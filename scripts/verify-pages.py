@@ -27,9 +27,10 @@ class Page(HTMLParser):
 
 
 dist = Path(__file__).resolve().parents[1] / "dist"
-origin = "https://hypergolic.space/"
-if (dist / "CNAME").read_text().strip() != urlsplit(origin).hostname:
-    raise SystemExit("dist/CNAME must contain hypergolic.space")
+origin = "https://hypergolic.sh/"
+hostname = urlsplit(origin).hostname
+if (dist / "CNAME").read_text().strip() != hostname:
+    raise SystemExit(f"dist/CNAME must contain {hostname}")
 
 home = Page()
 home.feed((dist / "index.html").read_text())
