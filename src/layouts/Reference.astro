@@ -1,0 +1,42 @@
+---
+import '../styles/site.css';
+import '../styles/reference.css';
+import LaunchImage from '../components/LaunchImage.astro';
+const { title, description, active } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090d13" />
+    <title>{title} · Hypergolic</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/assets/favicon.png" />
+    <meta property="og:title" content={`${title} · Hypergolic`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/assets/social-preview.jpg', Astro.site)} />
+  </head>
+  <body class="reference">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="reference-hero">
+      <LaunchImage class="launch-backdrop" />
+      <div class="reference-header section-width">
+        <a class="wordmark" href="/" aria-label="Hypergolic home"><img src="/assets/spark-64.png" width="64" height="64" alt="" />Hypergolic</a>
+        <nav aria-label="Main navigation">
+          <a href="/capabilities/" aria-current={active === 'capabilities' ? 'page' : undefined}>Capabilities</a>
+          <a href="https://github.com/nostrocket/hypergolic">GitHub</a>
+        </nav>
+      </div>
+      <div class="section-width"><slot name="intro" /></div>
+    </header>
+    <main id="main" tabindex="-1" class="section-width reference-main"><slot /></main>
+    <footer class="footer section-width">
+      <a class="wordmark" href="/"><img src="/assets/spark-64.png" width="64" height="64" alt="" />Hypergolic</a>
+      <nav aria-label="Project resources"><a href="/capabilities/">Capabilities</a><a href="https://github.com/nostrocket/hypergolic-website">Website source</a></nav>
+    </footer>
+  </body>
+</html>
