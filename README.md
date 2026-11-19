@@ -11,6 +11,12 @@ Hypergolic brings small Nostr apps called *napplets* into one Android workspace.
 
 ![Hypergolic’s four-point spark above a night launch. Nostr, beyond the feed.](public/assets/social-preview.jpg)
 
+## Capabilities and relay data
+
+The [capability table](https://hypergolic.sh/capabilities/) documents Android v0.2.0 and links to its release sources. The [napplet explorer](https://hypergolic.sh/explorer/) opens read-only WebSocket connections from the visitor’s browser to nos.lol, relay.ditto.pub and relay.primal.net. Opening the explorer shares the visitor’s IP address with those relays. A visitor can pause the session or start a fresh observation.
+
+The explorer verifies signed events before selecting the latest root or named publication per Nostr identity. Its heatmap covers every domain in the release table plus additional domains observed on the relays. Counts show required and optional declarations on comparable heads. Snapshot versions, legacy publications and exclusions are available under Publications. Coverage lists the observation window, per-relay limits, failures and targeted deletion checks. Results vary with the relay set, session time and retention. Opening a shared URL repeats the query against the current observation.
+
 ## Local development
 
 Use Node.js 26 and pnpm 12.18.0. From the repository root, install dependencies and start Astro.
@@ -28,7 +34,8 @@ Open the local address Astro prints in your terminal. Edits to the homepage and 
 | --- | --- |
 | `pnpm build` | Generate the static site in `dist/`. |
 | `pnpm preview` | Serve the production build locally. |
-| `pnpm run build:pages` | Build and verify the homepage, custom domain, and linked assets. Requires Python 3. |
+| `pnpm test` | Run the offline publication and relay tests. |
+| `pnpm run build:pages` | Test the explorer, build all three routes, and verify canonical URLs, the custom domain, and linked assets. Requires Python 3. |
 | `pnpm run package:pages` | Run the Pages checks and create `artifact.tar`. Requires Python 3 and `tar`. |
 
 Pull requests targeting `main` build and package the site. Pushes to `main` publish the verified artifact to GitHub Pages. [Deployment workflow](.github/workflows/deploy.yml)

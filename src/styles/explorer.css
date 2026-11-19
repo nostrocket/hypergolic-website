@@ -1,0 +1,227 @@
+.live-strip {
+  border-block: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+#live-state {
+  font:
+    600 1.15rem Barlow,
+    sans-serif;
+  color: var(--accent);
+}
+#live-summary {
+  margin-top: 0.25em;
+  font-size: 0.98rem;
+}
+.explorer-nav {
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.2rem;
+}
+.explorer-nav a {
+  text-decoration: none;
+  padding: 0.6rem 0;
+  font-size: 1.05rem;
+  border-bottom: 2px solid transparent;
+}
+.explorer-nav a[aria-current] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+#search-field {
+  width: min(100%, 24rem);
+}
+#results {
+  min-height: 10rem;
+  overflow-wrap: anywhere;
+}
+#results h2 {
+  scroll-margin-top: 1.5rem;
+}
+#results .result-note,
+#results .subtle {
+  color: var(--muted);
+  margin: 0.45rem 0 1.05rem;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 11.5rem), 1fr));
+  gap: 4px;
+  margin: 1.25rem 0 0.6rem;
+}
+.reference-main a.heat {
+  background: rgb(var(--surface));
+  color: var(--ink);
+  padding: 1rem;
+  display: flex;
+  min-height: 9.6rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.reference-main a.heat:hover {
+  outline: 1px solid currentColor;
+  outline-offset: -5px;
+}
+.heat .domain,
+.mono {
+  font-family: var(--mono);
+}
+.heat strong {
+  font-size: 1.8rem;
+  line-height: 1.15;
+}
+.heat small {
+  font-size: 1rem;
+}
+.scale {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+}
+.scale i {
+  width: 5.5rem;
+  height: 0.55rem;
+  background: linear-gradient(to right, #202a34, #ffb964);
+}
+.record-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.record-list li {
+  border-top: 1px solid var(--line);
+  padding: 0.7rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(7rem, auto);
+  gap: 0.2rem 1rem;
+  align-items: baseline;
+}
+.record-list a {
+  justify-self: start;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.record-list small {
+  grid-column: 1/-1;
+  color: var(--muted);
+  font: 0.8rem var(--mono);
+}
+.method {
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+.method p {
+  max-width: 78ch;
+  margin: 0.75rem 0;
+  color: var(--muted);
+}
+.facts {
+  margin: 1.2rem 0;
+  display: grid;
+  grid-template-columns: minmax(10rem, 25%) minmax(0, 1fr);
+}
+.facts dt,
+.facts dd {
+  margin: 0;
+  border-top: 1px solid var(--line);
+  padding: 0.6rem 0;
+}
+.facts dt {
+  color: var(--muted);
+}
+#results details {
+  margin-block: 1rem;
+}
+#results summary {
+  padding: 0.65rem 0;
+}
+#results pre {
+  font: 0.85rem/1.5 var(--mono);
+  background: #141c24;
+  padding: 1rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 32rem;
+  overflow: auto;
+}
+@media (max-width: 600px) {
+  .explorer-nav {
+    gap: 1rem;
+  }
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .reference-main a.heat {
+    min-height: 8rem;
+    padding: 0.8rem;
+  }
+  .record-list li {
+    display: block;
+  }
+  .record-list li > * {
+    display: block;
+  }
+  .facts {
+    grid-template-columns: 1fr;
+  }
+  .facts dt {
+    padding-bottom: 0;
+  }
+  .facts dd {
+    border: 0;
+    padding-top: 0.2rem;
+  }
+}
+
+#filter-panel > summary {
+  display: none;
+}
+@media (max-width: 600px) {
+  #filter-panel > summary {
+    display: list-item;
+    min-height: 44px;
+    padding: 0.6rem 0;
+  }
+  #filter-panel {
+    border-bottom: 1px solid var(--line);
+  }
+  #filter-panel[open] .control-row {
+    padding: 0.35rem 0 1rem;
+  }
+  .live-strip {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 0.5rem;
+  }
+  .live-strip > div {
+    display: contents;
+  }
+  #live-state {
+    align-self: center;
+  }
+  #live-summary {
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+  #session-action {
+    font-size: 0.92rem;
+  }
+  .explorer-nav {
+    margin-bottom: 0;
+  }
+  #results > h2 {
+    margin-top: 1.15rem;
+  }
+}
