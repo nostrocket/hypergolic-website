@@ -296,3 +296,11 @@ figcaption { margin-top: .8em; color: var(--muted); font-size: clamp(.75rem, .93
     to { mask-position: 0 100%; }
   }
 }
+
+/* Keep the release download and the capability table reachable on a narrow screen. */
+@media (max-width: 720px) {
+  .site-header { flex-wrap:wrap; gap:.1rem 1rem; }
+  .site-header nav { gap:1rem; }
+  .site-header .nav-inside { display:none; }
+  .hero-content { padding-top: max(8rem, 23vw); }
+}

@@ -11,6 +11,10 @@ Hypergolic brings small Nostr apps called *napplets* into one Android workspace.
 
 ![Hypergolic’s four-point spark above a night launch. Nostr, beyond the feed.](public/assets/social-preview.jpg)
 
+## Capability table
+
+The [capability table](https://hypergolic.sh/capabilities/) documents Android v0.2.0 support, remaining work, and estimated coding-agent tokens for each domain. Each row links to its sources.
+
 ## Local development
 
 Use Node.js 26 and pnpm 12.18.0. From the repository root, install dependencies and start Astro.
@@ -28,7 +32,7 @@ Open the local address Astro prints in your terminal. Edits to the homepage and 
 | --- | --- |
 | `pnpm build` | Generate the static site in `dist/`. |
 | `pnpm preview` | Serve the production build locally. |
-| `pnpm run build:pages` | Build and verify the homepage, custom domain, and linked assets. Requires Python 3. |
+| `pnpm run build:pages` | Build both routes and verify canonical URLs, the custom domain, and linked assets. Requires Python 3. |
 | `pnpm run package:pages` | Run the Pages checks and create `artifact.tar`. Requires Python 3 and `tar`. |
 
 Pull requests targeting `main` build and package the site. Pushes to `main` publish the verified artifact to GitHub Pages. [Deployment workflow](.github/workflows/deploy.yml)

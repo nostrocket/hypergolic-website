@@ -32,12 +32,18 @@ hostname = urlsplit(origin).hostname
 if (dist / "CNAME").read_text().strip() != hostname:
     raise SystemExit(f"dist/CNAME must contain {hostname}")
 
-home = Page()
-home.feed((dist / "index.html").read_text())
-if home.canonical != origin:
-    raise SystemExit(f"Expected the homepage canonical URL to be {origin}")
+references = []
+routes = ("/", "/capabilities/")
+for route in routes:
+    page = Page()
+    page.feed((dist / route.strip("/") / "index.html").read_text())
+    page_url = urljoin(origin, route)
+    if page.canonical != page_url:
+        raise SystemExit(f"Expected the canonical URL for {route} to be {page_url}")
+    if route == "/" and not all(path in page.urls for path in routes[1:]):
+        raise SystemExit("The homepage must link to the capability table")
+    references.extend((page_url, ref) for ref in page.urls)
 
-references = [(origin, url) for url in home.urls]
 for css in dist.rglob("*.css"):
     stylesheet = urljoin(origin, css.relative_to(dist).as_posix())
     for url in re.findall(r"""url\(\s*['"]?([^'")]+)['"]?\s*\)""", css.read_text()):
@@ -53,4 +59,4 @@ for source, ref in references:
     if not path.is_file() or not path.stat().st_size:
         raise SystemExit(f"Missing or empty file for {ref} referenced by {source}")
 
-print("Pages entry point, custom domain and linked site assets verified.")
+print("Pages routes, canonical URLs, custom domain and linked site assets verified.")

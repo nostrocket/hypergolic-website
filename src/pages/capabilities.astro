@@ -1,0 +1,226 @@
+---
+import Reference from '../layouts/Reference.astro';
+import { capabilities, releaseSource, support, tokenBands } from '../data/capabilities';
+
+const description = 'See which capabilities Android napplets can use in Hypergolic v0.2.0, what remains for full support, and the estimated work for each domain.';
+const filterOptions = [
+  ['all', 'All'],
+  ['full', 'Full'],
+  ['partial', 'Partial'],
+  ['none', 'No support'],
+];
+---
+
+<Reference title="Capability table" description={description} active="capabilities">
+  <header class="page-intro">
+    <div class="cap-heading">
+      <h1>Capability table</h1>
+      <span class="release-label">Hypergolic v0.2.0</span>
+    </div>
+    <p>{description} Full support covers the operations and scopes in the listed draft. Cross-platform conformance testing is still open.</p>
+  </header>
+
+  <section id="capabilities" aria-label="Capability support by domain">
+    <details class="cap-method">
+      <summary>How to read the token estimates</summary>
+      <p>Each T-shirt size estimates total coding-agent input and output tokens for one domain. It covers source review, implementation, tests, Android and iOS acceptance, and one fix cycle. These planning estimates credit reusable Hypergolic code and assume one viable backend. Adding them together would double-count shared work.</p>
+      <dl class="cap-bands">
+        {Object.entries(tokenBands).map(([size, tokens]) => <div><dt>{size}</dt><dd>{tokens}</dd></div>)}
+      </dl>
+      <p>Estimates are judgment calls as of 19 November 2026. A row marked “verify” describes an acceptance gap. Testing determines whether implementation changes are necessary.</p>
+    </details>
+    <div class="control-row cap-controls">
+      <label class="cap-search" id="capability-search" hidden>
+        <span class="cap-sr">Search domains</span>
+        <input type="search" id="domain-query" placeholder="Search domains…" aria-controls="capability-rows" />
+      </label>
+      <fieldset class="cap-filters">
+        <legend class="cap-sr">Filter by support status</legend>
+        <span class="cap-status-label" aria-hidden="true">Status</span>
+        {filterOptions.map(([value, label]) => (
+          <label class="cap-filter">
+            <input class="cap-sr" type="radio" name="support" value={value} checked={value === 'all'} aria-controls="capability-rows" />
+            <span>{label}</span>
+          </label>
+        ))}
+      </fieldset>
+    </div>
+    <noscript><p class="muted">Use Find in page to search for a domain.</p></noscript>
+    <p id="cap-results" class="cap-results muted" role="status" aria-live="polite"></p>
+
+    <div class="table-wrap cap-wrap">
+      <table class="data-table cap-table" role="table">
+        <caption class="cap-sr">Hypergolic v0.2.0 capability support and available operations</caption>
+        <thead role="rowgroup"><tr role="row">
+          <th scope="col" role="columnheader">Capability domain</th>
+          <th scope="col" role="columnheader">v0.2.0</th>
+          <th scope="col" role="columnheader">What a napplet gets</th>
+          <th scope="col" role="columnheader">What’s missing for full support</th>
+          <th scope="col" role="columnheader">Size estimate<br /><small>Agent tokens</small></th>
+        </tr></thead>
+        <tbody id="capability-rows" role="rowgroup">
+          {capabilities.map(({ domain, status, detail, remaining, estimates, references }) => (
+            <tr data-domain={domain} data-support={status} role="row">
+              <th role="rowheader" scope="row" class="cap-names">{domain}</th>
+              <td class="cap-status" role="cell"><span class="cap-symbol" aria-hidden="true">{support[status].symbol}</span> {support[status].label}</td>
+              <td class="cap-detail" role="cell"><span class="cap-mobile-label" aria-hidden="true">What a napplet gets</span>{detail}</td>
+              <td class="cap-remaining" role="cell">
+                <span class="cap-mobile-label" aria-hidden="true">What’s missing for full support</span>
+                {remaining}
+                <span class="cap-links">{references.map(ref => <a href={ref.url}>{ref.label}</a>)}</span>
+              </td>
+              <td class="cap-estimates" role="cell">
+                <span class="cap-mobile-label" aria-hidden="true">Size estimate · agent tokens</span>
+                {estimates.length ? estimates.map(estimate => (
+                  <div class="cap-estimate">
+                    {estimate.scope && <span class="cap-estimate-scope">{estimate.scope}</span>}
+                    <strong>{estimate.size}</strong> <span>{estimate.tokens || tokenBands[estimate.size]}</span>
+                  </div>
+                )) : <span class="muted">No estimate</span>}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p id="cap-empty" class="cap-empty" hidden>Try another domain or choose a different support status.</p>
+    <p class="cap-sources muted">Domain coverage includes upstream proposals reviewed on 19 November 2026.
+      <span class="cap-links">
+        <a href={`${releaseSource}/src/runtime/support-report.ts`}>Release support report</a>
+        <a href="https://github.com/napplet/naps/blob/377bf939c6c906817084b43dd21d424de646dbc2/README.md">NAP registry</a>
+        <a href="https://github.com/napplet/naps/pulls">Upstream proposals</a>
+      </span>
+    </p>
+  </section>
+</Reference>
+
+<script>
+  const search = document.querySelector<HTMLInputElement>('#domain-query')!;
+  const filters = Array.from(document.querySelectorAll<HTMLInputElement>('.cap-filters input'));
+  const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('#capability-rows tr'));
+  const result = document.querySelector<HTMLElement>('#cap-results')!;
+  const empty = document.querySelector<HTMLElement>('#cap-empty')!;
+
+  function showResults() {
+    const query = search.value.trim().toLowerCase();
+    const selected = filters.find(filter => filter.checked)!.value;
+    let matches = 0;
+    for (const row of rows) {
+      row.hidden = !row.dataset.domain!.includes(query) || (selected !== 'all' && row.dataset.support !== selected);
+      if (!row.hidden) matches++;
+    }
+    result.textContent = matches === 0 ? 'No matching domains.' : `${matches} ${matches === 1 ? 'domain' : 'domains'}`;
+    empty.hidden = matches > 0;
+  }
+
+  // Preserve the starting state and one history entry per search, not per keystroke.
+  let editing = false;
+  function updateUrl(replace: boolean) {
+    const url = new URL(location.href);
+    const selected = filters.find(filter => filter.checked)!.value;
+    const query = search.value.trim();
+    if (query) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
+    if (selected !== 'all') url.searchParams.set('support', selected);
+    else url.searchParams.delete('support');
+    if (url.href !== location.href) {
+      if (replace) history.replaceState(null, '', url);
+      else history.pushState(null, '', url);
+    }
+    showResults();
+  }
+
+  function restoreFromUrl() {
+    const params = new URLSearchParams(location.search);
+    search.value = params.get('q') || '';
+    const selected = filters.find(filter => filter.value === params.get('support')) || filters[0];
+    selected.checked = true;
+    editing = false;
+    showResults();
+  }
+
+  search.addEventListener('input', () => {
+    updateUrl(editing);
+    editing = true;
+  });
+  search.addEventListener('blur', () => { editing = false; });
+  for (const filter of filters) filter.addEventListener('change', () => updateUrl(false));
+  window.addEventListener('popstate', restoreFromUrl);
+  restoreFromUrl();
+  document.querySelector<HTMLElement>('#capability-search')!.hidden = false;
+</script>
+
+<style>
+  .cap-sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; border: 0;
+    margin: -1px; clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+  }
+  .cap-heading { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem 1.6rem; }
+  .cap-heading .release-label { padding-inline-start: 1.4rem; border-inline-start: 1px solid var(--line); }
+  .cap-controls { display: flex; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  .cap-search { flex: 1 1 17rem; }
+  .cap-search input { width: 100%; }
+  .cap-search input::placeholder { color: var(--muted); opacity: 1; }
+  .cap-filters {
+    display: flex; align-items: center; flex-wrap: wrap; gap: .4rem;
+    border: 0; min-width: 0; padding: 0; margin: 0;
+  }
+  .cap-status-label { margin-inline-end: .4rem; }
+  .cap-filter { position: relative; cursor: pointer; }
+  .cap-filter span {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+    border: 1px solid var(--line); border-radius: .4rem; padding: .5rem .85rem;
+  }
+  .cap-filter input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--night); font-weight: 600; }
+  .cap-filter input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cap-filter:hover span { border-color: var(--accent); }
+  .cap-results { margin: .8rem 0; font-family: var(--mono); font-size: .875rem; min-height: 1.25em; }
+  .cap-table .cap-names { width: 13%; font-family: var(--mono); font-size: 1rem; font-weight: 400; overflow-wrap: anywhere; }
+  .cap-status { width: 13%; }
+  .cap-detail { width: 24%; }
+  .cap-remaining { width: 35%; }
+  .cap-estimates { width: 15%; }
+  .cap-method { margin: -.35rem 0 1.5rem; max-width: 75ch; }
+  .cap-method summary { width: fit-content; min-height: 44px; padding: .6rem .2rem; color: var(--accent); }
+  .cap-method p { margin: .55rem 0; color: var(--muted); }
+  .cap-bands { display: flex; flex-wrap: wrap; gap: .5rem 1.35rem; margin: 1rem 0; font-family: var(--mono); font-size: .875rem; }
+  .cap-bands dt { color: var(--accent); }
+  .cap-bands dd { margin: 0; }
+  .cap-estimate { font: .9rem/1.5 var(--mono); }
+  .cap-estimate + .cap-estimate { margin-top: .85rem; }
+  .cap-estimate strong { color: var(--accent); }
+  .cap-estimate span { display: block; }
+  .cap-estimate .cap-estimate-scope { font: 1rem/1.4 Barlow, sans-serif; margin-bottom: .18rem; }
+  .cap-mobile-label { display: none; }
+  .cap-symbol { font-family: system-ui, sans-serif; color: var(--accent); margin-inline-end: .2rem; }
+  [data-support='none'] .cap-symbol { color: var(--ivory); }
+  .cap-links { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-top: .45rem; }
+  .cap-links a { text-decoration: underline; text-underline-offset: .17em; }
+  .cap-links a:hover { color: var(--accent); }
+  .cap-remaining .cap-links, .cap-sources { font-size: .94rem; }
+  .cap-sources { margin-top: 2rem; }
+  .cap-empty { padding-block: 1rem; }
+  #capabilities [hidden],
+  #capabilities:has(input[value='full']:checked) tr[data-support]:not([data-support='full']),
+  #capabilities:has(input[value='partial']:checked) tr[data-support]:not([data-support='partial']),
+  #capabilities:has(input[value='none']:checked) tr[data-support]:not([data-support='none']) { display: none; }
+  @media (max-width: 56rem) {
+    .cap-heading { align-items: start; flex-direction: column; gap: .5rem; }
+    .cap-heading .release-label { padding: 0; border: 0; }
+    .cap-status-label { display: none; }
+    .cap-filters { gap: .3rem; }
+    .cap-filter span { min-width: 44px; padding-inline: .6rem; }
+    .cap-controls { align-items: stretch; flex-direction: column; }
+    .cap-search { flex: 0 1 auto; }
+    .cap-table { display: block; min-width: 0; }
+    .cap-table thead { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+    .cap-table tbody { display: block; }
+    .cap-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .6rem 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .cap-table tbody tr > * { display: block; border: 0; padding: 0; width: auto; }
+    .cap-table .cap-status { align-self: start; font-size: .875rem; }
+    .cap-table :is(.cap-detail, .cap-remaining, .cap-estimates) { grid-column: 1 / -1; }
+    .cap-table .cap-mobile-label { display: block; font-size: .875rem; color: var(--muted); margin: .35rem 0 .1rem; }
+    .cap-estimate span:not(.cap-estimate-scope) { display: inline; }
+    .cap-estimate + .cap-estimate { margin-top: .5rem; }
+  }
+</style>
