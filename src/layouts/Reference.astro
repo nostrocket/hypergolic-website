@@ -1,6 +1,7 @@
 ---
 import '../styles/site.css';
 import '../styles/reference.css';
+import LaunchImage from '../components/LaunchImage.astro';
 const { title, description, active } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -21,12 +22,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body class="reference">
     <a class="skip" href="#main">Skip to content</a>
-    <header class="reference-header section-width">
-      <a class="wordmark" href="/" aria-label="Hypergolic home"><img src="/assets/spark-64.png" width="64" height="64" alt="" />Hypergolic</a>
-      <nav aria-label="Main navigation">
-        <a href="/capabilities/" aria-current={active === 'capabilities' ? 'page' : undefined}>Capabilities</a>
-        <a href="https://github.com/nostrocket/hypergolic">GitHub</a>
-      </nav>
+    <header class="reference-hero">
+      <LaunchImage class="launch-backdrop" />
+      <div class="reference-header section-width">
+        <a class="wordmark" href="/" aria-label="Hypergolic home"><img src="/assets/spark-64.png" width="64" height="64" alt="" />Hypergolic</a>
+        <nav aria-label="Main navigation">
+          <a href="/capabilities/" aria-current={active === 'capabilities' ? 'page' : undefined}>Capabilities</a>
+          <a href="https://github.com/nostrocket/hypergolic">GitHub</a>
+        </nav>
+      </div>
+      <div class="section-width"><slot name="intro" /></div>
     </header>
     <main id="main" tabindex="-1" class="section-width reference-main"><slot /></main>
     <footer class="footer section-width">

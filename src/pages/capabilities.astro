@@ -12,13 +12,13 @@ const filterOptions = [
 ---
 
 <Reference title="Capability table" description={description} active="capabilities">
-  <header class="page-intro">
+  <div class="page-intro" slot="intro">
     <div class="cap-heading">
       <h1>Capability table</h1>
       <span class="release-label">Hypergolic v0.2.0</span>
     </div>
-    <p>{description} Full support covers the operations and scopes in the listed draft. Cross-platform conformance testing is still open.</p>
-  </header>
+    <p>{description}</p>
+  </div>
 
   <section id="capabilities" aria-label="Capability support by domain">
     <details class="cap-method">
@@ -84,7 +84,7 @@ const filterOptions = [
       </table>
     </div>
     <p id="cap-empty" class="cap-empty" hidden>Try another domain or choose a different support status.</p>
-    <p class="cap-sources muted">Domain coverage includes upstream proposals reviewed on 19 November 2026.
+    <p class="cap-sources muted">Full support covers the operations and scopes in the listed draft. Cross-platform conformance testing is still open. Domain coverage includes upstream proposals reviewed on 19 November 2026.
       <span class="cap-links">
         <a href={`${releaseSource}/src/runtime/support-report.ts`}>Release support report</a>
         <a href="https://github.com/napplet/naps/blob/377bf939c6c906817084b43dd21d424de646dbc2/README.md">NAP registry</a>

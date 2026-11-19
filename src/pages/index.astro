@@ -1,5 +1,6 @@
 ---
 import '../styles/site.css';
+import LaunchImage from '../components/LaunchImage.astro';
 
 const repository = 'https://github.com/nostrocket/hypergolic';
 const releases = `${repository}/releases`;
@@ -54,11 +55,7 @@ const steps = [
     </header>
     <main id="main" tabindex="-1">
       <section class="opening" aria-labelledby="headline">
-        <picture class="horizon" aria-hidden="true">
-          <source media="(max-width: 600px)" srcset="/assets/launch-portrait-480.webp 480w, /assets/launch-portrait-780.webp 780w" sizes="100vw" />
-          <source media="(max-width: 1000px)" srcset="/assets/launch-tablet-1200.webp" />
-          <img src="/assets/launch-wide-1600.webp" srcset="/assets/launch-wide-960.webp 960w, /assets/launch-wide-1600.webp 1600w" sizes="100vw" width="1600" height="750" alt="" fetchpriority="high" />
-        </picture>
+        <LaunchImage class="horizon" />
         <div class="hero-content">
           <h1 id="headline">Nostr, beyond<br />the feed.</h1>
           <p class="hero-description">Find and open napplets in one workspace. Bring your Nostr identity and choose how you sign.</p>
