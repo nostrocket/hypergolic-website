@@ -6,10 +6,10 @@ import { capabilities } from '../data/capabilities';
 const domains = capabilities.map(row => row.domain).join(' ');
 ---
 <Reference active="explorer" title="Napplet explorer" description="Explore signed napplet publications and the capabilities they declare on public Nostr relays." connections={RELAYS}>
-  <header class="page-intro">
+  <div class="page-intro" slot="intro">
     <h1>Napplet explorer</h1>
     <p>Explore the capabilities napplets declare in signed manifests on three public Nostr relays.</p>
-  </header>
+  </div>
   <noscript><p>Enable JavaScript to connect to public relays and explore current publications. The <a href="/capabilities/">capability table</a> can be browsed without JavaScript.</p></noscript>
   <section id="explorer" data-domains={domains} aria-label="Live napplet data" hidden>
     <div class="live-strip">
