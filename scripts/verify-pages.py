@@ -33,7 +33,7 @@ if (dist / "CNAME").read_text().strip() != hostname:
     raise SystemExit(f"dist/CNAME must contain {hostname}")
 
 references = []
-routes = ("/", "/capabilities/")
+routes = ("/", "/capabilities/", "/explorer/")
 for route in routes:
     page = Page()
     page.feed((dist / route.strip("/") / "index.html").read_text())
@@ -41,7 +41,7 @@ for route in routes:
     if page.canonical != page_url:
         raise SystemExit(f"Expected the canonical URL for {route} to be {page_url}")
     if route == "/" and not all(path in page.urls for path in routes[1:]):
-        raise SystemExit("The homepage must link to the capability table")
+        raise SystemExit("The homepage must link to the capability table and explorer")
     references.extend((page_url, ref) for ref in page.urls)
 
 for css in dist.rglob("*.css"):

@@ -1,0 +1,46 @@
+---
+import Reference from '../layouts/Reference.astro';
+import { RELAYS } from '../explorer/live.js';
+import '../styles/explorer.css';
+import { capabilities } from '../data/capabilities';
+const domains = capabilities.map(row => row.domain).join(' ');
+---
+<Reference active="explorer" title="Napplet explorer" description="Explore signed napplet publications and the capabilities they declare on public Nostr relays." connections={RELAYS}>
+  <header class="page-intro">
+    <h1>Napplet explorer</h1>
+    <p>Explore the capabilities napplets declare in signed manifests on three public Nostr relays.</p>
+  </header>
+  <noscript><p>Enable JavaScript to connect to public relays and explore current publications. The <a href="/capabilities/">capability table</a> can be browsed without JavaScript.</p></noscript>
+  <section id="explorer" data-domains={domains} aria-label="Live napplet data" hidden>
+    <div class="live-strip">
+      <div><strong id="live-state" role="status">Connecting to relays…</strong><p id="live-summary" class="muted">Starting a read-only session.</p></div>
+      <button type="button" id="session-action" disabled>Pause live updates</button>
+    </div>
+    <nav class="explorer-nav" aria-label="Explorer views">
+      <a href="?view=features" data-view="features">Declared features</a>
+      <a href="?view=publications" data-view="publications">Publications</a>
+      <a href="?view=coverage" data-view="coverage">Coverage</a>
+    </nav>
+    <details id="filter-panel" open>
+      <summary>Search and filters</summary>
+      <div id="explorer-controls" class="control-row">
+      <label class="field" id="search-field"><span id="search-label">Search domains</span><input id="query" type="search" maxlength="200" autocomplete="off" /></label>
+      <label class="field" id="metric-field">Count mode<select id="metric"><option value="required">Required</option><option value="optionalOnly">Optional-only</option><option value="union">Union</option></select></label>
+      <label class="field">Publication kind<select id="kind"><option value="">Root and named</option><option value="15129">Root</option><option value="35129">Named</option><option value="5129" id="snapshot-option">Snapshot versions</option></select></label>
+      <label class="field" id="status-field" hidden>Record status<select id="status">
+        {['all','eligible','legacy','mixed','unknown','schema-invalid','deleted','expired','snapshot'].map((s)=><option value={s}>{s === 'all' ? 'All statuses' : s.charAt(0).toUpperCase()+s.slice(1)}</option>)}
+      </select></label>
+    </div>
+    </details>
+    <section id="results" tabindex="-1" aria-label="Explorer results"></section>
+    <aside class="method">
+      <h2>What the counts measure</h2>
+      <p>Each eligible root or named publication contributes one current head. Required includes heads declaring a feature both ways. Optional-only excludes that overlap. Union counts either declaration once. A declaration describes what the publisher requests. Runtime activity and installations are outside this dataset.</p>
+      <p>Compare these declarations with <a href="/capabilities/">Hypergolic’s release capability table</a>.</p>
+    </aside>
+  </section>
+  <script>
+    import { mountExplorer } from '../explorer/app.js';
+    mountExplorer();
+  </script>
+</Reference>
