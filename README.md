@@ -7,7 +7,7 @@
 
 Hypergolic brings small Nostr apps called *napplets* into one Android workspace. This repository contains the Astro source for its website, where visitors can explore the app and download the signed Android release.
 
-[Visit hypergolic.space](https://hypergolic.space/) · [Explore the app source](https://github.com/nostrocket/hypergolic) · [Download for Android](https://github.com/nostrocket/hypergolic/releases/latest)
+[Visit hypergolic.sh](https://hypergolic.sh/) · [Explore the app source](https://github.com/nostrocket/hypergolic) · [Download for Android](https://github.com/nostrocket/hypergolic/releases/latest)
 
 ![Hypergolic’s four-point spark above a night launch. Nostr, beyond the feed.](public/assets/social-preview.jpg)
 
