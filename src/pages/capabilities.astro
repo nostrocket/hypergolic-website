@@ -61,7 +61,7 @@ const filterOptions = [
         <tbody id="capability-rows" role="rowgroup">
           {capabilities.map(({ domain, status, detail, remaining, estimates, references }) => (
             <tr data-domain={domain} data-support={status} role="row">
-              <th role="rowheader" scope="row" class="cap-names">{domain}</th>
+              <th role="rowheader" scope="row" class="cap-names"><a href={`/explorer/?feature=${domain}`} aria-label={`Explore ${domain} declarations`}>{domain}</a></th>
               <td class="cap-status" role="cell"><span class="cap-symbol" aria-hidden="true">{support[status].symbol}</span> {support[status].label}</td>
               <td class="cap-detail" role="cell"><span class="cap-mobile-label" aria-hidden="true">What a napplet gets</span>{detail}</td>
               <td class="cap-remaining" role="cell">

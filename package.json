@@ -11,11 +11,15 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "build:pages": "astro build && python3 scripts/verify-pages.py",
+    "build:pages": "node --test test/*.test.js && astro build && python3 scripts/verify-pages.py",
     "package:pages": "pnpm run build:pages && tar -cf artifact.tar -C dist .",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "node --test test/*.test.js"
   },
   "devDependencies": {
     "astro": "7.4.12"
+  },
+  "dependencies": {
+    "nostr-tools": "2.24.0"
   }
 }

@@ -297,7 +297,7 @@ figcaption { margin-top: .8em; color: var(--muted); font-size: clamp(.75rem, .93
   }
 }
 
-/* Keep the release download and the capability table reachable on a narrow screen. */
+/* Keep the release download and both reference pages reachable on a narrow screen. */
 @media (max-width: 720px) {
   .site-header { flex-wrap:wrap; gap:.1rem 1rem; }
   .site-header nav { gap:1rem; }
