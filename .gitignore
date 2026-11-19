@@ -1,0 +1,25 @@
+# Dependencies and generated output
+/node_modules/
+/.pnpm-store/
+/.astro/
+/dist/
+/artifact.tar
+__pycache__/
+*.pyc
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+/.aws/
+/.agents/
+/.codex/
+
+# Developer tools and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+npm-debug.log*
+pnpm-debug.log*

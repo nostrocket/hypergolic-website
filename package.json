@@ -1,0 +1,21 @@
+{
+  "name": "hypergolic-website",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": "26.x"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "build:pages": "astro build && python3 scripts/verify-pages.py",
+    "package:pages": "pnpm run build:pages && tar -cf artifact.tar -C dist .",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "7.4.12"
+  }
+}
