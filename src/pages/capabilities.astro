@@ -22,14 +22,14 @@ const filterOptions = [
   </div>
 
   <section id="capabilities" aria-label="Capability support by domain">
-    <p class="cap-legend">Full support means the release implements the required behavior in the cited draft. An empty badge means release testing is pending. A checked badge links to the end-to-end test and names the platform.</p>
+    <p class="cap-legend">Full support means the release implements the required behavior in the cited draft. An empty badge means release testing is pending. A checked badge links to the end-to-end test and names the devices that passed.</p>
     <details class="cap-method">
       <summary>How to read the token estimates</summary>
       <p>Each T-shirt size estimates total coding-agent input and output tokens for one domain. It covers source review, implementation, tests, Android and iOS acceptance, and one fix cycle. These planning estimates credit reusable Hypergolic code and assume one viable backend. Adding them together would double-count shared work.</p>
       <dl class="cap-bands">
         {Object.entries(tokenBands).map(([size, tokens]) => <div><dt>{size}</dt><dd>{tokens}</dd></div>)}
       </dl>
-      <p>These estimates date from 19 November 2026. They cover the original scope, including testing. Remaining work includes follow-up checks on other platforms.</p>
+      <p>These estimates date from 19 November 2026. They cover the original scope, including testing.</p>
     </details>
     <div class="control-row cap-controls">
       <label class="cap-search" id="capability-search" hidden>
@@ -66,9 +66,9 @@ const filterOptions = [
               <th role="rowheader" scope="row" class="cap-names"><a href={`/explorer/?feature=${domain}`} aria-label={`Explore ${domain} declarations`}>{domain}</a></th>
               <td class="cap-status" role="cell">
                 {verification ? (
-                  <a class="cap-verified" href={verification.evidence} aria-label={`${support[status].label}. ${domain} verified on ${verification.platform}. Read the test.`}>
+                  <a class="cap-verified" href={verification.evidence} aria-label={`${support[status].label}. ${domain} verified on ${verification.platforms.join(' and ')}. Read the test.`}>
                     <span class="cap-status-line"><span><span class="cap-symbol" aria-hidden="true">{support[status].symbol}</span> {support[status].label}</span><VerificationSeal checked /></span>
-                    <span class="cap-platform">{verification.platform}</span>
+                    {verification.platforms.map(platform => <span class="cap-platform">{platform}</span>)}
                   </a>
                 ) : status === 'full' ? (
                   <details class="cap-verification">
