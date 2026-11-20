@@ -1,6 +1,8 @@
 ---
 import Reference from '../layouts/Reference.astro';
 import VerificationSeal from '../components/VerificationSeal.astro';
+import CompatibilityHero from '../components/CompatibilityHero.astro';
+import { RELAYS } from '../explorer/live.js';
 import { capabilities, releaseSource, support, tokenBands } from '../data/capabilities';
 
 const description = 'See which capabilities napplets can use in Hypergolic v0.2.0 and what remains to implement or test.';
@@ -12,14 +14,8 @@ const filterOptions = [
 ];
 ---
 
-<Reference title="Capability table" description={description} active="capabilities">
-  <div class="page-intro" slot="intro">
-    <div class="cap-heading">
-      <h1>Capability table</h1>
-      <span class="release-label">Hypergolic v0.2.0</span>
-    </div>
-    <p>{description}</p>
-  </div>
+<Reference title="Capability table" description={description} active="capabilities" connections={RELAYS}>
+  <CompatibilityHero slot="intro" />
 
   <section id="capabilities" aria-label="Capability support by domain">
     <p class="cap-legend">Full support means the release implements the required behavior in the cited draft. An empty badge means release testing is pending. A checked badge links to the end-to-end test and names the devices that passed.</p>
@@ -173,8 +169,6 @@ const filterOptions = [
     position: absolute; width: 1px; height: 1px; padding: 0; border: 0;
     margin: -1px; clip-path: inset(50%); overflow: hidden; white-space: nowrap;
   }
-  .cap-heading { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem 1.6rem; }
-  .cap-heading .release-label { padding-inline-start: 1.4rem; border-inline-start: 1px solid var(--line); }
   .cap-controls { display: flex; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
   .cap-search { flex: 1 1 17rem; }
   .cap-search input { width: 100%; }
@@ -242,8 +236,6 @@ const filterOptions = [
   #capabilities:has(input[value='partial']:checked) tr[data-support]:not([data-support='partial']),
   #capabilities:has(input[value='none']:checked) tr[data-support]:not([data-support='none']) { display: none; }
   @media (max-width: 56rem) {
-    .cap-heading { align-items: start; flex-direction: column; gap: .5rem; }
-    .cap-heading .release-label { padding: 0; border: 0; }
     .cap-status-label { display: none; }
     .cap-filters { gap: .3rem; }
     .cap-filter span { min-width: 44px; padding-inline: .6rem; }
