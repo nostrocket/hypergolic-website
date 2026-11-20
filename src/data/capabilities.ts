@@ -1,5 +1,7 @@
 export const releaseSource = 'https://github.com/nostrocket/hypergolic/blob/v0.2.0';
 
+const draftSource = 'https://github.com/napplet/naps/blob';
+
 export const support = {
   full: { label: 'Full support', symbol: '●' },
   partial: { label: 'Partial support', symbol: '◐' },
@@ -27,6 +29,7 @@ type Capability = {
   status: keyof typeof support;
   detail: string;
   remaining: string;
+  verification?: { platform: string; evidence: string };
   estimates: Estimate[];
   references: { label: string; url: string }[];
 };
@@ -35,168 +38,187 @@ export const capabilities: Capability[] = [
   {
     domain: 'storage', status: 'full',
     detail: 'All four storage operations (get, set, remove, keys) in both shared and per-instance storage.',
-    remaining: 'All four draft operations are implemented in both storage scopes.',
+    remaining: 'Verify persistence and isolation in shared and per-instance storage on release builds.',
     estimates: [],
     references: [
       { label: 'Release contract', url: `${releaseSource}/docs/capability-contract.md` },
-      { label: 'Storage draft', url: 'https://github.com/napplet/naps/pull/3' },
+      { label: 'Storage operations', url: `${releaseSource}/src/runtime/capability-broker.ts#L42-L50` },
+      { label: 'Storage draft', url: `${draftSource}/f71e84ebca7474db260346cbfc2d88f41b4e421e/naps/NAP-STORAGE.md` },
     ],
   },
   {
-    domain: 'common', status: 'partial',
-    detail: 'NIP-19 helpers, profile and follow reads, and selected social writes with approval.',
-    remaining: 'Verify all eight operation families on real relays, including follow-list replacement, custom emoji reactions and event reports.',
+    domain: 'common', status: 'full',
+    detail: 'All eight operations, including NIP-19 conversion, profile and follow reads, follow changes, reactions and reports. Social writes require approval. Each signed event must fit within 8 KiB.',
+    remaining: 'Verify all eight operations with a real signer and public relays, including follow-list edits, custom emoji and event reports.',
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release social operations', url: `${releaseSource}/docs/common-social.md` },
-      { label: 'Common draft', url: 'https://github.com/napplet/naps/pull/67' },
+      { label: 'Social publication', url: `${releaseSource}/src/common/social-plan.ts#L51-L74` },
+      { label: 'Common draft', url: `${draftSource}/8cd0eae8550575771bb616a384e2dfbcade31673/naps/NAP-COMMON.md#L143` },
     ],
   },
   {
     domain: 'config', status: 'partial',
     detail: 'Saved per-napplet settings using a supported subset of configuration schemas.',
-    remaining: 'Compare supported keywords and x-napplet-* extensions with the draft’s Core Subset. Close confirmed gaps in rendering, validation, migration or update ordering.',
+    remaining: 'Return a closable subscription from onSchemaError. Support valid schemas that exceed the release’s string and array limits, then verify registration and updates on devices.',
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release behavior', url: `${releaseSource}/docs/notifications-configuration.md` },
-      { label: 'Config draft', url: 'https://github.com/napplet/naps/pull/14' },
+      { label: 'Schema validation', url: `${releaseSource}/src/presentation/config-schema.ts#L101-L108` },
+      { label: 'Config draft', url: `${draftSource}/bed9cb5b1e7c9b5babee8870aa18b12949af1d62/naps/NAP-CONFIG.md#L55` },
     ],
   },
   {
     domain: 'cvm', status: 'partial',
     detail: 'Encrypted requests to known, free providers. Discovery, registry execution, and payments are unavailable.',
-    remaining: 'Verify consent, replies, cancellation and cross-card use with a real free provider. The broader draft adds discovery, schema-hash tool selection and registry execution. Paid calls also need budgets, consent and settlement.',
+    remaining: 'Implement provider discovery and registry lookup, description and execution. Verify direct calls with a real free provider. Paid calls also need budgets, consent and settlement.',
     estimates: [{ size: 'S', scope: 'Free-provider profile' }, { size: 'XXL', tokens: '900k–2M', scope: 'Broader paid ecosystem' }],
     references: [
       { label: 'CVM profile', url: `${releaseSource}/docs/cvm.md` },
-      { label: 'CVM draft', url: 'https://github.com/napplet/naps/pull/31' },
+      { label: 'CVM request dispatch', url: `${releaseSource}/src/cvm/cvm-session.ts#L49-L55` },
+      { label: 'CVM draft', url: `${draftSource}/28cf1bdb5c6412bfbfcecb79a5a5121e18376f2f/naps/NAP-CVM.md#L21` },
     ],
   },
   {
     domain: 'identity', status: 'partial',
-    detail: 'Read-only public identity data.',
-    remaining: 'Resolve the source and meaning of blocked-user reads, add zap-history reads and verify both against the selected account. The estimate covers read-only history.',
+    detail: 'Public profile, relay preferences, follows, mutes and selected lists for the active account.',
+    remaining: 'Add blocked-user and zap-history reads. Both currently return an error. The estimate covers read-only history.',
     estimates: [{ size: 'M' }],
     references: [
       { label: 'Release identity coverage', url: `${releaseSource}/docs/public-identity-data.md` },
+      { label: 'Identity reads', url: `${releaseSource}/src/identity/identity-projection.ts#L50-L65` },
+      { label: 'Identity draft', url: `${draftSource}/5ac0490461ca6fec2f0d2e45b4835cf9bc08de24/naps/NAP-IDENTITY.md#L23` },
     ],
   },
   {
     domain: 'inc', status: 'partial',
     detail: 'Messages and channels between active napplet sessions.',
-    remaining: 'Verify sender identity, topic delivery, message order and channel closure between two published napplets. Background delivery depends on the chosen contract.',
+    remaining: 'Address each running instance separately. The release uses an app label, so two instances of the same napplet cannot be targeted independently. Verify delivery and closure between instances.',
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release routing', url: `${releaseSource}/docs/intent-inc.md` },
-      { label: 'INC draft', url: 'https://github.com/napplet/naps/pull/104' },
+      { label: 'Channel routing', url: `${releaseSource}/src/routing/routing-broker.ts#L185-L193` },
+      { label: 'INC draft', url: `${draftSource}/2578336467bb80fdcd60b250c7159f281f6b9cc9/naps/NAP-INC.md#L74` },
     ],
   },
   {
     domain: 'intent', status: 'partial',
     detail: 'Dispatch to installed handlers. Discovery of uninstalled handlers is unavailable.',
-    remaining: 'Complete manifest and handler resolution, including root-manifest references. Verify discovery, installation consent and delivery to a previously uninstalled handler.',
+    remaining: 'Resolve root manifests (kind 15129) alongside named manifests and snapshots. Verify discovery, installation consent and delivery to a previously uninstalled handler.',
     estimates: [{ size: 'M' }],
     references: [
       { label: 'Release routing', url: `${releaseSource}/docs/intent-inc.md` },
-      { label: 'Intent draft', url: 'https://github.com/napplet/naps/pull/91' },
+      { label: 'Manifest selection', url: `${releaseSource}/src/napplets/verified-artifact.ts#L141-L151` },
+      { label: 'Intent draft', url: `${draftSource}/33ac4ae790da8dc265d00823d65bd1147f45894b/naps/NAP-INTENT.md#L171` },
     ],
   },
   {
     domain: 'keys', status: 'partial',
     detail: 'Hardware keyboard actions and shortcuts for the focused napplet.',
-    remaining: 'Check keystroke forwarding, assigned bindings, binding-change notifications and action dispatch. Exercise physical keyboards on both platforms, including text entry and OS shortcuts.',
+    remaining: 'Forward eligible unbound key combinations to the shell. The release drops every combination with a modifier. Verify forwarding, bindings and reserved shortcuts with physical keyboards.',
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release key policy', url: `${releaseSource}/docs/capability-contract.md` },
-      { label: 'Keys draft', url: 'https://github.com/napplet/naps/pull/9' },
+      { label: 'Key forwarding', url: `${releaseSource}/runtime/patches/@kehto__shell@0.20.0.patch#L199-L211` },
+      { label: 'Keys draft', url: `${draftSource}/8869a4cf77b023f4b049f47c546910a0280dc1a6/naps/NAP-KEYS.md#L95` },
     ],
   },
   {
-    domain: 'link', status: 'partial',
-    detail: 'User-approved HTTPS links open through the device.',
-    remaining: 'Verify URL handling, refusal and handoff results on each OS. Supporting further URL schemes is a separate policy decision.',
+    domain: 'link', status: 'full',
+    detail: 'Opens an approved HTTPS link with the device’s handler and reports the outcome. The release allows HTTPS only.',
+    remaining: 'Verify approval, refusal and the OS handoff result on Android and iOS.',
     estimates: [{ size: 'XS' }],
     references: [
       { label: 'Release link policy', url: `${releaseSource}/docs/external-links.md` },
-      { label: 'Link draft', url: 'https://github.com/napplet/naps/pull/53' },
+      { label: 'Link request handling', url: `${releaseSource}/runtime/src/link-adapter.ts#L4-L12` },
+      { label: 'Link draft', url: `${draftSource}/100e5c939ae6b1ea82cc58587c6da45a1cf8a760/naps/NAP-LINK.md#L76` },
     ],
   },
   {
     domain: 'media', status: 'partial',
     detail: 'Foreground HTTPS MP4 playback and bounded MP3 radio.',
-    remaining: 'Add napplet-owned playback sessions, queues and controls. Reconcile shell controls with pause, stop and failure on both native players.',
+    remaining: 'Deliver session metadata updates to the player. The guest can send an update, but the runtime drops it. Verify title changes and playback controls on both native players.',
     estimates: [{ size: 'L' }],
     references: [
       { label: 'Release playback profile', url: `${releaseSource}/docs/media-playback.md` },
-      { label: 'Media draft', url: 'https://github.com/napplet/naps/pull/10' },
+      { label: 'Media message handling', url: `${releaseSource}/runtime/src/media-wire.ts#L53-L61` },
+      { label: 'Media draft', url: `${draftSource}/7806f438530251fce5129f8e6239d6b642278759/naps/NAP-MEDIA.md#L181` },
     ],
   },
   {
-    domain: 'notify', status: 'partial',
-    detail: 'Foreground notifications inside Hypergolic.',
-    remaining: 'Verify channel permissions, badges, click, action and dismissal callbacks, and revocation in the existing notification centre.',
+    domain: 'notify', status: 'full',
+    detail: 'In-app notifications with channel permissions, badges, action buttons, body clicks and dismissals.',
+    remaining: 'Verify permissions, badge updates, callbacks and cleanup in the notification centre on Android and iOS.',
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release behavior', url: `${releaseSource}/docs/notifications-configuration.md` },
-      { label: 'Notify draft', url: 'https://github.com/napplet/naps/pull/11' },
+      { label: 'Notification centre', url: `${releaseSource}/src/shell/Notifications.tsx#L18` },
+      { label: 'Notify draft', url: `${draftSource}/67877ef6c31ec8acee3125c1d8b4c781010e37dc/naps/NAP-NOTIFY.md#L227` },
     ],
   },
   {
     domain: 'outbox', status: 'partial',
     detail: 'Relay resolution, event lookup, queries, subscriptions, and approved publication under the release’s routing limits.',
-    remaining: 'Resolve the release’s option to redistribute a signed relay-list event alongside a publication. Its pinned draft permits one signed event. Verify routing with real relays on both platforms.',
+    remaining: 'Limit each publication to the single signed event allowed by the draft. The release can also send a signed relay list. Verify routing with real relays on both platforms.',
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release routing and divergence', url: `${releaseSource}/docs/outbox-routing.md` },
+      { label: 'Publication plan', url: `${releaseSource}/src/outbox/publication-plan.ts#L41` },
+      { label: 'Outbox draft', url: `${draftSource}/8865f73d52a4864afee145f28d26520476273927/naps/NAP-OUTBOX.md#L285` },
     ],
   },
   {
     domain: 'relay', status: 'partial',
     detail: 'Queries, subscriptions, and approved publication. Encrypted publication is unavailable.',
-    remaining: 'Implement publishEncrypted with recipient selection, approved signing methods, encryption, approval and failure handling. Verify the recipient can decrypt the published event.',
+    remaining: 'Implement encrypted publication and decrypt incoming encrypted events for the intended recipient. Verify both directions with real relays.',
     estimates: [{ size: 'L' }],
     references: [
       { label: 'Release contract', url: `${releaseSource}/docs/capability-contract.md` },
-      { label: 'Relay draft', url: 'https://github.com/napplet/naps/pull/2' },
+      { label: 'Subscription delivery', url: `${releaseSource}/src/network/relay-subscriptions.ts#L34-L38` },
+      { label: 'Relay draft', url: `${draftSource}/9f30b3505335a52c574ff570576687d6467021ff/naps/NAP-RELAY.md#L257` },
     ],
   },
   {
     domain: 'resource', status: 'partial',
     detail: 'Bounded HTTPS, Blossom, one-hop Nostr, and data: reads.',
-    remaining: 'Reconcile wire formats and verify canonical base64, decoded-byte limits, bulk results, cancellation and Blob conversion. Hashtree support and SVG rendering add scope.',
+    remaining: 'Return canonical base64 in public byte results. The release returns a Blob. Check the revised format for single reads, bulk results and cancellation.',
     estimates: [{ size: 'M' }],
     references: [
       { label: 'Release resource profile', url: `${releaseSource}/docs/resource-access.md` },
-      { label: 'Updated draft', url: 'https://github.com/napplet/naps/pull/80' },
+      { label: 'Resource response', url: `${releaseSource}/runtime/src/resource-adapter.ts#L49-L69` },
+      { label: 'Resource draft', url: `${draftSource}/ae5b9c64ab8a4d8909f288829a01e99d6bd713bc/naps/NAP-RESOURCE.md#L85` },
     ],
   },
   {
     domain: 'shell', status: 'partial',
     detail: 'Startup handshake and capability discovery for the calling napplet.',
-    remaining: 'Verify startup, environment delivery and domain discovery with a published napplet on both platforms. The domain-listing and target-compatibility extension has separate scope.',
+    remaining: 'Allow an authenticated napplet to use its other granted domains before the shell handshake completes. The release waits for the handshake. Verify early calls on both platforms.',
     estimates: [{ size: 'XS' }],
     references: [
-      { label: 'Base draft', url: 'https://github.com/napplet/naps/pull/101' },
       { label: 'Extension', url: 'https://github.com/napplet/naps/pull/142' },
+      { label: 'Session readiness', url: `${releaseSource}/runtime/src/main.ts#L301-L314` },
+      { label: 'Shell draft', url: `${draftSource}/04d433674bce16795e860f9006bfa87a8e02e25c/naps/NAP-SHELL.md#L120` },
     ],
   },
   {
-    domain: 'theme', status: 'partial',
-    detail: 'Shell colours through the release’s theme profile.',
-    remaining: 'Verify initial theme delivery and onChanged updates for every granted napplet, including optional declarations.',
+    domain: 'theme', status: 'full',
+    detail: 'Supplies background, text and primary colours and broadcasts changes when the system switches appearance.',
+    remaining: 'Verify initial colours and light/dark changes on both platforms, including a napplet with an optional theme grant.',
     estimates: [{ size: 'XS' }],
     references: [
-      { label: 'Theme draft', url: 'https://github.com/napplet/naps/pull/103' },
+      { label: 'Theme service', url: `${releaseSource}/runtime/src/shell-theme.ts#L6-L20` },
+      { label: 'Theme draft', url: `${draftSource}/50f918ccdcb5b94a6465c84e12036275e8984da7/naps/NAP-THEME.md#L129` },
     ],
   },
   {
-    domain: 'upload', status: 'partial',
-    detail: 'User-approved Blossom uploads.',
-    remaining: 'Check raw bytes, status, progress and results against the draft. Bridge confirmed gaps while preserving approval for the exact bytes. The estimate assumes Blossom.',
+    domain: 'upload', status: 'full',
+    detail: 'Uploads approved raw bytes to Blossom, reports progress and returns a URL, SHA-256 hash, size and media type.',
+    remaining: 'Verify a real Blossom upload from each platform, including approval, progress, status and the returned file hash.',
     estimates: [{ size: 'M' }],
     references: [
       { label: 'Release upload workflow', url: `${releaseSource}/docs/upload-access.md` },
-      { label: 'Upload draft', url: 'https://github.com/napplet/naps/pull/33' },
+      { label: 'Upload completion', url: `${releaseSource}/src/uploads/upload-service.ts#L238-L252` },
+      { label: 'Upload draft', url: `${draftSource}/f5cc981e527e2cc1572793a7a6e5082e5271ac49/naps/NAP-UPLOAD.md#L269` },
     ],
   },
   {
