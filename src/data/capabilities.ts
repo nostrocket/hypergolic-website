@@ -218,8 +218,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'upload', status: 'full',
     detail: 'Uploads approved raw bytes to Blossom, reports progress and returns a URL, SHA-256 hash, size and media type.',
-    remaining: 'Verify approval, progress, completion and independent Blossom readback on physical Android and iOS devices.',
-    verification: { platform: 'Android 16 emulator', evidence: '/capabilities/v0.2.0/tests/#upload' },
+    remaining: 'Verify approval, progress, status by upload ID and independent Blossom readback on iOS.',
+    verification: { platform: 'Android 16 phone', evidence: '/capabilities/v0.2.0/tests/#upload' },
     estimates: [{ size: 'M' }],
     references: [
       { label: 'Release upload workflow', url: `${releaseSource}/docs/upload-access.md` },

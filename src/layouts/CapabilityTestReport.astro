@@ -24,4 +24,9 @@ const { title, description, release, date } = Astro.props.frontmatter;
   .test-report :global(th), .test-report :global(td) {
     padding: .55rem .5rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top;
   }
+  @media (max-width: 32rem) {
+    .test-report :global(th), .test-report :global(td) {
+      font-size: .9rem; padding: .45rem .2rem; overflow-wrap: anywhere;
+    }
+  }
 </style>

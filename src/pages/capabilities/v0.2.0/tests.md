@@ -52,7 +52,7 @@ Theme test manifest event ID · `f4c608e1c913acb5ae308383e05dc87ea26d2eb7743aca6
 
 ## Upload
 
-**Passed on an Android 16 emulator.** Upload Lab submitted a 71-byte PNG. The native review showed its media type, size and Blossom destination. A disposable local signer approved the kind-24242 upload authorization. The guest received an `uploading` callback at 71 of 71 bytes, followed by a `complete` result with a URL, SHA-256, size and media type. An independent download returned HTTP 200 and matched all 71 source bytes. The server already held the file before this run, so the test covers an upload to a deduplicating server. [Release upload contract](https://github.com/nostrocket/hypergolic/blob/v0.2.0/docs/upload-access.md)
+**Passed on a physical Android 16 phone and, in a separate run, an Android 16 emulator.** On each device, Upload Lab submitted a 71-byte PNG. The native review showed its media type, size and Blossom destination. A disposable local signer approved the kind-24242 upload authorization. The guest received an `uploading` callback at 71 of 71 bytes, followed by a `complete` result with a URL, SHA-256, size and media type. Querying the original upload ID returned the same completion details on each device. An independent download of each returned URL produced HTTP 200 and matched all 71 source bytes. The server already held the file before this run, so the test covers an upload to a deduplicating server. [Release upload contract](https://github.com/nostrocket/hypergolic/blob/v0.2.0/docs/upload-access.md)
 
 PNG SHA-256 · `5a852fbaaaecaf4cd14c01e150c7f881c5c5894b0a1e3c53be7e007c58374ee6`
 
