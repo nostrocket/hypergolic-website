@@ -11,9 +11,18 @@ class Page(HTMLParser):
         super().__init__()
         self.urls = []
         self.canonical = None
+        self.ids = set()
+        self.domain = None
+        self.proof_links = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if attrs.get("id"):
+            self.ids.add(attrs["id"])
+        if tag == "tr":
+            self.domain = attrs.get("data-domain")
+        if tag == "a" and self.domain and "cap-verified" in attrs.get("class", "").split():
+            self.proof_links.append((self.domain, attrs.get("href", "")))
         for name in ("href", "src"):
             if attrs.get(name):
                 self.urls.append(attrs[name])
@@ -25,6 +34,10 @@ class Page(HTMLParser):
         if tag == "link" and "canonical" in attrs.get("rel", "").split():
             self.canonical = attrs.get("href")
 
+    def handle_endtag(self, tag):
+        if tag == "tr":
+            self.domain = None
+
 
 dist = Path(__file__).resolve().parents[1] / "dist"
 origin = "https://hypergolic.sh/"
@@ -33,15 +46,23 @@ if (dist / "CNAME").read_text().strip() != hostname:
     raise SystemExit(f"dist/CNAME must contain {hostname}")
 
 references = []
-routes = ("/", "/capabilities/", "/explorer/")
+home_links = ("/capabilities/", "/explorer/")
+evidence_route = "/capabilities/v0.2.0/tests/"
+routes = ("/", *home_links, evidence_route)
+page_ids = {}
 for route in routes:
     page = Page()
-    page.feed((dist / route.strip("/") / "index.html").read_text())
+    path = dist / route.strip("/") / "index.html"
+    page.feed(path.read_text())
+    page_ids[path] = page.ids
     page_url = urljoin(origin, route)
     if page.canonical != page_url:
         raise SystemExit(f"Expected the canonical URL for {route} to be {page_url}")
-    if route == "/" and not all(path in page.urls for path in routes[1:]):
+    if route == "/" and not all(path in page.urls for path in home_links):
         raise SystemExit("The homepage must link to the capability table and explorer")
+    for domain, href in page.proof_links:
+        if urljoin(page_url, href) != urljoin(origin, f"{evidence_route}#{domain}"):
+            raise SystemExit(f"The {domain} verification badge must link to its release test section")
     references.extend((page_url, ref) for ref in page.urls)
 
 for css in dist.rglob("*.css"):
@@ -58,5 +79,7 @@ for source, ref in references:
         path = path / "index.html"
     if not path.is_file() or not path.stat().st_size:
         raise SystemExit(f"Missing or empty file for {ref} referenced by {source}")
+    if target.fragment and path in page_ids and unquote(target.fragment) not in page_ids[path]:
+        raise SystemExit(f"Missing fragment for {ref} referenced by {source}")
 
 print("Pages routes, canonical URLs, custom domain and linked site assets verified.")

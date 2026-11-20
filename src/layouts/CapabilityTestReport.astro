@@ -1,0 +1,27 @@
+---
+import Reference from './Reference.astro';
+const { title, description, release, date } = Astro.props.frontmatter;
+---
+<Reference {title} {description}>
+  <div class="page-intro" slot="intro">
+    <p class="release-label">{release} · {date}</p>
+    <h1>{title}</h1>
+    <p>{description}</p>
+  </div>
+  <article class="test-report">
+    <a href="/capabilities/">← Capability table</a>
+    <slot />
+  </article>
+</Reference>
+
+<style>
+  .page-intro .release-label { font: .95rem var(--mono); color: var(--accent); margin-block: 0 .65rem; max-width: none; }
+  .test-report { max-width: 78ch; }
+  .test-report :global(p) { margin-block: 1rem; }
+  .test-report :global(h2) { border-top: 1px solid var(--line); padding-top: 1.1rem; scroll-margin-top: 1rem; }
+  .test-report :global(code) { font: .9em var(--mono); overflow-wrap: anywhere; }
+  .test-report :global(table) { width: 100%; border-collapse: collapse; }
+  .test-report :global(th), .test-report :global(td) {
+    padding: .55rem .5rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top;
+  }
+</style>
