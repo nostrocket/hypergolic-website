@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/CapabilityTestReport.astro
 title: Capability test results
-description: End-to-end results for six capabilities on an Android 16 phone and emulator.
+description: Six capabilities passed on a physical Android 16 phone. Common and Upload also passed on an Android 16 emulator.
 release: Hypergolic v0.2.0
 date: 20 November 2026
 ---
@@ -18,16 +18,18 @@ State Lab manifest event ID · `2fffeb1ebb31decc372cae8c190cadfb163b49071da6cb17
 
 ## Common
 
-**Passed on an Android 16 emulator.** The napplet encoded and decoded a disposable account’s NIP-19 identifier, looked up its signed profile and read the active account’s follow list. A local signer and native approval for each event supported the four writes below. An independent subscriber on nos.lol verified each event’s ID, signature, author, target and tags.
+**All eight operations passed on a physical Android 16 phone and in a separate Android 16 emulator run.** On each device the napplet encoded and decoded a disposable target’s NIP-19 identifier, looked up its signed profile by name and read the active account’s follow list. Each device used its own disposable local signer. After native review, the napplet received signed results for follow, unfollow, a custom emoji reaction and a report on the synthetic test event.
 
-| Operation | Signed event ID observed on nos.lol |
-| --- | --- |
-| Follow | `c5798f25f0789e6fb8d31779377fb7e496d55d9cc98229c2424ba289609e588f` |
-| Unfollow | `0e3efe697b1ecd723bcac86fca9875e3785e71dd0f1dfc24b2abb48619ed8b2a` |
-| Custom emoji reaction | `aa7de4c7635d5c118f3af170f2c5c7a445b464a3eb5616838aed9ad89f2f32f7` |
-| Event report | `80efa1208f9a9a89a8f3f692d203442f8647a6e06ed341e9cf5d5c21c6248524` |
+An independent subscriber on nos.lol verified the IDs, signatures, authors, targets and tags for these eight events.
 
-The account began with an empty follow list. After the five-minute read cache expired, the napplet returned the followed key. Follow and unfollow each published a replacement kind-3 event. The reaction and the report targeted a synthetic note from the test publisher. The report gave “other” as its reason and identified the test. The release limits each signed event to 8 KiB. [Common social operations](https://github.com/nostrocket/hypergolic/blob/v0.2.0/docs/common-social.md)
+| Operation | Physical phone event | Emulator event |
+| --- | --- | --- |
+| Follow | `306da258836db2883edac7ef129b8a5704183803d8f60b9e2c2bd01029ce0b54` | `c5798f25f0789e6fb8d31779377fb7e496d55d9cc98229c2424ba289609e588f` |
+| Unfollow | `f698a8763e81ecdeaabc94d68ff6207d0b41106d5ed4e6457aad8c469200922b` | `0e3efe697b1ecd723bcac86fca9875e3785e71dd0f1dfc24b2abb48619ed8b2a` |
+| Custom emoji reaction | `4c3bbd5e5f6aad6e29c129d67a89ca4feca4bd5c2cf917d64e38b22bd54002e3` | `aa7de4c7635d5c118f3af170f2c5c7a445b464a3eb5616838aed9ad89f2f32f7` |
+| Event report | `a63bbdc0fa941e0ef454a3eef41382dc3911d471a74048936cb45985dae6034b` | `80efa1208f9a9a89a8f3f692d203442f8647a6e06ed341e9cf5d5c21c6248524` |
+
+Follow and unfollow each replaced the kind-3 follow list. The emulator account started with an empty follow list. After the five-minute read cache expired on the emulator, the napplet returned the followed key. The reaction and report targeted a synthetic note from the test publisher. The report gave “other” as its reason and identified the test. The release limits each signed event to 8 KiB. [Common social operations](https://github.com/nostrocket/hypergolic/blob/v0.2.0/docs/common-social.md)
 
 ## Link
 

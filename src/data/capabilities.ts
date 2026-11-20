@@ -50,8 +50,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'common', status: 'full',
     detail: 'All eight operations, including NIP-19 conversion, profile and follow reads, follow changes, reactions and reports. Social writes require approval. Each signed event must fit within 8 KiB.',
-    remaining: 'Repeat all eight operations on physical Android and iOS devices with a real signer and public relays.',
-    verification: { platform: 'Android 16 emulator', evidence: '/capabilities/v0.2.0/tests/#common' },
+    remaining: 'Verify all eight operations on iOS with a real signer and public relays.',
+    verification: { platform: 'Android 16 phone', evidence: '/capabilities/v0.2.0/tests/#common' },
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release social operations', url: `${releaseSource}/docs/common-social.md` },
