@@ -1,5 +1,6 @@
 ---
 import Reference from '../layouts/Reference.astro';
+import VerificationSeal from '../components/VerificationSeal.astro';
 import { capabilities, releaseSource, support, tokenBands } from '../data/capabilities';
 
 const description = 'See which capabilities napplets can use in Hypergolic v0.2.0 and what remains to implement or test.';
@@ -21,14 +22,14 @@ const filterOptions = [
   </div>
 
   <section id="capabilities" aria-label="Capability support by domain">
-    <p class="cap-legend">Full support means the release implements the required behavior in the cited draft. An empty badge means release testing is pending. A checked badge links to the end-to-end test and names the platform.</p>
+    <p class="cap-legend">Full support means the release implements the required behavior in the cited draft. An empty badge means release testing is pending. A checked badge links to the end-to-end test and names the devices that passed.</p>
     <details class="cap-method">
       <summary>How to read the token estimates</summary>
       <p>Each T-shirt size estimates total coding-agent input and output tokens for one domain. It covers source review, implementation, tests, Android and iOS acceptance, and one fix cycle. These planning estimates credit reusable Hypergolic code and assume one viable backend. Adding them together would double-count shared work.</p>
       <dl class="cap-bands">
         {Object.entries(tokenBands).map(([size, tokens]) => <div><dt>{size}</dt><dd>{tokens}</dd></div>)}
       </dl>
-      <p>These estimates date from 19 November 2026. They cover the original scope, including testing. The Remaining work column reflects the 20 November release-code review.</p>
+      <p>These estimates date from 19 November 2026. They cover the original scope, including testing.</p>
     </details>
     <div class="control-row cap-controls">
       <label class="cap-search" id="capability-search" hidden>
@@ -64,17 +65,19 @@ const filterOptions = [
             <tr data-domain={domain} data-support={status} role="row">
               <th role="rowheader" scope="row" class="cap-names"><a href={`/explorer/?feature=${domain}`} aria-label={`Explore ${domain} declarations`}>{domain}</a></th>
               <td class="cap-status" role="cell">
-                {status === 'full' ? (
+                {verification ? (
+                  <a class="cap-verified" href={verification.evidence} aria-label={`${support[status].label}. ${domain} verified on ${verification.platforms.join(' and ')}. Read the test.`}>
+                    <span class="cap-status-line"><span><span class="cap-symbol" aria-hidden="true">{support[status].symbol}</span> {support[status].label}</span><VerificationSeal checked /></span>
+                    {verification.platforms.map(platform => <span class="cap-platform">{platform}</span>)}
+                  </a>
+                ) : status === 'full' ? (
                   <details class="cap-verification">
-                    <summary title={verification ? `Verified on ${verification.platform}` : 'Verification pending'}>
+                    <summary title="Verification pending">
                       <span><span class="cap-symbol" aria-hidden="true">{support.full.symbol}</span> {support.full.label}</span>
-                      <svg class="cap-seal" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
-                        <path d="m12 2 2.6 1.7 3.1.2 1.2 2.9 2.4 2-.8 3.2.8 3.2-2.4 2-1.2 2.9-3.1.2L12 22l-2.6-1.7-3.1-.2-1.2-2.9-2.4-2 .8-3.2-.8-3.2 2.4-2 1.2-2.9 3.1-.2Z" />
-                        {verification && <path d="m7.5 12 3 3 6-6" stroke-linecap="round" />}
-                      </svg>
-                      <span class="cap-sr">{verification ? `Verified on ${verification.platform}` : 'Verification pending'}</span>
+                      <VerificationSeal />
+                      <span class="cap-sr">Verification pending</span>
                     </summary>
-                    {verification ? <a class="cap-proof" href={verification.evidence}>Release test evidence · {verification.platform}</a> : <span class="cap-proof">Verification pending for v0.2.0.</span>}
+                    <span class="cap-proof">Verification pending for v0.2.0.</span>
                   </details>
                 ) : <><span class="cap-symbol" aria-hidden="true">{support[status].symbol}</span> {support[status].label}</>}
               </td>
@@ -207,7 +210,12 @@ const filterOptions = [
     margin: 0; border: 1px solid var(--line); border-radius: .3rem; clip-path: none;
     overflow: visible; white-space: normal; background: var(--night); color: var(--ivory); font-size: .875rem;
   }
-  .cap-seal { flex: none; color: var(--accent); }
+  .cap-status .cap-verified {
+    display: inline-flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    min-height: 44px; max-width: 100%; text-decoration: none;
+  }
+  .cap-status-line { display: inline-flex; align-items: center; gap: .35em; }
+  .cap-platform { font-size: .875rem; color: var(--accent); text-decoration: underline; text-underline-offset: .17em; }
   .cap-proof { display: block; margin-top: .5rem; color: var(--muted); font-size: .9rem; }
   .cap-method { margin: -.35rem 0 1.5rem; max-width: 75ch; }
   .cap-method summary { width: fit-content; min-height: 44px; padding: .6rem .2rem; color: var(--accent); }

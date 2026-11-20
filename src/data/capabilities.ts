@@ -1,5 +1,7 @@
 export const releaseSource = 'https://github.com/nostrocket/hypergolic/blob/v0.2.0';
 
+const testedPhones = ['Android 16 phone', 'iPhone 16 (iOS 27.0.1)'] as const;
+
 const draftSource = 'https://github.com/napplet/naps/blob';
 
 export const support = {
@@ -29,7 +31,7 @@ type Capability = {
   status: keyof typeof support;
   detail: string;
   remaining: string;
-  verification?: { platform: string; evidence: string };
+  verification?: { platforms: readonly string[]; evidence: string };
   estimates: Estimate[];
   references: { label: string; url: string }[];
 };
@@ -38,7 +40,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'storage', status: 'full',
     detail: 'All four storage operations (get, set, remove, keys) in both shared and per-instance storage.',
-    remaining: 'Verify persistence and isolation in shared and per-instance storage on release builds.',
+    remaining: 'None for the tested v0.2.0 cases.',
+    verification: { platforms: testedPhones, evidence: '/capabilities/v0.2.0/tests/#storage' },
     estimates: [],
     references: [
       { label: 'Release contract', url: `${releaseSource}/docs/capability-contract.md` },
@@ -49,7 +52,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'common', status: 'full',
     detail: 'All eight operations, including NIP-19 conversion, profile and follow reads, follow changes, reactions and reports. Social writes require approval. Each signed event must fit within 8 KiB.',
-    remaining: 'Verify all eight operations with a real signer and public relays, including follow-list edits, custom emoji and event reports.',
+    remaining: 'None for the tested v0.2.0 cases.',
+    verification: { platforms: testedPhones, evidence: '/capabilities/v0.2.0/tests/#common' },
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release social operations', url: `${releaseSource}/docs/common-social.md` },
@@ -126,7 +130,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'link', status: 'full',
     detail: 'Opens an approved HTTPS link with the device’s handler and reports the outcome. The release allows HTTPS only.',
-    remaining: 'Verify approval, refusal and the OS handoff result on Android and iOS.',
+    remaining: 'None for the tested v0.2.0 cases.',
+    verification: { platforms: testedPhones, evidence: '/capabilities/v0.2.0/tests/#link' },
     estimates: [{ size: 'XS' }],
     references: [
       { label: 'Release link policy', url: `${releaseSource}/docs/external-links.md` },
@@ -148,7 +153,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'notify', status: 'full',
     detail: 'In-app notifications with channel permissions, badges, action buttons, body clicks and dismissals.',
-    remaining: 'Verify permissions, badge updates, callbacks and cleanup in the notification centre on Android and iOS.',
+    remaining: 'None for the tested v0.2.0 cases.',
+    verification: { platforms: testedPhones, evidence: '/capabilities/v0.2.0/tests/#notify' },
     estimates: [{ size: 'S' }],
     references: [
       { label: 'Release behavior', url: `${releaseSource}/docs/notifications-configuration.md` },
@@ -203,7 +209,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'theme', status: 'full',
     detail: 'Supplies background, text and primary colours and broadcasts changes when the system switches appearance.',
-    remaining: 'Verify initial colours and light/dark changes on both platforms, including a napplet with an optional theme grant.',
+    remaining: 'None for the tested v0.2.0 cases.',
+    verification: { platforms: testedPhones, evidence: '/capabilities/v0.2.0/tests/#theme' },
     estimates: [{ size: 'XS' }],
     references: [
       { label: 'Theme service', url: `${releaseSource}/runtime/src/shell-theme.ts#L6-L20` },
@@ -213,7 +220,8 @@ export const capabilities: Capability[] = [
   {
     domain: 'upload', status: 'full',
     detail: 'Uploads approved raw bytes to Blossom, reports progress and returns a URL, SHA-256 hash, size and media type.',
-    remaining: 'Verify a real Blossom upload from each platform, including approval, progress, status and the returned file hash.',
+    remaining: 'None for the tested v0.2.0 cases.',
+    verification: { platforms: testedPhones, evidence: '/capabilities/v0.2.0/tests/#upload' },
     estimates: [{ size: 'M' }],
     references: [
       { label: 'Release upload workflow', url: `${releaseSource}/docs/upload-access.md` },
