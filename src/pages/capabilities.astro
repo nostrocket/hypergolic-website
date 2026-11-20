@@ -2,7 +2,7 @@
 import Reference from '../layouts/Reference.astro';
 import { capabilities, releaseSource, support, tokenBands } from '../data/capabilities';
 
-const description = 'See which capabilities Android napplets can use in Hypergolic v0.2.0, what remains for full support, and the estimated work for each domain.';
+const description = 'See which capabilities napplets can use in Hypergolic v0.2.0 and what remains to implement or test.';
 const filterOptions = [
   ['all', 'All'],
   ['full', 'Full'],
@@ -21,13 +21,14 @@ const filterOptions = [
   </div>
 
   <section id="capabilities" aria-label="Capability support by domain">
+    <p class="cap-legend">Full support means the release implements the required behavior in the cited draft. An empty badge means release testing is pending. A checked badge links to the end-to-end test and names the platform.</p>
     <details class="cap-method">
       <summary>How to read the token estimates</summary>
       <p>Each T-shirt size estimates total coding-agent input and output tokens for one domain. It covers source review, implementation, tests, Android and iOS acceptance, and one fix cycle. These planning estimates credit reusable Hypergolic code and assume one viable backend. Adding them together would double-count shared work.</p>
       <dl class="cap-bands">
         {Object.entries(tokenBands).map(([size, tokens]) => <div><dt>{size}</dt><dd>{tokens}</dd></div>)}
       </dl>
-      <p>Estimates are judgment calls as of 19 November 2026. A row marked “verify” describes an acceptance gap. Testing determines whether implementation changes are necessary.</p>
+      <p>These estimates date from 19 November 2026. They cover the original scope, including testing. The Remaining work column reflects the 20 November release-code review.</p>
     </details>
     <div class="control-row cap-controls">
       <label class="cap-search" id="capability-search" hidden>
@@ -55,17 +56,31 @@ const filterOptions = [
           <th scope="col" role="columnheader">Capability domain</th>
           <th scope="col" role="columnheader">v0.2.0</th>
           <th scope="col" role="columnheader">What a napplet gets</th>
-          <th scope="col" role="columnheader">What’s missing for full support</th>
+          <th scope="col" role="columnheader">Remaining work</th>
           <th scope="col" role="columnheader">Size estimate<br /><small>Agent tokens</small></th>
         </tr></thead>
         <tbody id="capability-rows" role="rowgroup">
-          {capabilities.map(({ domain, status, detail, remaining, estimates, references }) => (
+          {capabilities.map(({ domain, status, detail, remaining, estimates, references, verification }) => (
             <tr data-domain={domain} data-support={status} role="row">
               <th role="rowheader" scope="row" class="cap-names"><a href={`/explorer/?feature=${domain}`} aria-label={`Explore ${domain} declarations`}>{domain}</a></th>
-              <td class="cap-status" role="cell"><span class="cap-symbol" aria-hidden="true">{support[status].symbol}</span> {support[status].label}</td>
+              <td class="cap-status" role="cell">
+                {status === 'full' ? (
+                  <details class="cap-verification">
+                    <summary title={verification ? `Verified on ${verification.platform}` : 'Verification pending'}>
+                      <span><span class="cap-symbol" aria-hidden="true">{support.full.symbol}</span> {support.full.label}</span>
+                      <svg class="cap-seal" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                        <path d="m12 2 2.6 1.7 3.1.2 1.2 2.9 2.4 2-.8 3.2.8 3.2-2.4 2-1.2 2.9-3.1.2L12 22l-2.6-1.7-3.1-.2-1.2-2.9-2.4-2 .8-3.2-.8-3.2 2.4-2 1.2-2.9 3.1-.2Z" />
+                        {verification && <path d="m7.5 12 3 3 6-6" stroke-linecap="round" />}
+                      </svg>
+                      <span class="cap-sr">{verification ? `Verified on ${verification.platform}` : 'Verification pending'}</span>
+                    </summary>
+                    {verification ? <a class="cap-proof" href={verification.evidence}>Release test evidence · {verification.platform}</a> : <span class="cap-proof">Verification pending for v0.2.0.</span>}
+                  </details>
+                ) : <><span class="cap-symbol" aria-hidden="true">{support[status].symbol}</span> {support[status].label}</>}
+              </td>
               <td class="cap-detail" role="cell"><span class="cap-mobile-label" aria-hidden="true">What a napplet gets</span>{detail}</td>
               <td class="cap-remaining" role="cell">
-                <span class="cap-mobile-label" aria-hidden="true">What’s missing for full support</span>
+                <span class="cap-mobile-label" aria-hidden="true">Remaining work</span>
                 {remaining}
                 <span class="cap-links">{references.map(ref => <a href={ref.url}>{ref.label}</a>)}</span>
               </td>
@@ -84,7 +99,7 @@ const filterOptions = [
       </table>
     </div>
     <p id="cap-empty" class="cap-empty" hidden>Try another domain or choose a different support status.</p>
-    <p class="cap-sources muted">Full support covers the operations and scopes in the listed draft. Cross-platform conformance testing is still open. Domain coverage includes upstream proposals reviewed on 19 November 2026.
+    <p class="cap-sources muted">Support was reviewed against v0.2.0 on 20 November 2026. Each audited row links to the release code and the draft revision used.
       <span class="cap-links">
         <a href={`${releaseSource}/src/runtime/support-report.ts`}>Release support report</a>
         <a href="https://github.com/napplet/naps/blob/377bf939c6c906817084b43dd21d424de646dbc2/README.md">NAP registry</a>
@@ -180,6 +195,20 @@ const filterOptions = [
   .cap-detail { width: 24%; }
   .cap-remaining { width: 35%; }
   .cap-estimates { width: 15%; }
+  .cap-legend { color: var(--muted); max-width: 80ch; margin-bottom: 1rem; }
+  .cap-verification summary {
+    display: inline-flex; align-items: center; gap: .35em; min-height: 44px;
+    position: relative; margin-block: -.55rem; cursor: pointer; list-style: none;
+  }
+  .cap-verification summary::-webkit-details-marker { display: none; }
+  .cap-verification:not([open]) summary:focus-visible .cap-sr {
+    inset-block-end: calc(100% + .3rem); inset-inline-start: 0; z-index: 1;
+    width: max-content; max-width: 12rem; height: auto; padding: .3rem .55rem;
+    margin: 0; border: 1px solid var(--line); border-radius: .3rem; clip-path: none;
+    overflow: visible; white-space: normal; background: var(--night); color: var(--ivory); font-size: .875rem;
+  }
+  .cap-seal { flex: none; color: var(--accent); }
+  .cap-proof { display: block; margin-top: .5rem; color: var(--muted); font-size: .9rem; }
   .cap-method { margin: -.35rem 0 1.5rem; max-width: 75ch; }
   .cap-method summary { width: fit-content; min-height: 44px; padding: .6rem .2rem; color: var(--accent); }
   .cap-method p { margin: .55rem 0; color: var(--muted); }
@@ -217,6 +246,7 @@ const filterOptions = [
     .cap-table tbody { display: block; }
     .cap-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .6rem 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
     .cap-table tbody tr > * { display: block; border: 0; padding: 0; width: auto; }
+    .cap-verification:not([open]) summary:focus-visible .cap-sr { inset-inline: auto 0; }
     .cap-table .cap-status { align-self: start; font-size: .875rem; }
     .cap-table :is(.cap-detail, .cap-remaining, .cap-estimates) { grid-column: 1 / -1; }
     .cap-table .cap-mobile-label { display: block; font-size: .875rem; color: var(--muted); margin: .35rem 0 .1rem; }
