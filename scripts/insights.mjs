@@ -2,14 +2,14 @@ import { spawnSync } from 'node:child_process';
 import { mkdtemp, rm, mkdir, link, readFile, readdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { randomBytes } from 'node:crypto';
+import { createHash, randomBytes } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { generateSecretKey, getPublicKey, nip19, SimplePool } from 'nostr-tools';
 import { BunkerSigner, createNostrConnectURI } from 'nostr-tools/nip46';
 import { createStore } from '../src/explorer/model.js';
 import { LIVE_LIMITS, RELAYS, startLive } from '../src/explorer/live.js';
 import { createEdition, observationWeek, prototypeKind, publisherKey, verifyApproval } from '../src/insights/snapshot.js';
-import { createPostPreview } from '../src/insights/post.js';
+import { createPostPreview, shareImagePath } from '../src/insights/post.js';
 import { probeSnapshotRelays, publishSnapshot } from '../src/insights/relay-publication.js';
 
 const { positionals: [command, editionDate], values } = parseArgs({
@@ -94,7 +94,8 @@ async function queueEdition() {
 }
 
 async function writePost(file, edition) {
-  const { image, alt, text } = createPostPreview(edition.snapshot);
+  const backdrop = await readFile(new URL('../public/assets/launch-wide-1600.webp', import.meta.url));
+  const { image, alt, text } = createPostPreview(edition.snapshot, backdrop);
   await Promise.all([
     writeFile(file.replace(/\.json$/, '.svg'), image),
     writeFile(file.replace(/\.json$/, '.txt'), text),
@@ -164,7 +165,56 @@ async function publishRelease() {
   console.log('Verified the Exosquare snapshot on every queued publishing relay.');
 }
 
-async function signEdition({ production = false } = {}) {
+async function queuePost() {
+  const approved = await loadJson(editionFile('.approved'));
+  const release = await loadJson(editionFile('.release'));
+  const receipt = await loadJson(editionFile('.publication'));
+  if (!verifyApproval(approved.event, release.unsigned, publisherKey) ||
+      receipt.id !== approved.event.id || !receipt.results.some(row => row.read.status === 'verified')) {
+    throw new Error('The official edition must be signed and verified on a relay before queuing the post.');
+  }
+
+  const base = 'https://hypergolic.sh';
+  const editionUrl = base + '/insights/' + editionDate + '/';
+  const imagePath = shareImagePath(editionDate);
+  const imageUrl = base + imagePath;
+  const getLive = async url => {
+    const response = await fetch(url, { redirect: 'error', signal: AbortSignal.timeout(12000) });
+    if (!response.ok) throw new Error('The edition or its asset is not live at ' + url);
+    return response;
+  };
+
+  const [page, event, png, localImage, draft] = await Promise.all([
+    getLive(editionUrl).then(response => response.text()),
+    getLive(editionUrl + 'snapshot.json').then(response => response.json()),
+    getLive(imageUrl).then(async response => {
+      if (response.headers.get('content-type')?.split(';')[0] !== 'image/png') throw new Error('Expected a live PNG share card.');
+      return Buffer.from(await response.arrayBuffer());
+    }),
+    readFile(resolve('public', '.' + imagePath)),
+    readFile(join(queue, editionDate + '.nostr-post.txt'), 'utf8'),
+  ]);
+  if (event.id !== approved.event.id || !verifyApproval(event, release.unsigned, publisherKey) ||
+      !page.includes('content="' + imageUrl + '"') || !png.equals(localImage)) {
+    throw new Error('The live edition, signed snapshot, and share card did not match the prepared release.');
+  }
+  if (!draft.trim().endsWith(editionUrl)) throw new Error('The prepared post must end with its dated edition URL.');
+  const { alt } = createPostPreview(JSON.parse(event.content));
+  const unsigned = {
+    kind: 1,
+    created_at: Math.floor(Date.now() / 1000),
+    content: draft.trim() + '\n\n' + imageUrl,
+    tags: [
+      ['imeta', 'url ' + imageUrl, 'm image/png', 'dim ' + png.readUInt32BE(16) + 'x' + png.readUInt32BE(20),
+        'alt ' + alt, 'x ' + createHash('sha256').update(png).digest('hex')],
+    ],
+  };
+  await writeJson(editionFile('.post-queued'), { expectedPubkey: publisherKey, unsigned }, 'wx');
+  console.log('Queued Exosquare Nostr post:', editionFile('.post-queued'));
+  console.log(unsigned.content);
+}
+
+async function signEdition({ production = false, social = false } = {}) {
   if (!values.relay || new URL(values.relay).protocol !== 'wss:') throw new Error('Specify a secure signing relay.');
   const expected = values['test-npub'];
   const fingerprint = expected?.match(/^(npub1[023456789acdefghjklmnpqrstuvwxyz]{3,}):([023456789acdefghjklmnpqrstuvwxyz]{8,})$/);
@@ -172,16 +222,17 @@ async function signEdition({ production = false } = {}) {
   if (!production && account && (account.type !== 'npub' || account.data === publisherKey)) {
     throw new Error('Use a throwaway npub for test-sign.');
   }
-  const edition = await loadJson(editionFile(production ? '.release' : ''));
-  if (production && (edition.expectedPubkey !== publisherKey || edition.unsigned.kind !== prototypeKind)) {
+  const edition = await loadJson(editionFile(social ? '.post-queued' : production ? '.release' : ''));
+  if (production && (edition.expectedPubkey !== publisherKey || edition.unsigned.kind !== (social ? 1 : prototypeKind))) {
     throw new Error('The queued release does not match the configured official publisher and kind.');
   }
   const unsigned = edition.unsigned;
+  const label = social ? 'Nostr post' : 'snapshot';
   const key = generateSecretKey();
   const uri = createNostrConnectURI({
     clientPubkey: getPublicKey(key), relays: [values.relay],
     secret: randomBytes(16).toString('hex'),
-    name: production ? 'Exosquare Napplet Insights' : 'Napplet Insights throwaway test',
+    name: social ? 'Exosquare Insights post' : production ? 'Exosquare Napplet Insights' : 'Napplet Insights throwaway test',
   });
   const pairingDirectory = await mkdtemp(join(queue, 'pairing-'));
   const qr = join(pairingDirectory, 'amber.png');
@@ -211,10 +262,13 @@ async function signEdition({ production = false } = {}) {
       ? signerNpub.startsWith(fingerprint[1]) && signerNpub.endsWith(fingerprint[2])
       : signerKey === account.data);
     if (production ? signerKey !== publisherKey : !matchesTest) throw new Error('Amber selected a different account.');
-    console.log((production ? 'Official Exosquare' : 'Throwaway') + ' account matched. Review and approve the snapshot in Amber.');
+    console.log((production ? 'Official Exosquare' : 'Throwaway') + ' account matched. Review and approve the ' + label + ' in Amber.');
     const signed = await within(signer.signEvent(unsigned), 180000);
-    if (!verifyApproval(signed, unsigned, signerKey)) throw new Error('Signer response did not match the queued snapshot.');
-    if (production) {
+    if (!verifyApproval(signed, unsigned, signerKey)) throw new Error('Signer response did not match the queued ' + label + '.');
+    if (social) {
+      await writeJson(editionFile('.post-approved'), { event: signed }, 'wx');
+      console.log('Exosquare signature verified. The signed Nostr post was saved locally.');
+    } else if (production) {
       await writeJson(editionFile('.approved'), { event: signed, manifest: edition.manifest }, 'wx');
       console.log('Exosquare signature verified. The official snapshot is ready for relay publication.');
     } else {
@@ -260,9 +314,11 @@ try {
   else if (command === 'probe-relays') await checkPublicationRelays();
   else if (command === 'queue-release') await queueRelease();
   else if (command === 'approve') await signEdition({ production: true });
+  else if (command === 'queue-post') await queuePost();
+  else if (command === 'approve-post') await signEdition({ production: true, social: true });
   else if (command === 'publish') await publishRelease();
   else if (command === 'render-post') await renderPost();
-  else throw new Error('Commands: collect, render-post, test-sign, probe-relays, queue-release, approve, publish');
+  else throw new Error('Commands: collect, render-post, test-sign, probe-relays, queue-release, approve, publish, queue-post, approve-post');
 } catch (error) {
   console.error(error.message);
   process.exit(1);

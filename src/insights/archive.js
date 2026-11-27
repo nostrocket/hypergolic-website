@@ -3,7 +3,7 @@ import { access, readFile, readdir } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { verifyEvent } from 'nostr-tools/pure';
 import { prototypeKind, publisherKey, seriesTag } from './snapshot.js';
-import { createPostPreview } from './post.js';
+import { createPostPreview, shareImagePath } from './post.js';
 
 export async function loadEditions() {
   const drafts = process.env.INSIGHTS_PREVIEW_DRAFTS === '1';
@@ -39,7 +39,7 @@ export async function loadEditions() {
       if (!bytes || bytes.length > 131072 || createHash('sha256').update(bytes).digest('hex') !== hash) return record;
       return { ...record, iconUrl: 'data:' + mime + ';base64,' + bytes.toString('base64') };
     }));
-    const imagePath = '/assets/insights/' + snapshot.weekStartUtc + '.png';
+    const imagePath = shareImagePath(snapshot.weekStartUtc);
     const hasImage = await access(resolve('public', '.' + imagePath)).then(() => true, error => {
       if (error.code !== 'ENOENT') throw error;
       return false;
