@@ -2,11 +2,13 @@
 import '../styles/site.css';
 import LaunchImage from '../components/LaunchImage.astro';
 
+import { releases, comingUp } from '../data/releases';
+
 const repository = 'https://github.com/nostrocket/hypergolic';
-const releases = `${repository}/releases`;
-const version = '0.2.0';
-const releaseNotes = `${releases}/tag/v${version}`;
-const androidApk = `${releases}/download/v${version}/hypergolic-${version}-2-arm64.apk`;
+const releaseUrl = `${repository}/releases`;
+const latest = releases[0];
+const androidApk = `${releaseUrl}/download/${latest.tag}/${latest.apk}`;
+const displayDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeZone: 'UTC' });
 const title = 'Hypergolic — A native home for Nostr napplets';
 const description = 'Discover Nostr napplets, pin favorites to Home, and switch between open apps on Android. Bring your Nostr identity and choose how you sign.';
 const canonical = new URL('/', Astro.site).href;
@@ -64,8 +66,8 @@ const steps = [
           <div class="download">
             <a class="download-button" href={androidApk}>Download for Android <span class="download-arrow" aria-hidden="true">↓</span></a>
             <div class="release-details">
-              <span class="format">ARM64 APK</span>
-              <a href={releaseNotes}>v{version} release notes</a>
+              <span class="format">{latest.tag} · ARM64 APK</span>
+              <a href="#release-notes">Release notes</a>
             </div>
           </div>
         </div>
@@ -104,6 +106,27 @@ const steps = [
           <a class="text-link" href={`${repository}/blob/main/docs/signing-core.md`}>How signing works <span class="outbound" aria-hidden="true">↗</span></a>
         </div>
       </section>
+      <section class="signing section-width release-history" aria-labelledby="release-notes">
+        <h2 id="release-notes">Release notes</h2>
+        <div>
+          {releases.map(({ tag, date, summary }) => (
+            <article>
+              <h3><a class="text-link" href={`${releaseUrl}/tag/${tag}`}>{tag}</a></h3>
+              <time datetime={date}>{displayDate.format(new Date(date))}</time>
+              <p>{summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      {comingUp.length > 0 && (
+        <section class="signing section-width release-history" aria-labelledby="coming-up">
+          <h2 id="coming-up">Coming up…</h2>
+          <div>
+            <p>In development for the next build</p>
+            <ul>{comingUp.map(feature => <li>{feature}</li>)}</ul>
+          </div>
+        </section>
+      )}
     </main>
 
     <footer class="footer section-width">
@@ -112,7 +135,7 @@ const steps = [
         Hypergolic
       </a>
       <nav aria-label="Project resources">
-        <a href={releases}>Releases</a>
+        <a href={releaseUrl}>GitHub releases</a>
         <a href={`${repository}/issues`}>Support</a>
         <a href={`${repository}/blob/main/docs/privacy.md`}>App privacy</a>
         <a href={repository}>GitHub <span class="outbound" aria-hidden="true">↗</span></a>
