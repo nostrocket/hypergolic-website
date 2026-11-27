@@ -1,0 +1,6 @@
+---
+import Insights from '../../components/Insights.astro';
+import { loadEditions } from '../../insights/archive.js';
+const editions = await loadEditions();
+---
+<Insights editions={editions} />

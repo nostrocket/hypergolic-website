@@ -1,0 +1,170 @@
+---
+import Reference from '../layouts/Reference.astro';
+import InsightChart from './InsightChart.astro';
+import { capabilityRows, editionLabel } from '../insights/post.js';
+
+const { editions, selected } = Astro.props;
+const edition = selected ?? editions.at(-1);
+const snapshot = edition?.snapshot;
+const index = editions.indexOf(edition);
+const previous = editions[index - 1];
+const next = editions[index + 1];
+const route = (entry: { snapshot: { weekStartUtc: string } }) => `/insights/${entry.snapshot.weekStartUtc}/`;
+const newNapplets = edition?.manifest.napplets.filter((item) => item.firstSeen) ?? [];
+const rows = snapshot ? capabilityRows(snapshot) : [];
+const history = editions.slice(-12);
+const domains = [...new Set(history.flatMap(entry => Object.keys(entry.snapshot.capabilities)))].sort();
+const chart = (value) => history.map(({ snapshot: week }) => ({
+  date: week.weekStartUtc,
+  partial: week.coverage.status === 'partial',
+  value: value(week),
+}));
+const count = (week, domain) => {
+  if (!week.totals.comparable) return null;
+  const row = week.capabilities[domain];
+  return row ? row.requiredOnly + row.optionalOnly + row.both : 0;
+};
+const shades = ['#ffb964', '#b97849', '#795343', '#424d62', '#20344a'];
+const cardData = newNapplets.map(item => ({
+  ...item,
+  href: `/explorer/?view=publications&publication=${encodeURIComponent(item.coordinate)}`,
+}));
+---
+<Reference title={selected ? `Napplet Insights · ${editionLabel(snapshot)}` : 'Napplet Insights'}
+  description="See what’s new and what’s growing on Nostr." active="insights" image={edition?.shareImage}>
+  <div slot="intro" class="page-intro">
+    <h1>Napplet Insights</h1>
+    <p>See what’s new and what’s growing on Nostr.</p>
+  </div>
+  {!snapshot ? <p>No published editions yet.</p> : <>
+    <section aria-labelledby="edition-title">
+      <div class="edition-heading">
+        <h2 id="edition-title">{selected ? 'Weekly edition' : 'Latest edition'}</h2>
+        <nav aria-label="Edition date">
+          {previous ? <a href={route(previous)} aria-label="Previous published edition">‹</a> : <span aria-hidden="true">‹</span>}
+          <time datetime={snapshot.weekStartUtc}>{editionLabel(snapshot)}</time>
+          {next ? <a href={route(next)} aria-label="Next published edition">›</a> : <span aria-hidden="true">›</span>}
+        </nav>
+      </div>
+      {edition.draft && <p class="notice">Unsigned draft preview</p>}
+      <p class="muted">Observed {new Date(snapshot.observedAt).toLocaleDateString('en', { timeZone: 'UTC', dateStyle: 'medium' })} UTC. New napplets are first seen by Explorer. {snapshot.coverage.status === 'partial' && 'Relay coverage was partial this week.'}</p>
+      <dl class="edition-totals">
+        <div><dt>Napplets observed</dt><dd>{snapshot.totals.observed}</dd></div>
+        <div><dt>{cardData.length ? <a href="#new-napplets">New napplets</a> : 'New napplets'}</dt><dd>{snapshot.totals.new ?? '—'}</dd></div>
+        <div><dt>Relays returned data</dt><dd>{snapshot.coverage.responded}/{snapshot.coverage.attempted}</dd></div>
+      </dl>
+      <h3>Capabilities declared</h3>
+      {rows.length ? <ul class="heat-tiles">
+        {rows.slice(0, 5).map(({ name, count }, i) => <li style={`--tile: ${shades[i]}; --tile-ink: ${i < 2 ? '#090d13' : '#fff7e8'}`}>
+          <span>{name}</span><strong>{count}</strong>
+        </li>)}
+      </ul> : <p class="muted">No declarations in this edition’s comparable sample.</p>}
+      <details class="relay-coverage">
+        <summary>Relay coverage</summary>
+        <ul>{snapshot.coverage.relays.map(({ url, status }) => <li>{url} · {status}</li>)}</ul>
+      </details>
+      {edition.event && <a href={`/insights/${snapshot.weekStartUtc}/snapshot.json`}>View signed snapshot</a>}
+    </section>
+    <section class="trends" aria-labelledby="trends-title">
+      <div class="trends-heading">
+        <h2 id="trends-title">Trends</h2>
+        {domains.length > 0 && <form class="capability-picker" aria-label="Capability chart filters">
+          <label>Capability <select name="domain">
+            {domains.map(domain => <option value={domain}>{domain}</option>)}
+          </select></label>
+          <label>Measure <select name="measure">
+            <option value="count">Count</option><option value="share">Share</option>
+          </select></label>
+        </form>}
+      </div>
+      <div class="trend-grid">
+        <div class="growth-trends">
+          <InsightChart heading="Napplet growth" entries={chart(week => week.totals.observed)} />
+          {history.some(entry => entry.snapshot.totals.new !== null) &&
+            <InsightChart heading="New napplets" entries={chart(week => week.totals.new)} />}
+        </div>
+        {domains.length > 0 && <div class="capability-trends">
+          {domains.map((domain, index) => <div data-capability={domain} hidden={index !== 0}>
+            <div data-measure="count"><InsightChart heading="Capability declarations" entries={chart(week => count(week, domain))} /></div>
+            <div data-measure="share" hidden><InsightChart heading="Capability declarations" entries={chart(week =>
+              week.totals.comparable ? 100 * (count(week, domain) ?? 0) / week.totals.comparable : null)}
+              format={value => Math.round(value) + '%'} /></div>
+          </div>)}
+        </div>}
+      </div>
+      <p class="muted">Open dots and dotted lines indicate partial relay coverage.</p>
+    </section>
+    <section id="new-napplets" aria-labelledby="new-title">
+      <h2 id="new-title">New Napplets</h2>
+      {cardData.length ? <>
+        <ul class="napplet-cards">
+          {cardData.slice(0, 3).map(item => <li><a href={item.href}>
+            <span class="app-icon">{item.iconUrl ? <img src={item.iconUrl} alt="" loading="lazy" referrerpolicy="no-referrer" /> : item.title[0]}</span>
+            <span><strong>{item.title}</strong>{item.description && <small>{item.description.slice(0, 140)}</small>}</span>
+          </a></li>)}
+        </ul>
+        {cardData.length > 3 && <details><summary>View all {cardData.length}</summary>
+          <ul class="napplet-cards">{cardData.slice(3).map(item => <li><a href={item.href}>
+            <span class="app-icon">{item.iconUrl ? <img src={item.iconUrl} alt="" loading="lazy" referrerpolicy="no-referrer" /> : item.title[0]}</span>
+            <span><strong>{item.title}</strong>{item.description && <small>{item.description.slice(0, 140)}</small>}</span>
+          </a></li>)}</ul>
+        </details>}
+      </> : <p class="muted">{snapshot.totals.new === null ? 'New napplet counts start with the next comparable observation.' : 'No new napplets observed this week.'}</p>}
+    </section>
+    <section aria-labelledby="archive-title">
+      <h2 id="archive-title">Edition archive</h2>
+      <ul class="edition-archive">
+        {[...editions].reverse().map(entry => <li><a href={route(entry)}>{editionLabel(entry.snapshot)}</a></li>)}
+      </ul>
+    </section>
+  </>}
+</Reference>
+
+<script>
+  const picker = document.querySelector<HTMLFormElement>('.capability-picker');
+  const sections = document.querySelectorAll<HTMLElement>('[data-capability]');
+  picker?.addEventListener('change', () => {
+    const selection = new FormData(picker);
+    for (const section of sections) {
+      section.hidden = section.dataset.capability !== selection.get('domain');
+      for (const measure of section.querySelectorAll<HTMLElement>('[data-measure]')) {
+        measure.hidden = measure.dataset.measure !== selection.get('measure');
+      }
+    }
+  });
+</script>
+
+<style>
+  .edition-heading, .edition-heading nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; }
+  .edition-heading { justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 0.7rem; }
+  .edition-heading h2 { margin: 0; }
+  .edition-heading :is(a, span) { display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; border: 1px solid var(--line); text-decoration: none; font-size: 1.35rem; }
+  .edition-heading a, .notice { color: var(--accent); }
+  .edition-heading span { color: #657382; }
+  .notice { margin-block: 0.7rem; font-family: var(--mono); }
+  .edition-totals, .heat-tiles, .trend-grid, .napplet-cards { display: grid; gap: 0.75rem; }
+  .edition-totals { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+  .edition-totals div { display: flex; align-items: center; gap: 0.65rem; }
+  .edition-totals dd { order: -1; margin: 0; font-size: 2rem; color: var(--accent); }
+  .edition-totals dt { font-family: var(--mono); }
+  .heat-tiles, .napplet-cards, .edition-archive { list-style: none; padding: 0; }
+  .heat-tiles { grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: 0.2rem; }
+  .heat-tiles li { background: var(--tile); color: var(--tile-ink); padding: 0.65rem; overflow-wrap: anywhere; }
+  .heat-tiles strong { display: block; font-size: 1.5rem; }
+  .relay-coverage { margin-block: 0.75rem; }
+  .trends { container: insights-trends / inline-size; margin-block-start: 2rem; }
+  .trends-heading, .capability-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+  .trends-heading { justify-content: space-between; margin-block-end: 0.75rem; }
+  .trends-heading h2 { margin: 0; }
+  .trend-grid { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .growth-trends { display: grid; gap: 0.75rem; }
+  @container insights-trends (min-width: 37rem) {
+    .trend-grid:has(.capability-trends) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  .napplet-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+  .napplet-cards a { display: flex; align-items: center; gap: 0.7rem; height: 100%; border: 1px solid var(--line); padding: 0.7rem; text-decoration: none; overflow-wrap: anywhere; }
+  .app-icon { flex: 0 0 2.75rem; height: 2.75rem; display: grid; place-items: center; background: #20344a; border-radius: 0.35rem; color: var(--accent); }
+  .app-icon img { width: 100%; height: 100%; object-fit: contain; }
+  .napplet-cards small { display: block; color: var(--muted); }
+  .edition-archive li { border-top: 1px solid var(--line); padding: 0.55rem 0; }
+</style>

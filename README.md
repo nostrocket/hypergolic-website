@@ -47,3 +47,66 @@ Homepage copy and Android release links live in [src/pages/index.astro](src/page
 ## License
 
 The website source is available under the [MIT License](LICENSE). Barlow and JetBrains Mono are distributed under the SIL Open Font License 1.1. [Barlow notice](public/assets/fonts/Barlow-OFL.txt) · [JetBrains Mono notice](public/assets/fonts/JetBrainsMono-OFL.txt)
+
+## Napplet Insights prototype
+
+Collect a bounded, read-only relay observation for the current UTC week:
+
+```sh
+node scripts/insights.mjs collect
+```
+
+The local `.insights-queue/` holds one unsigned JSON snapshot and its publication
+manifest per week, plus the share card (SVG), caption and alt text. Run `node scripts/insights.mjs render-post YYYY-MM-DD`
+to render the card to PNG with Chrome or Chromium. A repeat run
+for the same UTC week reuses the queued snapshot. The first edition is a baseline
+with no new-napplet count. Schedule collection near the end of each UTC week to
+keep the observation times comparable.
+
+Preview the queued editions locally with `INSIGHTS_PREVIEW_DRAFTS=1 pnpm dev`
+and open `/insights/`. Standard builds read `data/insights/` and require a
+verified signature from the pinned Exosquare key, the expected kind and series
+tag, and a matching manifest digest. Set `INSIGHTS_DIRECTORY` to change the
+input directory. Each edition's URL uses its UTC week start.
+
+To test Amber, create or select a disposable account in Amber and use its public
+npub. The command shows a private pairing QR on macOS (Swift/Xcode Command Line
+Tools required), or a one-time pairing URI elsewhere:
+
+```sh
+node scripts/insights.mjs test-sign 2026-11-23 --relay wss://relay.example --test-npub npub1...
+```
+
+Scan to pair, then approve the signing request in Amber. The CLI checks the
+selected account, exact event hash and signature, then saves the signed test
+event locally. The signing relay carries the encrypted NIP-46 messages.
+The prototype snapshot kind is provisional. Confirm its registry status and
+read/write support on the intended publication relays before a public release.
+
+A release entry under `data/insights/` is named `YYYY-MM-DD.json` and
+contains the signed snapshot as `event` and the matching `manifest`. For card
+artwork, put each available icon under `data/insights/icons/<sha256>`. The
+build checks the bytes against the signed manifest's hash and renders a
+letter fallback when an icon is unavailable.
+
+### Publish an official Exosquare edition
+
+After authorizing public compatibility probes, run these commands with the
+queued edition date:
+
+```sh
+node scripts/insights.mjs probe-relays YYYY-MM-DD
+node scripts/insights.mjs queue-release YYYY-MM-DD
+node scripts/insights.mjs approve YYYY-MM-DD --relay wss://relay.nip46.com
+node scripts/insights.mjs publish YYYY-MM-DD
+```
+
+The first command sends a labeled kind probe with a ten-minute expiration from
+a disposable key to each candidate relay. The release queue includes only
+relays that accepted and served their probe. Select the official Exosquare
+account in Amber for the approval. The CLI checks the account and the exact
+event before saving the signed release and matching manifest. The separate
+publish command submits that approved event, verifies read-back on a fresh
+connection and records a per-relay receipt. Rerunning publish reuses the same
+signed event and skips relays already serving it. The short social post is a
+separate event.

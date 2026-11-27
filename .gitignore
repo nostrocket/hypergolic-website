@@ -23,3 +23,5 @@ Thumbs.db
 *.swp
 npm-debug.log*
 pnpm-debug.log*
+
+.insights-queue/

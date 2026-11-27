@@ -1,0 +1,12 @@
+---
+import Insights from '../../components/Insights.astro';
+import { loadEditions } from '../../insights/archive.js';
+export async function getStaticPaths() {
+  const editions = await loadEditions();
+  return editions.map(selected => ({
+    params: { week: selected.snapshot.weekStartUtc },
+    props: { editions, selected },
+  }));
+}
+---
+<Insights {...Astro.props} />

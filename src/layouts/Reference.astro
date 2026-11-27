@@ -2,7 +2,7 @@
 import '../styles/site.css';
 import '../styles/reference.css';
 import LaunchImage from '../components/LaunchImage.astro';
-const { title, description, active, connections } = Astro.props;
+const { title, description, active, connections, image } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -19,7 +19,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={`${title} · Hypergolic`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/assets/social-preview.jpg', Astro.site)} />
+    <meta property="og:image" content={new URL(image?.path ?? '/assets/social-preview.jpg', Astro.site)} />
+    {image && <meta property="og:image:alt" content={image.alt} />}
   </head>
   <body class="reference">
     <a class="skip" href="#main">Skip to content</a>
@@ -30,6 +31,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <nav aria-label="Main navigation">
           <a href="/capabilities/" aria-current={active === 'capabilities' ? 'page' : undefined}>Capabilities</a>
           <a href="/explorer/" aria-current={active === 'explorer' ? 'page' : undefined}>Napplet explorer</a>
+          <a href="/insights/" aria-current={active === 'insights' ? 'page' : undefined}>Napplet Insights</a>
           <a href="https://github.com/nostrocket/hypergolic">GitHub</a>
         </nav>
       </div>
