@@ -110,3 +110,18 @@ publish command submits that approved event, verifies read-back on a fresh
 connection and records a per-relay receipt. Rerunning publish reuses the same
 signed event and skips relays already serving it. The short social post is a
 separate event.
+
+### Prepare and sign an edition announcement
+
+Host the rendered PNG at `public/assets/insights/YYYY-MM-DD-share.png`. Once
+the dated page and image are live, save the post copy in
+`.insights-queue/YYYY-MM-DD.nostr-post.txt`, ending with the dated edition URL.
+
+```sh
+node scripts/insights.mjs queue-post YYYY-MM-DD
+node scripts/insights.mjs approve-post YYYY-MM-DD --relay wss://relay.nip46.com
+```
+
+Queueing verifies the live page, signed snapshot, and PNG before adding the
+image URL and its media metadata to the note. Amber approval saves the signed
+note locally.

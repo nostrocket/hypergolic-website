@@ -15,7 +15,11 @@ export function editionLabel(snapshot) {
   return new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeZone: 'UTC' }).formatRange(start, end);
 }
 
-export function createPostPreview(snapshot) {
+export function shareImagePath(weekStartUtc) {
+  return '/assets/insights/' + weekStartUtc + '-share.png';
+}
+
+export function createPostPreview(snapshot, backdrop) {
   const url = site + '/insights/' + snapshot.weekStartUtc + '/';
   const rows = capabilityRows(snapshot).slice(0, 4);
   const date = editionLabel(snapshot);
@@ -29,13 +33,21 @@ export function createPostPreview(snapshot) {
   const alt = title + '. ' + snapshot.totals.observed + ' napplets observed. '
     + (snapshot.totals.new === null ? 'Baseline edition. ' : snapshot.totals.new + ' new napplets. ')
     + coverage + '. ' + rows.map(({ name, count }) => name + ': ' + count).join(', ');
+  const hero = backdrop ? `<defs>
+  <linearGradient id="hero-dim"><stop stop-color="#090d13" stop-opacity=".83"/><stop offset="100%" stop-color="#090d13" stop-opacity=".12"/></linearGradient>
+  <linearGradient id="hero-edge" x2="0%" y2="100%"><stop offset="78%" stop-color="#090d13" stop-opacity="0"/><stop offset="100%" stop-color="#090d13"/></linearGradient>
+</defs>
+<image href="data:image/webp;base64,${backdrop.toString('base64')}" width="1200" height="179" preserveAspectRatio="xMidYMax slice"/>
+<rect width="1200" height="179" fill="url(#hero-dim)"/>
+<rect width="1200" height="179" fill="url(#hero-edge)"/>` : '';
   const image = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
 <title>${escape(alt)}</title>
 <rect width="1200" height="630" fill="#090d13"/>
+${hero}
 <g font-family="Arial,sans-serif" fill="#f8efe0">
 <text x="64" y="72" font-size="25" fill="#ffb964">Hypergolic · ${escape(date)}</text>
 <text x="64" y="148" font-size="62" font-weight="700">Napplet Insights</text>
-${stats.map(([value, label], index) => `<text x="${64 + 530 * index}" y="278" font-size="104" font-weight="700" fill="#ffb964">${value}</text>
+${stats.map(([value, label], index) => `<text x="${64 + 530 * index}" y="278" font-size="${typeof value === 'number' ? 104 : 74}" font-weight="700" fill="#ffb964">${value}</text>
 <text x="${68 + 530 * index}" y="318" font-size="27">${label}</text>`).join('')}
 <text x="64" y="403" font-size="25">Capabilities declared</text>
 ${rows.map(({ name, count }, index) => {
