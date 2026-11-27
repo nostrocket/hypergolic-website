@@ -42,7 +42,7 @@ Pull requests targeting `main` build and package the site. Pushes to `main` publ
 
 ## Contributing
 
-Homepage copy and Android release links live in [src/pages/index.astro](src/pages/index.astro). The responsive layout and typography live in [src/styles/site.css](src/styles/site.css), and the site’s images and fonts live in [public/assets](public/assets/). Run `pnpm run build:pages` to check your changes before opening a pull request.
+Release highlights, upcoming features and the current Android download asset live in [src/data/releases.ts](src/data/releases.ts). Homepage layout and copy live in [src/pages/index.astro](src/pages/index.astro). The responsive layout and typography live in [src/styles/site.css](src/styles/site.css), and the site’s images and fonts live in [public/assets](public/assets/). Run `pnpm run build:pages` to check your changes before opening a pull request.
 
 ## License
 
