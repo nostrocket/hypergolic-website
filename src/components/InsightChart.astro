@@ -1,0 +1,42 @@
+---
+const { heading, entries, format = (value: number) => String(value) } = Astro.props;
+const width = 460;
+const height = 140;
+const max = Math.max(1, ...entries.flatMap(({ value }: { value: number | null }) => value === null ? [] : [value]));
+const x = (index: number) => entries.length === 1 ? width / 2 : 42 + index * (width - 60) / Math.max(1, entries.length - 1);
+const y = (value: number) => height - 25 - (height - 45) * value / max;
+---
+<section class="insight-chart">
+  <h3>{heading}</h3>
+  <svg viewBox={`0 0 ${width} ${height}`} aria-hidden="true">
+    <line x1="42" y1={height - 25} x2={width - 18} y2={height - 25} stroke="#59626f" />
+    <text x="36" y="24" text-anchor="end">{format(max)}</text>
+    <text x="36" y={height - 22} text-anchor="end">{format(0)}</text>
+    {entries.map(({ value, partial }: { value: number | null; partial: boolean }, index: number) => {
+      if (value === null) return null;
+      const previous = entries[index - 1];
+      return <>
+        {previous?.value != null && <line x1={x(index - 1)} y1={y(previous.value)} x2={x(index)} y2={y(value)}
+          stroke="#ffb964" stroke-width="2" stroke-dasharray={partial || previous.partial ? '4 4' : undefined} />}
+        <circle cx={x(index)} cy={y(value)} r="4" fill={partial ? '#090d13' : '#ffb964'} stroke="#ffb964" />
+      </>;
+    })}
+    {entries.length > 0 && <text x="42" y={height}>{entries[0].date}</text>}
+    {entries.length > 1 && <text x={width - 18} y={height} text-anchor="end">{entries.at(-1).date}</text>}
+  </svg>
+  <details>
+    <summary>Chart data</summary>
+    <ul>
+      {entries.map(({ date, value, partial }: { date: string; value: number | null; partial: boolean }) => <li>
+        <a href={`/insights/${date}/`}>{date}</a> · {value === null ? 'Unavailable' : format(value)}{partial && ' · partial coverage'}
+      </li>)}
+    </ul>
+  </details>
+</section>
+<style>
+  .insight-chart { border: 1px solid var(--line); padding: 0.8rem; min-width: 0; }
+  .insight-chart h3 { margin: 0 0 0.4rem; }
+  svg { display: block; width: 100%; }
+  text { font: 10px var(--mono); fill: var(--ivory); }
+  details { margin-top: 0.6rem; font-size: 0.9rem; }
+</style>

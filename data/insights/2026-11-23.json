@@ -1,0 +1,3414 @@
+{
+  "event": {
+    "id": "8c420e4bd93236143fb728a2210a7415140e3ee864fbbc6595f4378cab80b5ba",
+    "pubkey": "1e870530b08fe0ed2fba269105d531eb4af8c14f3a1d6dbaa283e706bf01cd09",
+    "created_at": 1795754773,
+    "kind": 7801,
+    "tags": [
+      [
+        "t",
+        "hypergolic-napplet-insights"
+      ]
+    ],
+    "content": "{\"schemaVersion\":1,\"methodVersion\":1,\"weekStartUtc\":\"2026-11-23\",\"weekEndExclusiveUtc\":\"2026-11-30\",\"observedAt\":\"2026-11-27T04:46:13.306Z\",\"coverage\":{\"status\":\"partial\",\"attempted\":3,\"responded\":3,\"relays\":[{\"url\":\"wss://nos.lol\",\"status\":\"limited\"},{\"url\":\"wss://relay.ditto.pub\",\"status\":\"limited\"},{\"url\":\"wss://relay.primal.net\",\"status\":\"limited\"}]},\"totals\":{\"observed\":349,\"new\":null,\"comparable\":152,\"withNoDeclarations\":17},\"capabilities\":{\"resource\":{\"requiredOnly\":50,\"optionalOnly\":17,\"both\":0},\"identity\":{\"requiredOnly\":48,\"optionalOnly\":27,\"both\":0},\"outbox\":{\"requiredOnly\":43,\"optionalOnly\":11,\"both\":0},\"relay\":{\"requiredOnly\":37,\"optionalOnly\":3,\"both\":0},\"storage\":{\"requiredOnly\":34,\"optionalOnly\":54,\"both\":0},\"intent\":{\"requiredOnly\":26,\"optionalOnly\":13,\"both\":0},\"inc\":{\"requiredOnly\":19,\"optionalOnly\":8,\"both\":0},\"common\":{\"requiredOnly\":11,\"optionalOnly\":8,\"both\":0},\"upload\":{\"requiredOnly\":11,\"optionalOnly\":4,\"both\":0},\"theme\":{\"requiredOnly\":9,\"optionalOnly\":63,\"both\":0},\"mesh\":{\"requiredOnly\":7,\"optionalOnly\":0,\"both\":0},\"link\":{\"requiredOnly\":6,\"optionalOnly\":14,\"both\":0},\"media\":{\"requiredOnly\":5,\"optionalOnly\":4,\"both\":0},\"count\":{\"requiredOnly\":4,\"optionalOnly\":0,\"both\":0},\"cvm\":{\"requiredOnly\":4,\"optionalOnly\":9,\"both\":0},\"fs\":{\"requiredOnly\":4,\"optionalOnly\":8,\"both\":0},\"dm\":{\"requiredOnly\":2,\"optionalOnly\":1,\"both\":0},\"neighbor\":{\"requiredOnly\":2,\"optionalOnly\":1,\"both\":0},\"notify\":{\"requiredOnly\":2,\"optionalOnly\":0,\"both\":0},\"config\":{\"requiredOnly\":1,\"optionalOnly\":30,\"both\":0},\"gamepad\":{\"requiredOnly\":1,\"optionalOnly\":7,\"both\":0},\"llm\":{\"requiredOnly\":1,\"optionalOnly\":1,\"both\":0},\"webrtc\":{\"requiredOnly\":1,\"optionalOnly\":5,\"both\":0},\"keys\":{\"requiredOnly\":0,\"optionalOnly\":16,\"both\":0},\"local\":{\"requiredOnly\":0,\"optionalOnly\":1,\"both\":0}},\"manifestSha256\":\"63d48d2bae5e767a42ae86875b3e70edc6f2c70e34c395ef1b0c006f052f143e\",\"supersedes\":null}",
+    "sig": "16e0db7ed0d7cac9eeafa5f18c31ecfc1e188204b1c91cc4e1d8bbd6a54949d76e0ede5ad63c55ce64672184cd6529b667369d8b82587ca8cb2810a42afb3d67"
+  },
+  "manifest": {
+    "weekStartUtc": "2026-11-23",
+    "napplets": [
+      {
+        "coordinate": "35129:e771af0b05c8e95fcdf6feb3500544d2fb1ccd384788e9f490bb3ee28e8ed66f:applet-6de834d69a65668cfb7e-e771af0b",
+        "eventId": "3b7af72ed9f2cdc0f1abc0c66125764c15141f152a9dd10b946d4af68b809755",
+        "title": "A ping-pong game with powerups",
+        "status": "eligible",
+        "description": "A ping-pong game with powerups. 2 player only. split keyboard or two controllers.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:napplet-deployer",
+        "eventId": "be7b5784483d9c4fc6b7811729fd536179fb158b3c7dff9f65d8c13c8e569399",
+        "title": "App Deployer",
+        "status": "eligible",
+        "description": "Deploy a built NIP-5D app artifact.",
+        "icon": {
+          "hash": "7948a3c742ca8b1585aae9b90a0706bc79345cfad5325c30998aa85617f8a8ec",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:discover",
+        "eventId": "5c251f2cc409eefb8035fc73202670dc486beada3b12538d652c504b170330f1",
+        "title": "AppStore",
+        "status": "eligible",
+        "description": "An app store for napplets: browse the feed and see what people around you have.",
+        "icon": {
+          "hash": "f07db71ef70a7c32c92d462f30f44d74e130a590a8945f9feeae4956f24a00ee",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:discover-dev",
+        "eventId": "bf630ec2c31f9c1554d4e5e0e086d11ea2d0920578d046239c998e80eeeb1832",
+        "title": "AppStore (dev)",
+        "status": "eligible",
+        "description": "Development build of the AppStore napplet. Install AppStore (discover) instead unless you are testing.",
+        "icon": {
+          "hash": "f07db71ef70a7c32c92d462f30f44d74e130a590a8945f9feeae4956f24a00ee",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ca2814cdd0d2d1a1ac318af88084205b29c7d303da4a78803589f0d261c29a09:n-7bf0a402584",
+        "eventId": "2578a037ceaf8e4b23927a16333b00d797e383f3b6b9975384de502bfb3fa789",
+        "title": "Arañas Pistoleras",
+        "status": "eligible",
+        "description": "Arañas gigantes con pistolas en el colegio, la cocina, el dormitorio, la bodega y el bosque de noche. Tócalas antes de que disparen y vence a la Reina Araña, o cambia a mariposas para coleccionar. A spooky click-to-pop game for children: giant spiders with revolvers (or butterflies to collect), five hand-painted places, and synthesised sound and music.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-4757dbabc86",
+        "eventId": "1d2807e80b4445f57e3af03863f9ea34877f87868692e35de32aa5c74a9b666d",
+        "title": "Atlas map viewer",
+        "status": "eligible",
+        "description": "Explore and compose signed maps with local 3D rendering and selective, verified FIPS downloads. Public map viewing needs no account. Requires a shell with the experimental soy.fips/1 resource profile; map sources and optional layers remain your choice.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:932614571afcbad4d17a191ee281e39eebbb41b93fac8fd87829622aeb112f4d:battery",
+        "eventId": "e8c0d4acde1033282292ee2a748f5ad8fa85d7d1bc29626b0ba6d1e8e4e9869c",
+        "title": "Battery",
+        "status": "eligible",
+        "description": "How much charge is left and how long until full or empty, on a ring with no background. Comes in styles, each with its own character, and matches your theme by itself.",
+        "icon": {
+          "hash": "abdc9a4e8570b2390068672019881d1dade99747fd7ae44d79ae9db0bafb33b8",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:battleship",
+        "eventId": "a59018965178aeadaa625ec93324190d76109384b61c8e8f8ab16f82620a09c7",
+        "title": "Battleship",
+        "status": "eligible",
+        "description": "Player-versus-player Battleship over ContextVM. Your home server lives in a NIP-78 record; invite anyone by pubkey.",
+        "icon": {
+          "hash": "3c9c0025a017b30af0f0be952c5dec1c9b2584fea65cbbcdcb0b2d5e31befb58",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8494cb6579081c56693b4668968b92f75722c19a03152841f49a85a1ff55fe12:n-0a99f0cae40",
+        "eventId": "91e87bf21ff0158555a9db4699f669be207ba39ee2545ebe9f1876054ef1e818",
+        "title": "Big Rig Rush",
+        "status": "eligible",
+        "description": "Top-down driving chaos in a living city. Pick your ride: a manual 8-speed semi, a sports car with missiles, a bulldozer that pushes through buildings, or an A-10 Warthog with bombs and a 30 mm cannon. Haul cargo across downtown, the hood, the port and the countryside through day and night while police, fire, ambulance, tow and road crews clean up every crash you cause. Everything is destructible. Keyboard or touch controls.",
+        "icon": {
+          "hash": "2baab1ddf85a64498eddc5e375e960a553427720817797a086b8b8cb8b882443",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:bitchat",
+        "eventId": "268a0185a693791d1d9dcb8fe56e7d784dacb762d688ab289362abd2a6ab19fb",
+        "title": "bitchat",
+        "status": "eligible",
+        "description": "Chat with whoever is near you. No internet, no servers.",
+        "icon": {
+          "hash": "ef9e96940bc62debacad3c2beee0acad99f4b605a6f2531c3926de4d72e28014",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:bitchat-dev",
+        "eventId": "18be6345bde2620019cec61126bcca91f709c3af8cd0ad6170ff6d5a89af5521",
+        "title": "bitchat",
+        "status": "eligible",
+        "description": "Chat with whoever is near you. No internet, no servers.",
+        "icon": {
+          "hash": "ef9e96940bc62debacad3c2beee0acad99f4b605a6f2531c3926de4d72e28014",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:57f7119a0ce9ec9cec24958dc0ade5cbd538a722e0ec4eb4804e64dc532f1aad:n-d2225ddc391",
+        "eventId": "666bc7c74ebd3ee6472611447236763e1676b00acf6418bc9064e672e1d7fc28",
+        "title": "Black Site",
+        "status": "eligible",
+        "description": "Top-down tactical extraction shooter. See only what is in your field of view, loot supply caches, fight through five maps, call in the helicopter and survive until it lands. Includes a campaign, four characters, an armory and three difficulties.",
+        "icon": {
+          "hash": "89f9397a27b387275ce52e7f8d058e5c8b17ebc0f0385ef27a429c41782aea7e",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:n-59475000c74",
+        "eventId": "32a57733b7e983ff020b37bf1f89be191ee9041de552e8f5e39a0301d0cfb62d",
+        "title": "Black Site Map Editor",
+        "status": "eligible",
+        "description": "Create, edit and remix maps for Black Site. Draw terrain, buildings, cover, guards and loot; validate routes from insertion to extraction; save drafts and publish maps on Nostr.",
+        "icon": {
+          "hash": "f4f7bf4370f9c9e4433c458cb51792351baa4ccccfaf4ff22aec836e84f773a6",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:blobbi",
+        "eventId": "1b9ea5b368705488c9b61eeaf2bbf39896b43e00cfea555785774fa23743c5d9",
+        "title": "Blobbi",
+        "status": "eligible",
+        "description": "Interact with Blobbi on Nostr.",
+        "icon": {
+          "hash": "e3f1244d694a15d48093b3996f515913db497122347204ac387e292db8e2c50a",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:6ef777a78b2405fad6b4db2a619116441123b03cf148688084280db15439dac4:n-afafae55ef1",
+        "eventId": "a6bb863994d901d34193486b043cdf22eb7ee6a6eb1fa5d06c837c4d90ac64fd",
+        "title": "blockfall",
+        "status": "eligible",
+        "description": "Steer a thrusting rocket into stacked block towers and bring the skyline down.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-6c4554844c7",
+        "eventId": "e8049f8da4e2164a84e2b80f954974982883b4380c1cc9f01c1457747862b7f9",
+        "title": "Body Journal",
+        "status": "eligible",
+        "description": "Describe how you feel with an interactive body map and saved drafts. Optional shell-managed AI connection or a paid CVM report with Lightning invoice fallback. Research prototype.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e771af0b05c8e95fcdf6feb3500544d2fb1ccd384788e9f490bb3ee28e8ed66f:boost-ball",
+        "eventId": "49c3454f7606ede6c507adde45a7d33cde5950420ee9d2b5281402d25d0e87c3",
+        "title": "Boost Ball",
+        "status": "eligible",
+        "description": "Editable rocket car soccer with RocketSim physics and AI opponents",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:print-search",
+        "eventId": "44c2bfd19150065e4f194a1dd9e99381d98b8fb3f6a0f72449d4c0a12ff717b0",
+        "title": "Browse Printables",
+        "status": "eligible",
+        "description": "Search and browse 3D-printable projects by title and tags.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:n-8e5abf9b526",
+        "eventId": "b9d42f5768e4e9a2f8c0367a759fb9e81dd309a6af4a54ca7ad5d44e84e74d65",
+        "title": "Browser Side Quest",
+        "status": "eligible",
+        "description": "Browser Side Quest revives Mozilla's 2012 pixel-art adventure BrowserQuest as a napplet. Explore the village, beach, forest, desert and lava caves; fight rats, skeletons and the final boss; loot better swords and armour; and unlock all 20 achievements. Up to eight adventurers share a world peer to peer, under their Nostr names and profiles, or you can play solo. It plays with mouse, touch, keyboard or gamepad.",
+        "icon": {
+          "hash": "ad7421b295bffb9580008e987f96466b6659f17603d4b07e5cb346127b5373a8",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:325d6744f52fcdfa368d6da687240adc0cccdfa26316a734abdb2e9fe444eca5:bubbles",
+        "eventId": "8517f8a68eb49e855b2c68e5ca75c13e64c249caec344d7beca66fcc7f0603cc",
+        "title": "Bubbles",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0bafb0cb2f602c8579c9bcee4877037cfd03646284e941d548e253ede6dfd852:buildings",
+        "eventId": "89d2d038abd77e8881b3328b12e47b3bc58c8f4f19c80270ef7c75b61bd58bfa",
+        "title": "Buildings",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:993dfad40fef286b323b9217a15a144bf2a2372987c159deea665462051856c0:n-836af5a08b9",
+        "eventId": "0c7dde9d49216e3611670cb694142bb25e24359da418ff0218e0c4997523c0b9",
+        "title": "Chase'n Those Narly Waves",
+        "status": "eligible",
+        "description": "A 3D surfing game! Tap W at just the right time to catch waves rolling in from behind, then land up to 55 surf tricks with the arrow keys while words like \"TOTALLY RAD, BRO!\" pop up. Dodge rocks and sharks, don't turn too long or you'll wipe out, and go for the high score, dude.",
+        "icon": {
+          "hash": "6db2b3e5f9749dedd0c6e3affef0e9d54de09eec845ec34d937169a2b48d3c54",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:chronofeed",
+        "eventId": "5e2cbe0a44786d286d52967ab90b09f1021d32faabff487a03f9fefc155d8185",
+        "title": "Chronofeed",
+        "status": "eligible",
+        "description": "Notes and reposts from the people you follow, newest first, nothing ranked.",
+        "icon": {
+          "hash": "8ea3e00970df68b5ee3e404e33bb978b431f7e9648f158b6ecbe3c18544c1063",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8494cb6579081c56693b4668968b92f75722c19a03152841f49a85a1ff55fe12:n-cf8b858653e",
+        "eventId": "393802aabdd1a6a80de149b6cd92651d6f7e9a190abea7547b4f3a0b2f62b177",
+        "title": "City Breaker",
+        "status": "eligible",
+        "description": "1968, a Cold War gone hot. You command a Soviet long-range bomber regiment with 60 days to break Hafenstadt, an industrial city of 1.2 million that repairs, disperses, builds decoys and adapts to your tactics. Plan each raid — targets, launch hour, route, package, bomb loads — then fly it yourself: open the bomb doors, beam the SAMs, fight engine fires and walk your bombs onto the target through flak, searchlights and tracer curtains. Strategy sim plus top-down bomber action, inspired by Hamburg, Hanoi and Desert Storm. The horror is in the numbers.",
+        "icon": {
+          "hash": "42e255b57b9e2c5ed168333ae9526a5b1e1192b2fa0d371e0d2b37e823ccb2d4",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:932614571afcbad4d17a191ee281e39eebbb41b93fac8fd87829622aeb112f4d:clock",
+        "eventId": "33b9176eea0db030ecff5eadb821de74c739369c7c6c49311594148c8325f58b",
+        "title": "Clock",
+        "status": "eligible",
+        "description": "The time and date on a clear face or in large digits, with no background. Comes in styles, and matches your theme by itself.",
+        "icon": {
+          "hash": "573e8e9fdf025fe74e576ae24a115a1965b6d44d9641ae79b62ffe9e5948e34b",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:compose",
+        "eventId": "7f0f687e3251dd9ab693109ff335f22912d5349a2d9138183c3f67fb40cb6d21",
+        "title": "Compose",
+        "status": "eligible",
+        "description": "Compose and publish Nostr notes.",
+        "icon": {
+          "hash": "97a13b5f4e79a4e9cf8211a39fb4009bc3ebad02618fe1f3c029572ebb3cd098",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:composer",
+        "eventId": "5bb4d85eb6f6fe0be7ba9b1fc669e56a57bb53de664068321d908aaea2359874",
+        "title": "Composer",
+        "status": "eligible",
+        "description": "Write a Nostr note: a new one, a reply, or a quote.",
+        "icon": {
+          "hash": "1b338e19f1c48538681fae4a5ac3706ce2831fa8a11fbd0d9675de95da751802",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:16b7a947e2c59a556902ae4cedfae14058aab5c38fe2933fb33007c7f4e484b2:gamepad-test",
+        "eventId": "e18dbe7b363224e6f9491ad0f200d54563eb134dc0bb1532faabccf40f7efaf3",
+        "title": "Controller tester",
+        "status": "eligible",
+        "description": "Inspect shell-delivered controller input and verify focus isolation.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d4c58a83fea9c6ab30aa7a86810d6f4ed76ace2b1425f3e889d2c85ea0192f1e:n-644c45e22c7",
+        "eventId": "230955df1900edb155684c042abd1f3a318c42fe1ed98a81b574795526d8ba1d",
+        "title": "Conway's Game of Life",
+        "status": "eligible",
+        "description": "Conway's Game of Life on a wrapping 120 by 90 board: paint cells, drop classic patterns like the Gosper glider gun, and watch it evolve at your chosen speed.",
+        "icon": {
+          "hash": "08dff827b23016063e2923366ef870b22c46d909803c806b3ea3d75f9b1d8f0d",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:print-create",
+        "eventId": "0814688a509e0ae4db1fb3f68b5654834de9bc9f6f002c2a831b8d89317c46d6",
+        "title": "Create Printable",
+        "status": "eligible",
+        "description": "Create a printable project with model parts, photos, and printing instructions.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:creator-signals",
+        "eventId": "0222ec54f2ce37edaaa2d71ef3453304973a68b8ff2058b2f47d9beb96779dac",
+        "title": "Creator Signals",
+        "status": "eligible",
+        "description": "Explore creator activity on Nostr.",
+        "icon": {
+          "hash": "1db6d4e50457ee59511af914e63a7882e0f0c86e1ad0be8e550d592bc14ae8c5",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-347ab685aef",
+        "eventId": "9614abe48623a179fc0795d1c5ed15526e8c2adea3ca72ff4c0bc874c7919912",
+        "title": "Crossfire",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8b1bf9ebe778b8e8d0a717ce0d5edb28b2eb81c3fba509874e2b1d1844b50851:default",
+        "eventId": "3383cc9b8e723be8b4800b5e1298bfa86f6aca06884318eae59af87d87e79867",
+        "title": "Default",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:993dfad40fef286b323b9217a15a144bf2a2372987c159deea665462051856c0:n-2f845a2d471",
+        "eventId": "32e37bfe002f5579fdf6d79c76b22ed1a86dc9bd5bd2ea20898121f1caad132b",
+        "title": "Dine and Dash",
+        "status": "eligible",
+        "description": "Sneak around the diner, eat every plate of food, then dash out the door before a waiter catches you! Or play as the waiter and catch both dine and dashers before they escape.",
+        "icon": {
+          "hash": "9c2e4e04331109a3c98c69a1cc7440c263e48a053e566ce75da9c547efbd9b33",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:dingdong",
+        "eventId": "ba87089d74deb84f888ac9d8326998a49fc8269f708a52e1460a6c91d28f3bcb",
+        "title": "DingDong",
+        "status": "eligible",
+        "description": "One button. Press it and every phone nearby rings.",
+        "icon": {
+          "hash": "0e61c79a8a5727b3c36983b69aa80ebad125eea1518adca10aa1a293c2923373",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:direct-messenger",
+        "eventId": "0d4ac6f4f4ed3d8156d6a73e680c4170c9050d0b1425bc3d8af21b05b8d570a1",
+        "title": "Direct Messenger",
+        "status": "eligible",
+        "description": "Exchange direct messages on Nostr.",
+        "icon": {
+          "hash": "ddf9120880b8a644c45eb190e681ed9086b624d00a649118e5d54b6ef1ecbc74",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:print-discvr",
+        "eventId": "eb89eceddec50fa4d94ed4d581c05547415bda6e3ee68ba86c3fc26304758017",
+        "title": "Discover Prints",
+        "status": "eligible",
+        "description": "Discover 3D-printable projects shared by makers on Nostr.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:discover-rockets",
+        "eventId": "7a3b437df92e0aba4678348c2cbe3c2287122cdf161145f187d4a0c1be5ad401",
+        "title": "Discover Rockets",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:docreview",
+        "eventId": "4fc0b747010d41a442ea399c32ccf09715589aa571b3cf25f721bd224d1cff47",
+        "title": "Doc Review",
+        "status": "eligible",
+        "description": "Review the writing in a Nostr git pull request: tracked changes, comments and suggested edits, made for tablets and e-paper.",
+        "icon": {
+          "hash": "1f84ad32f764db5ba60e4d690e9c2a9d6f1ee90d77578469bd7fab1c81caf347",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e771af0b05c8e95fcdf6feb3500544d2fb1ccd384788e9f490bb3ee28e8ed66f:puddlehop",
+        "eventId": "56d3313d2e0843a0cdd4973a2d03443c1d25a5c5581e0d3ea7255700bbf7ab1a",
+        "title": "Dodgy Duck",
+        "status": "eligible",
+        "description": "An endless voxel crossing adventure. Hop through changing worlds, collect travelers, and chase your best run.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:doodleduo",
+        "eventId": "f84695d1abfc4e8d910f78ee74c3a4a0cc3335f80508e7ab3b8c0b9411c02c0a",
+        "title": "Doodle Duo",
+        "status": "eligible",
+        "description": "Two phones, one doodler: co-op Doodle Jump over the mesh, one button each",
+        "icon": {
+          "hash": "400e414dd99f8c0b5f982f9542abad422add203f21a61902d5b462aa954af4c0",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-37af437f0e6",
+        "eventId": "f8a5db646fdc2a9d731c7ade013a31490d2a4308d51e4b05355538cb3c189520",
+        "title": "DOOM",
+        "status": "eligible",
+        "description": "Play the original DOOM shareware episode with keyboard or touch controls, pause and host-backed checkpoints. Silent WebAssembly port.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:57f7119a0ce9ec9cec24958dc0ade5cbd538a722e0ec4eb4804e64dc532f1aad:n-a4c0039c855",
+        "eventId": "098731aa0f0fceea41719a885a4412d780b8e575f8166e138c439994585e870d",
+        "title": "Drift City",
+        "status": "eligible",
+        "description": "Drift a car around a living low-poly city and its countryside: downtown crossings, parking lots, farm roads, a twisting touge and an old airfield, full of traffic. Pull the handbrake, hold the slide to stack the multiplier, and smash through signs, hydrants, cones and cars.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-9753e6cf3ec",
+        "eventId": "578f277a8be156ee29e4c8d7da48d5cd7073b06068d56affddb4cb756178377d",
+        "title": "Drone Zone — deep field",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:95e9a7fa014f16d264a6d4b7c10e2abdbad178559af375b337c51cdf96ec7e19:n-96e9a84a0f2",
+        "eventId": "a9f7805c9f9b164245dad13104de4ab8f42f9c6690e47e6eb71461b6f9346a3c",
+        "title": "Duck Duck Duel",
+        "status": "eligible",
+        "description": "A Duck Hunt duel: shoot the ducks, dodge the mockingbirds, pierce flocks for combo points. Solo runs or online 1v1 duels on shared seeds.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:print-edit",
+        "eventId": "07118a7414da7a97433fe5bd522d9816ee9ecf8cbdb2625c4f6194777199b10d",
+        "title": "Edit Printable",
+        "status": "eligible",
+        "description": "Update your printable project, including its parts, photos, and instructions.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:emoji-browser",
+        "eventId": "ab510d60ba8c01a61818462cd0deb5deee7dfd03f0c95b4a8e114c6da27644cc",
+        "title": "Emoji Browser",
+        "status": "eligible",
+        "description": "Browse Nostr emoji packs.",
+        "icon": {
+          "hash": "10e80571671114a284f177b5fb51eab2a24d8c7931d9f42c7521ee90fcb06249",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:emoji-pack-creator",
+        "eventId": "19ed3359afa68bd20dd444e44f46e99352562269a4bd096e29757631b1da0936",
+        "title": "Emoji Pack Creator",
+        "status": "eligible",
+        "description": "Create Nostr emoji packs.",
+        "icon": {
+          "hash": "530f6d71564fcafc778b355f3ff49f88170e92f47f0eccb36e1e910923e21c11",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:emoji-manager",
+        "eventId": "c4394749749f63f9c50959ef56d12c7fd0048494b60cc3a009165b5abb0269ec",
+        "title": "Emoji Sets",
+        "status": "eligible",
+        "description": "Manage Nostr emoji packs.",
+        "icon": {
+          "hash": "0195e9ae27c3c49fb9c59453c8649f0668dadb406a01825130efe9048781dcb6",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-6932b12c78c",
+        "eventId": "da1ffaa5624cc17ce52713775ac156393eed1b91cba8316faedd5400afa0ff07",
+        "title": "Faultline",
+        "status": "eligible",
+        "description": "A first-person arena shooter with WebRTC rooms, four indoor and outdoor arenas, eight weapons across two slots and bot practice.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:feed",
+        "eventId": "1fa6f204cba7286e05013d548cc019cab9e7717754ee89056d5327e5350833f9",
+        "title": "Feed",
+        "status": "eligible",
+        "description": "Read Nostr feeds.",
+        "icon": {
+          "hash": "056b9b0cefeb7fe62d9614fcb51641cdcab3c160423e0283be0a60b83c6e1705",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:feed-builder",
+        "eventId": "400ba5f62cf50efc005aa9c71c1daad0f57f832a369eff313fe6c18da8075f09",
+        "title": "Feed Manager",
+        "status": "eligible",
+        "description": "Build custom Nostr feeds.",
+        "icon": {
+          "hash": "1445268e6b6ab7ce69ba468ceb349cb56ba36b4894685f2b81b5b02a98187578",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:file-browser",
+        "eventId": "62ebf8c83e4be8a0766a7a2b11978651a2afab5af1dad020b8b1a16e696022ca",
+        "title": "File Browser",
+        "status": "eligible",
+        "description": "Browse, preview, create, rename, move and delete files in the shell's virtual filesystem.",
+        "icon": {
+          "hash": "a0b8c867e806a4a85efd7fd25418a892106f397b2de1b5380ba0d78bd2dadc94",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:18e38a874045f2c9247035e6fd0220b0cffb042ecd5d0ff22b4c460dae9d50bd:simplefocus",
+        "eventId": "3b88299f457a77e5bde5c8d50ce2dfd5dec340b1b93b7cd19f553c5349d52d18",
+        "title": "Fokus",
+        "status": "eligible",
+        "description": "Monochrome focus timer with tasks, groups, priorities, breaks and a warm meditation mode — as a napplet.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e771af0b05c8e95fcdf6feb3500544d2fb1ccd384788e9f490bb3ee28e8ed66f:default",
+        "eventId": "3ef728c7594abb1663973dc838a51ef657a654be5fad2368567d0ea09e4a5e7b",
+        "title": "Follow Pack Creator",
+        "status": "eligible",
+        "description": "Create, curate, and manage Nostr follow packs with your network and Relatr profile search.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:follow-pack",
+        "eventId": "cbb9e2faef0007517f7c88c93eb4fbfd9684b215c2f14778adb6cc4a8028e942",
+        "title": "Follow Packs",
+        "status": "eligible",
+        "description": "Browse Nostr follow packs.",
+        "icon": {
+          "hash": "a4ca142eb95aac51a5514c1d501c436e9b9ddf6dd2200c7acecccfd18beb5dcc",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "15129:e771af0b05c8e95fcdf6feb3500544d2fb1ccd384788e9f490bb3ee28e8ed66f:",
+        "eventId": "c583b5d73d4f90fff17ce335a1f75b70cbf199ecec9735cff25de96a0ef5b636",
+        "title": "Fotohop",
+        "status": "eligible",
+        "description": "Layered image editor with drawing, text, cropping, adjustments, and PNG export",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:a252ce5f9a211baa22969cfbdc4a28b7c3780555d542eea22d01b913042bd441:freedoom",
+        "eventId": "66b5f91cf45814505064e7667b45936cf4022e829294fe678e60bbcf4973128f",
+        "title": "Freedoom",
+        "status": "eligible",
+        "description": "DOOM-engine shooter: doomgeneric + Freedoom Phase 1, all in one napplet",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-ba52e30d5f2",
+        "eventId": "3e45de6048a3ca8b6ebe068ef084cb7a33c05657370d7c50522d64a02ee62480",
+        "title": "Freeze Frame Response",
+        "status": "eligible",
+        "description": "A municipal physics puzzle: freeze the blast, place trampolines, funnels and sticky cushions, then resume time and file the damage report.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-6b7a37cac1d",
+        "eventId": "fea4f4287961f3c5ce48905de3fec837a96f1ca109ae3c7c18852816e3306fe3",
+        "title": "Funclet",
+        "status": "eligible",
+        "description": "A little window into a world of radio. Explore Wavefunc stations, listen live, read your favourite lists, and discover what is playing.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:cef96fb4fa1e949c7e215abcb2bb95bdf4f1dacedf31b295d2a382ae8299984c:gbc-emulator",
+        "eventId": "bf47ddad356151cb6dc5d553c5f7e9422d49789c89c60df826dad6c6f7d3a7a5",
+        "title": "Gameboy Color Emulator",
+        "status": "eligible",
+        "description": "A GameBoy Color emulator based on WasmBoy",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ca2814cdd0d2d1a1ac318af88084205b29c7d303da4a78803589f0d261c29a09:n-3929629ef1d",
+        "eventId": "d7ee3a74bdb50f870d568b4420250e6f81eba28ee4ae1712a67a4928309ac69b",
+        "title": "Gem Warden",
+        "status": "eligible",
+        "description": "Gem tower defense in the spirit of GemCraft Chapter 1. Forge gems in six colours, combine them into higher grades, socket them into towers and traps, and keep the monsters away from your mana orb across six fields.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4777913715151605498bb2967f45271ae55279ed03bd37a47c670bc687364b19:glimmer-sluice",
+        "eventId": "120232896eecfc0591e8a97a935be2937fdbfb4d3ff0d403f5d088d62e69d5f4",
+        "title": "Glimmer Sluice",
+        "status": "eligible",
+        "description": "Guide glimmer through a three-gate miniature waterwork. Tap the lit gates in order, spend gathered glimmer on hand and automatic upgrades, and fill the beacon before the two-minute round ends.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:good-morning",
+        "eventId": "1af1d78bec894e5a1d993ac58a42c92dcd64cdc1fd8a295e95c7aa9253d981fd",
+        "title": "Good Morning",
+        "status": "eligible",
+        "description": "A GM inbox: good-morning notes from the people you follow, marking the ones you have greeted back.",
+        "icon": {
+          "hash": "c7a10f28892c5f78e75790fde6092f4c2446ace712d4af93662fb8ad5eeafaa7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:dsui-gm-proto",
+        "eventId": "a43a5c3b71b1d3702efeafa21f24b26194304ba9974f5d837d40622791090cd2",
+        "title": "Good Morning Protocol",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-8a7361981e8",
+        "eventId": "288aa261ce076ca77a143c69e3d23f7d76d353623ae2c8ca57e856954a034abc",
+        "title": "GRAV / RIFT",
+        "status": "eligible",
+        "description": "Wield gravity. Stream scrap, rip machines apart, extract their shield cells, and hurl living enemies through a destructible scrapyard.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:da19f1cd34beca44be74da4b306d9d1dd86b6343cef94ce22c49c6f59816e5bd:n-d6c0308a2a8",
+        "eventId": "28327a72e87425f1e6499b67b88e57b0ee64185f48e523184eeb4d32099d85bb",
+        "title": "Hang On, Fren",
+        "status": "eligible",
+        "description": "A Riviera Vespa road tribute starring DNI. Grab roses, cross ten regions, and reach the finish line before time runs out.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:hashtree",
+        "eventId": "f63913ddff56a29c60854609a8fc3bd075f413f13ea6923afacd98fda9deb29c",
+        "title": "Hashtree",
+        "status": "eligible",
+        "description": "Browse Blossom hashtree folders (BUD-15/16/17/18) read-only.",
+        "icon": {
+          "hash": "cc539e389c1e895dd01b5ce02dc6a78d0813a955a5a78a598f23c72f46c4f115",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4777913715151605498bb2967f45271ae55279ed03bd37a47c670bc687364b19:hush-orchard",
+        "eventId": "86644e12d175580b446a7915587f6610774315ebbe91c45dfe84068f2ca6b541",
+        "title": "Hush Orchard",
+        "status": "eligible",
+        "description": "Cultivate a hidden six-letter seed word by reading knots, directional twigs, and empty rings across seven deliberate guesses.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0708bca747d9dff97a644eadaf715ed28996588b5aea9b8ed7d42fee0f3f19db:hypergolic-qa-notify-v020",
+        "eventId": "f6f8ebf2c299222a894291f7cc87cf4d91f57374c061680501f9b3362d02164d",
+        "title": "Hypergolic notification check",
+        "status": "eligible",
+        "description": "Synthetic Hypergolic v0.2.0 on-device test napplet.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0708bca747d9dff97a644eadaf715ed28996588b5aea9b8ed7d42fee0f3f19db:hypergolic-qa-v020",
+        "eventId": "59c7d78c01ff54aaf5999909d570bcf2c5a44ff7c26763bd6e234dc23722dee1",
+        "title": "Hypergolic release check",
+        "status": "eligible",
+        "description": "Synthetic Hypergolic v0.2.0 on-device test napplet.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-0b3d7b60562",
+        "eventId": "09fe6aebec3c425c9b5c11acfee426166baf37ba110d26cba7cd6d0fead73427",
+        "title": "Impact Yard",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-c1d8c061b02",
+        "eventId": "5b31a37bbd0726a41cd92a07953ba31d3b584fc822f5499d9bfe1b6e180484ab",
+        "title": "Impact Yard remix",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-47d97da9d80",
+        "eventId": "841127ac75f366b1174f745dce61bd415f935557be4af9534b5e202fbb97590c",
+        "title": "Impossible Machine",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:incident",
+        "eventId": "b4f95134f15c7f31551aa663351c032f6cf5e67bb1037a0544a17a5b9918b581",
+        "title": "Incident",
+        "status": "eligible",
+        "description": "Start or join an incident with the people around you, agree who leads, and open the tools to work it — no internet needed.",
+        "icon": {
+          "hash": "20ca2e49bcd98d42a8c945d4ad936029992f5ab0b32a5c90c97ecd32a4d76918",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:ics",
+        "eventId": "d0eaff8332d109b42aa0c709b37aa9737ba6814b54d218e1eb11c054af43d81c",
+        "title": "Incident Command",
+        "status": "eligible",
+        "description": "Orders, an activity log and who reports to whom, for an incident — over the mesh, no internet needed.",
+        "icon": {
+          "hash": "64e74fe57dcea8a2fd4473280dc67fffcd7c303328531246963393088669c9f9",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:him",
+        "eventId": "de6cc3de4635527f6a6ec85247c98a3443c1fe31ce55d8cef8f8461d0e9dcaae",
+        "title": "Instant Messenger",
+        "status": "eligible",
+        "description": "Direct messaging and presence on Nostr.",
+        "icon": {
+          "hash": "a80ccfc9b3105003f964772cdf2d61ca3540842c29ba70f582a4462d9db62f1f",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:intent-preferences",
+        "eventId": "74a3b5ab197a40652e07562104de3f9c62068478061eacc4bee8f042866a092e",
+        "title": "Intent preferences",
+        "status": "eligible",
+        "description": "Manage public napplet handler preferences and fallbacks",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:301c76e3b742e7bd1d28b01249a28e550d330a904199e960e1da5b6b43e5e977:kip-test-1793435504",
+        "eventId": "fc6cdb7c0f6d60c836dcd6ce16fa51db7f8dd6dab0c99ddae0ff8b6ca8bdb6e5",
+        "title": "kip-test-1793435504",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4df4a2bfa6ee44988aba6306ac9f514e597bafd2069222ec8eb2163c566cceb8:kipina-agent",
+        "eventId": "c10323e4da01aedbd116c0fc2fc674698fe42093135664eda450007ade1a3f40",
+        "title": "kipina-agent",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4df4a2bfa6ee44988aba6306ac9f514e597bafd2069222ec8eb2163c566cceb8:kipina-agent-ui",
+        "eventId": "a00b5fa2c432700ace94106469e249d6b339c25e77b4315e9f3a7a33e4aa1d0c",
+        "title": "kipina-agent-ui",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-c2869f12ad8",
+        "eventId": "6a8ae4fc626eaad88e33b3dc4acfc41b659cb179deecea9eb67dd6c217387b7a",
+        "title": "Limb Race",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:live-chat",
+        "eventId": "4fe99090f49c407e03a6a656464f7d0c2ba3079fbfe2df3da7828eda208b126c",
+        "title": "Live Chat",
+        "status": "eligible",
+        "description": "Join live chat on Nostr.",
+        "icon": {
+          "hash": "ad3e7da66eac2c8083baf43d35d5da42a6512bf3b779c607fcc168278b6fc8d1",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:log-new-problem",
+        "eventId": "13e5fea0a0d59a6279af3bfaa79c21d5c23730ed46e62a6dfe46a38daa1343a6",
+        "title": "Log New Problem",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c2f1ab4e6a577dd8980b57e15986ed92830b95a94f374192235563532b5cac20:longform",
+        "eventId": "5fff2ec459ffb1a2d2966fc9815bc8ba45db96a669dfe4924d6c63e65b08a24e",
+        "title": "Longform",
+        "status": "eligible",
+        "description": "Create Blog like events on Nostr",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:make-detail",
+        "eventId": "081f1a6f7037a5e175211520c607c993b395b8fb15046a4994a6efd5fd08da5f",
+        "title": "Make",
+        "status": "eligible",
+        "description": "View a completed 3D print, its photos, maker notes, and discussion.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0bafb0cb2f602c8579c9bcee4877037cfd03646284e941d548e253ede6dfd852:mapplets",
+        "eventId": "5554f5f5588da293c977c74bf276438e35cf9a1476ff130f4c664702e682ce25",
+        "title": "Mapplets",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0bafb0cb2f602c8579c9bcee4877037cfd03646284e941d548e253ede6dfd852:mapplets-editor",
+        "eventId": "0c614663f33a37a3f842de8c01d44da779780b690c5ee1afa16e35344eb17044",
+        "title": "Mapplets Building Editor",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:minesweeper",
+        "eventId": "68465194effde1cbc963d60ed035f968d2f4d2edf02b0e7c18beed0034a706fd",
+        "title": "Minesweeper",
+        "status": "eligible",
+        "description": "A Windows XP-style Minesweeper game with a Nostr friends feed.",
+        "icon": {
+          "hash": "a81292d13d92022c95a888407c04c04cb15398f9d0bf320981feb25c6b51c099",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:57f7119a0ce9ec9cec24958dc0ade5cbd538a722e0ec4eb4804e64dc532f1aad:n-3b28f0efc5b",
+        "eventId": "a7beb798adbc2d06b8c7d9e426194c88d27d7874e354b7c0fca42bf1dcf6d785",
+        "title": "Mini Samurai",
+        "status": "eligible",
+        "description": "Tiny samurai fight in a giant house. Pick the living room, kitchen, bedroom, bathroom or garage, or the whole house with a rideable toy train. Duel 1v1, 2v2 or a four-way free for all against friends or the CPU, in split screen. Climb furniture, hang from ledges, dodge the ceiling fan and the toaster, swim in the bath, and when your katana is knocked away fight on with forks, pencils, nunchaku, marbles and water balloons. Smash the garage crates for drifting toy cars.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:75e0f2d4ca0f810b8813f7b8edbec679d5a49ccdeb6810832bf38b21eba4a431:n-599618f6842",
+        "eventId": "72c0506a4a1b11c8b11dbc585c42f6c99048cb3a965206cd1f19c00f870d28e3",
+        "title": "mini-nostr-saf",
+        "status": "eligible",
+        "description": "mini-nostr-saf: a minimal Nostr safari client. Browse notes, follows and long-form posts; the host signs with your identity, keys never touch the app.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:missionmute",
+        "eventId": "caedadd0cd509b87bdf6939ed1e6083f2fb0931a9e27867ed0b81c4940434b3f",
+        "title": "Mission: Mute",
+        "status": "eligible",
+        "description": "Spies against the smart home: a 3D split-screen co-op game on the TV, phones as controllers over the mesh",
+        "icon": {
+          "hash": "0d70fa5f171af29cfa9be8ff15a4bc2498147d366f93a686119f5c01c354c1a5",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0461fcbecc4c3374439932d6b8f11269ccdb7cc973ad7a50ae362db135a474dd:moon-phase",
+        "eventId": "3f174dd4bdf5e06d7788f10a8b49e5510a4f8e1a0688a2761e332b690212fb56",
+        "title": "Moon Phase",
+        "status": "eligible",
+        "description": "Tonight's moon, lit as it is right now.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ca2814cdd0d2d1a1ac318af88084205b29c7d303da4a78803589f0d261c29a09:n-6ab5aa84ba1",
+        "eventId": "52c388d28ec3e5e2033d9e34cdb6d74d30d1d7cc0015977a415ed8e833817b76",
+        "title": "Morse Tree",
+        "status": "eligible",
+        "description": "Learn Morse code on its binary tree: every dot goes left, every dash goes right, and the letters sit at the nodes. Tap a letter to hear its code, key dits and dahs to walk the tree and write in capitals, or train your ear with the listening quiz.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:993dfad40fef286b323b9217a15a144bf2a2372987c159deea665462051856c0:n-26115e0d25b",
+        "eventId": "5ffb58a0d53bdd6ae19119101830279dc083affb9be2ddaa8d704956fea2a3c1",
+        "title": "Murder Mice",
+        "status": "eligible",
+        "description": "A tabletop shooting game. Turn your gun, shoot the mice before they hide in their holes, and unlock new guns across 10 levels.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8d526fc024ea6bddd4879d707b67f80df8b590264b985070c859133610270cd2:amethyst-nap-test",
+        "eventId": "bc448092aba3378c022bb7d27102bb3f343de67c53c2ff1b385ef9a5aabeea5a",
+        "title": "NAP test",
+        "status": "eligible",
+        "description": "Exercises NAP-COMMON, NAP-UPLOAD and NAP-INTENT. Disposable test account.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8d526fc024ea6bddd4879d707b67f80df8b590264b985070c859133610270cd2:amethyst-nap-handler",
+        "eventId": "3b50b227b86c54def880d49e63dc9e53cd6e6e8388f03599b4081854d9f38b67",
+        "title": "NAP test handler",
+        "status": "eligible",
+        "description": "Receives the NAP test intent. Disposable test account.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-52f9e22f5ce",
+        "eventId": "ee47ac6a25df409538e4b70f2afde128c2e3a353dab0399e2ee9d9e34b379656",
+        "title": "Napcraft",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:872b60fdd8ec73ce1323d9798057384fb9836500d9b7201594c71ae3fce2b680:naped-snow",
+        "eventId": "7eec89142e9d0b56f99b50a8b38f802f2413c7fa71ab103f72820f509501d217",
+        "title": "Naped Snowboarding",
+        "status": "eligible",
+        "description": "Open-source freestyle snowboarding. Carve, spin, grab and grind for style points on an open mountain, with photographers and a ghost of your best run.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-8db03001b62",
+        "eventId": "a75ca0f8b596f1ce0ea6ffea36509b499cba95af64b06bbc4a93065bba9889f4",
+        "title": "Nappakura",
+        "status": "eligible",
+        "description": "Turn OBJ and STL models into editable paper patterns with linked 3D views, seam and tab editing, and true-scale PDF export.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:nap-feed",
+        "eventId": "19057542768b61bfdbb64c6a9f075c6daf9dd09e909a6af633a2ae60ad48a8b8",
+        "title": "Napplet Feed",
+        "status": "eligible",
+        "description": "Napplet manifests published by your contacts, with quick naddr copy.",
+        "icon": {
+          "hash": "4370da89fb7016806e8e7afb741ff46ba6924814f5b9f9cdd844e55043081c42",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-b5572362d4a",
+        "eventId": "f041ff5dc40ccf6ca7fb40417dbe05b9776b5c061284c5043b652cd0845c3493",
+        "title": "Napplet Machines V8",
+        "status": "eligible",
+        "description": "Build a little track. Race a little reckless. Six-car miniature racing with a 3D spline workshop, AI rivals and multiplayer rooms.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f3d7a125391e0c5502cbe1993e0c9e3c8274a1dd4ec72f219a9d15f2f47a798e:napplet-test",
+        "eventId": "6cf63204e71c4290c5c7a44a235c60a692a2b9eb8acad3536f75c138ddb1d790",
+        "title": "Napplet Test Harness",
+        "status": "eligible",
+        "description": "Exercises Amethyst napplet domains and sandbox isolation",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:955433096fca223f29adfd52a0c2de07a3c52eb680f9b4d9eb6c46d9196c540e:nes-emulator",
+        "eventId": "72ecb41912717fba0f65049587cbb7176a8ef8890daed6a36640a2ba08b8433a",
+        "title": "Nes emulator",
+        "status": "eligible",
+        "description": "For some fun.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:noris",
+        "eventId": "8ca642f755a8b769535a36fe4258d27222338dd60b4726941ba022debfbe4f4c",
+        "title": "Noris",
+        "status": "eligible",
+        "description": "Read long-form Nostr articles, and highlight them.",
+        "icon": {
+          "hash": "707256c547c86ed5d96afa7622e131feb776e8b6192ec5e9a94ad3a63160426a",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:2f77a870ec1e3f75873a2353a47b819bba5f8796dbc637bf8639a329c6ca90ee:nosms-sender",
+        "eventId": "9a0457da54c24f9c2ea0b8871d4c39e3b03d38d83ae3b1aa286642ddcd2848d4",
+        "title": "nosms",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:nostr-bubbles",
+        "eventId": "7cbe667aeaf1c743b5c799b713aa2b15023d0729b35021d7eaffa3dc6d8876e3",
+        "title": "Nostr Bubbles",
+        "status": "eligible",
+        "description": "Live Nostr activity from your contacts or popular relays as bouncing profile-picture bubbles.",
+        "icon": {
+          "hash": "ce0040c575dc0147836ecb727005c440661e88405f82a5bf3a23f788fa0bbc6a",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:dbe6fc932b40d3f322f3ce716b30b4e58737a5a1110908609565fb146f55f44a:nostrasia2026-slides",
+        "eventId": "0fb2d72679f265c6c810948eafa5df6d3afd88844ce4c56dce83aa913660b446",
+        "title": "Nostrasia 2026 LT",
+        "status": "eligible",
+        "description": "Nostrasia 2026 の LT のスライド。指定したリレーとフィルターの投稿がスライドの上を流れる。",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:nostrocket-state",
+        "eventId": "0e85a5d1d948e76e67c37727e74f0b49f05ed21ea791e8d553cf04a39a367e8d",
+        "title": "NOSTROCKET State",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:note-viewer",
+        "eventId": "68e60eb4d5489131d7faf13bbdef2ebc31efd75e91c07809854cae3e34f604ef",
+        "title": "Note Reader",
+        "status": "eligible",
+        "description": "Read Nostr notes and their replies.",
+        "icon": {
+          "hash": "0148e0606213f62378ce03ebb7ba03a79e601dcadf1b49e6b33942cf135b1bb7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:notepad",
+        "eventId": "715d867be224f52d47e35b97ab2b8b088895e4b8d86a1b5c2cb3da3bd8127eae",
+        "title": "Notepad",
+        "status": "eligible",
+        "description": "A Windows XP Notepad for the shell's virtual filesystem.",
+        "icon": {
+          "hash": "81726ba264467c010750788b401108a2026ee835a46591056f867a8f63d694bf",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:6ef777a78b2405fad6b4db2a619116441123b03cf148688084280db15439dac4:n-de5dc6a02e7",
+        "eventId": "44c589c52043219bcfafc975ec255f4544fd7fc5115c5ba0a69bbb3010ca5301",
+        "title": "Obsidian Breaker",
+        "status": "eligible",
+        "description": "Shatter seven double-wide volatile mineral seams, each with up to twice the stones and a 1.5x faster ball, in a molten breakout run. Chain-explode jade crystals, bank shots off indestructible obsidian ribs, steer a live bounce-prediction seer, slow time with a rechargeable bullet-time meter, and grab blast-radius and ball-splitting powerups.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:021d4d8d111723203663bb1e6054dcf18bc5fe1ae136c09ca3b5de607648981f:org.omni.plugin.dropped-zip",
+        "eventId": "0e6ae531f7f5a1db314a0df5482355893681e2c127e1a021ff9e765be90d1452",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:02566c34551897b036647b5186b4f52f59ebcd116dacbc5dc197cfbf48070e69:org.omni.plugin.dropped-zip",
+        "eventId": "c14ab7582524cf0fc2e29837b91673182ca956d89da87daa23a34d972d2b1d16",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:093a3bc65108f7659e0e4480d3eab0370494d661130f16fd88e41150096fc83c:org.omni.plugin.dropped-zip",
+        "eventId": "9e97e5504ed810e7c748559cece063893f26d1298b75479dddb687e0bb7c509b",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:10f7a24517695904b804213812e2633dc2d0c4aeced3083794a4d23dcb2a4988:org.omni.plugin.dropped-zip",
+        "eventId": "0d7e17e5e933715362626d15b3675e8c77757ecfb2a4e7b3b082f9d0cf7e9c74",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:1754b73eadcb9d0465deda3540ca6b205947eb9231f9858a16cb744e9e8292c1:org.omni.plugin.dropped-zip",
+        "eventId": "a05c3fb1e60e0193c49423d7bcbf158c658c9730adc58bc617eae0bb26344d42",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:27cc3f3c336ffd40698fa0ddb4d287993c7a2b7d271be6e645106b00132d9437:org.omni.plugin.dropped-zip",
+        "eventId": "d8b0642d7c8c8d2d31d2dd92212571dda80ad791b3571bd7b43f4cb4d6ea3151",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:2f21a9e172d04c264491022f257322e926905d3ad86f2c0a27f4928adeba3692:org.omni.plugin.dropped-zip",
+        "eventId": "ab5cda0acb58d04719967a5756137cb8de1113f402feb1548a2517744dc643fc",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:33fc18e9522060d603f4cb88c941b75c48b44c0be15845109dcc6cd648651950:org.omni.plugin.dropped-zip",
+        "eventId": "8f265b0c3f1beca5f8c249ff721774d25263cc7fe281d9a9784fcfa2f7d87631",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:40c98f4fd94719f405069cc832b5b0abb2eacc85ab5898f6e5970dcd381e7eea:org.omni.plugin.dropped-zip",
+        "eventId": "0193fab46c3ccda7d84a41b413f08608402740fb00e370652436eb50958fdf73",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:44566e32f0a5336f3eb125a24fece30c22ad520aaf5038b2eb1a5f397eb9160c:org.omni.plugin.dropped-zip",
+        "eventId": "ed3d6ec395884686592a2f0184f5c6a87eb2ecef1a77b9dab93e0809bd819b73",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:460d871f6a22a62cb8d6b18e81fbacbe23336c6798d89842237faef1b39dec6e:org.omni.plugin.dropped-zip",
+        "eventId": "af6c89d171c50659de40a0c47034d773087d1168cbd0c6f4b29074d923c29a37",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4d82ed9fa3406c468826cfe1acec26d32b370d2dcd9013235728d9a811c3c79a:org.omni.plugin.dropped-zip",
+        "eventId": "bb58a5191970989d471ac7705d96f8d548910063a3642a6cb4349a2d92bf4389",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5f5266c62ee9ea78fe41cc8d85432e0462ee79b9e65a0fbea0106067cfc49c60:org.omni.plugin.dropped-zip",
+        "eventId": "11432e8154d7883a90afddf2391f3b12120df317174c0cf1ed6536400ca99704",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:697940e0957fe778a5c712b5b4c5760ea001a53152d8983f21099c5c6b635155:org.omni.plugin.dropped-zip",
+        "eventId": "72e7b713746b46ea9635acc2546043bfca23b72d5d52d5ad7bdb23dbbf00b0da",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:6e2d69513ef1869201007761a82d43358d4a253bf6ee07c243ed132391c53afa:org.omni.plugin.dropped-zip",
+        "eventId": "1a0c889fa5d69ea0076bdad97ac5e173dee977a7b198a42a192a6bde83be185c",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:6f9dc55d13483666094f77b121fd66706e33109cfb52e2ca76e696a55db04f78:org.omni.plugin.dropped-zip",
+        "eventId": "64aa3aee956e42e985651390b18a9413e7cc3c64ee07321729b7ccad357696a0",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7483ed0d5ac93c023de9b827f1bf5542509515227353dbff1f1fa708ad3a1cf6:org.omni.plugin.dropped-zip",
+        "eventId": "6d4644a5c96213c039047193d77ded01003c1ddc1ee050c939c56d74562adc60",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:764b8ba453b4c4ace33315347df909b83c5c1887b5f3a5727b6bcba2707a8c1c:org.omni.plugin.dropped-zip",
+        "eventId": "33dc4e746d0690a41a529889a6359db528db13bbe8bd4f4f60f1e068f9f90f12",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:77e0e8c39c10c93ddcb9b30042e27c53a47e68fca545d3460dd3946bcac91479:org.omni.plugin.dropped-zip",
+        "eventId": "ee066f8aaf6313186bee530fb744491cf282ad9b29f391e4d57de7c23e5f8bac",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7d62d0b2483d152ef4ecb0518dcdf7fd690d9cc0c0120fa84dbae59f3651ad35:org.omni.plugin.dropped-zip",
+        "eventId": "71b6edf4f6698dc5c6eb2a5d03d792f48617615bd24c0784d48caf8cfc1c2198",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7e642e45fa364c8502e6096cec992d4829348fc0ab2359ce0dad097294d61ac4:org.omni.plugin.dropped-zip",
+        "eventId": "ff92c82dd8fd4bc9c57c27fe8cda5e774f6c09b874d570a01aee4a6ad9fa5c9d",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:89f84b96a697b5b949bad0688b40d936d1b2eae26f35879f797c52c262a5c89f:org.omni.plugin.dropped-zip",
+        "eventId": "5fdedbfe49564406ae2e5432c1a9cce0bd113b0700d974fbade244d58b6eedca",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8b2adb0c6fef40a558174fc7f1c236cdc57fcde756ffda82ed99ad343300c2b3:org.omni.plugin.dropped-zip",
+        "eventId": "beff8796b0e956f14552479447be66ca70dd5c997f8209328c6b99f973b95ac6",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:92d53d82c8fd9edf9f53337e2f23b56d83f8bdf2ee86170b9bb518e3a88c8909:org.omni.plugin.dropped-zip",
+        "eventId": "8a9bbf89e168177999b95e41ad467a65282cc74a7c5807311bb5716f2335bc01",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:9996babe6e3243de750a86c489f3ef6f7c8a3d2df8a32f1da225bc97e59ff6da:org.omni.plugin.dropped-zip",
+        "eventId": "5931842c695bd5e07cedefc09531e9036c7d91bcd99aa119e37e89f904c3b6dc",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:9af1b90d3aa3caba7bfafd4d15ca36d73a3b02f512727ed360108a8b6bcc3196:org.omni.plugin.dropped-zip",
+        "eventId": "f6eef7a83228688d61ae3bc5b92ddf8582f64f1fa9921d1a25e515f6c3713282",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:9eec8e27d1246ed086a463341428805e986b088c7f9ef6bee4407416a00e001b:org.omni.plugin.dropped-zip",
+        "eventId": "9f3e31fbd841bb70d9570dc468e20a646179cffc77609bae58c7c07664be312d",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:a4e8380cb1406328bbe2aa9503db56cac21dd8130fddc4ed08946b676dc7afb3:org.omni.plugin.dropped-zip",
+        "eventId": "fbabd2035df5b01e4af6a562d9562061f559052e8b2db6d2c989730aa088ed64",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:a6434ad41fd86b1b87a69dbb0bb7db634e30f44ff155a11761c9db9440e5a934:org.omni.plugin.dropped-zip",
+        "eventId": "ce3f1b5455c023e8cf2e6dabac18ed71c444177c618b5a537b181ac59e419f98",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:a9700094050e2abd262975f29408f4a998128cd9fccbe4919736db4dde9d7115:org.omni.plugin.dropped-zip",
+        "eventId": "9a247f62a6256ee67b4fcb833ddbf43d09401554c216a0303dd265395cd29cd5",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:aab57647632725a3480844b0e92a8a005ea884dac7b3c0de2df6b9e05b098761:org.omni.plugin.dropped-zip",
+        "eventId": "c993001a1f724217631b6c0393d1c83931a31f95bdedccc84dbacb35ab4c1c5b",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ab47c49ec19d3ea97e9eeec17c458c06257c1fab231cc916bc176dd13278e56a:org.omni.plugin.dropped-zip",
+        "eventId": "fe86ff3fdeb32dffd735ad553c0619b9487c7e465a3680d6ae38394e23f743c0",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ae335dfbacf19f66537781c20e675edaf5771c5849356da92f9a1ac186a204a4:org.omni.plugin.dropped-zip",
+        "eventId": "1f8ffd1571588b066299d3603282eaf01b1cc9dd9557c36f88bdc0599081d7cb",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b47595f59d58fd35d77dd045cf98ca9915e793df4bc63953ed139f33f226f899:org.omni.plugin.dropped-zip",
+        "eventId": "cb9ae851ae800e40aec37a655f9a5148f6a4364969142d79607d6ff1029f3278",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b5a12e9379a76210e90a16e63c9e4087c5b2ee02c3da97bdbdc6c92915c83b2c:org.omni.plugin.dropped-zip",
+        "eventId": "61bfdaf37c67788a13e2cd4bdf66a5059a46b86ef46f9a003d33a3e530ed5ebe",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b5bc0ae27badfa150ecd9ffebe03ced690cb043f31fd53d183663818cb1f6af0:org.omni.plugin.dropped-zip",
+        "eventId": "cf652293bfe713fa7db71a81206e0c6b4781eb9ea4a997a63da5a5b5126a22e1",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b7c57d354cbd9a0fae72fdb9a2bf8c3e1622d27c7f4794ff11e7245a8893381b:org.omni.plugin.dropped-zip",
+        "eventId": "661a62175e4b750168da2521e6df316e58b67aa75dfff5cbd6bb6c4461bb0901",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b7fb87f724b03e81753a59909770510732649121739ab52e00c1358e4ed9f13e:org.omni.plugin.dropped-zip",
+        "eventId": "28ca1aa3da4b28140e267bb38a38ede68473db4ae5f1d66c4cdf61ef3e82e5ae",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bd2f1d1c7edb06dae13dd34de4df24f68aa4d6bf82e5cc7dea3ce9d5aebd18e6:org.omni.plugin.dropped-zip",
+        "eventId": "f600c77dc4d5f0aecd81ecb5427924baf6993088950545c5c915cc17d9e92143",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:beb3b577e609817d1b0a32af65716192027da39d6bc35e96b19c4302a570a423:org.omni.plugin.dropped-zip",
+        "eventId": "7216ecbdfc001d209c634175633c382d930e127f8a61f7159c31ad82135a6c9c",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c216fa996f5bb3e7a20df89f34dddb51f79d99699c68a7f5b3712a0f575a60c1:org.omni.plugin.dropped-zip",
+        "eventId": "17ca4ea9062b01ec41c9871fee5f6765391085d56f9c428939ee624daa48b32d",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c3bea80baab49d5adb623e90a4e959940dccf960ccff1f2e01a6f92c7e894360:org.omni.plugin.dropped-zip",
+        "eventId": "9c297fe8a9969d63e88fb6b8b157c087dedc3a6b9881c2344073c93e6ab1d60b",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c45420b8267439e149c1553c246798e01259d7ebc478e2289a53ff8342cbe642:org.omni.plugin.dropped-zip",
+        "eventId": "97c474d587e2cb946345f562a04e751b203fb0df2576b8bff97b340325aaf616",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c710b1d2042ef9b3b69933e42620fb6da736c6247d316864da24fbf9335ed47e:org.omni.plugin.dropped-zip",
+        "eventId": "ec376875d64500b82abf2e4ec3b5b7bc596b4bc7457f456a59639545cf1ca7be",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d89f9092685c14c6b3f9831c1a2ae7a314ad29aeb4fa4a4162671e771b57ef50:org.omni.plugin.dropped-zip",
+        "eventId": "ebbec3f51837d256b7725a5020e50b5dc522355751b677074b75bf9a98b16ee7",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:da235ff680655e97309586fad5e63aff9608e81240f84de0f521dc18d9a7d04d:org.omni.plugin.dropped-zip",
+        "eventId": "d39ce44714d0e4f70585955d721dc383f11bd7841169f16afc20a94e9e4a1e88",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:da33c2acf7a544917eb8661e23a07c87019be5de2c7ed69caec84dcd661f407f:org.omni.plugin.dropped-zip",
+        "eventId": "9e7358ee02f7c2141a461434e38ae5638e90e1653b5a97ebdc55c951aa7a7ff2",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e2c18ca169cfcd35fdb4bd981d1941933776684824ab490a160efe30a5e2b058:org.omni.plugin.dropped-zip",
+        "eventId": "5605378cf5f9ff6a22700baa1d802a1d99c057ff3193a659c324ecbbac21c1a4",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e64b297ef7068c86f58b5cce75fb5bcfc948010d7c3eb151ab0f0134285e7528:org.omni.plugin.dropped-zip",
+        "eventId": "56e4e9137015193d58cecf5881cf316fcd79a508c06eeee931cc51613ae7d231",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:eaa324ce95099884b90c7190d584881b297713b8af9984c2bb5b9ba9ae6fa2d2:org.omni.plugin.dropped-zip",
+        "eventId": "d3b8f8638254b7e67083fc495bb81c5fbc82c3b9f61ccd866db005c64ca50f24",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f62f7c2c679333621f171c231cab2b0921862fac9dabcd9d44529c13e6b206ed:org.omni.plugin.dropped-zip",
+        "eventId": "d22d20a16ec68ad6a6c8873aaf31120653ffba04b982ef2b067d5b6c41fd00da",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:fde2be741a153340a83556c47c1bdd04ded5cc3e11fde270769bd7d9f1600912:org.omni.plugin.dropped-zip",
+        "eventId": "03e654ea0dced070ef920d2e9b427fd0b1e6424153b7b3467076960138b10c1f",
+        "title": "org.omni.plugin.dropped-zip",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:09bdabbe9b14171300197a012e9cf9102db0eee1c3e69135b330818645b4e317:org.omni.plugin.external-tool",
+        "eventId": "f22385ec5debf0c37d37256c2b3d56b1c977f1922894ec4ce12c5975ca7b0ed1",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:17b68907de1e2ce45fb7bb2b5571e503c6b9526ccd7e958aaa2342e55843f354:org.omni.plugin.external-tool",
+        "eventId": "788e13017edb392a464efa52678a7104501bff407223e5641dec71a7f4788c28",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:17e5d213b37807d4c76e049ede37c4c9f1c7bcaada97b7adcbd0aee81694e29e:org.omni.plugin.external-tool",
+        "eventId": "1d01a35e98b58b7f80dee8beaff2334e7fb0d917a92f199f3ae5780a1c19d3ad",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:228b2bf7847622af7a4db0c52a6e782c93003c25035fe15b71275929e94b5286:org.omni.plugin.external-tool",
+        "eventId": "fb54d6fc7518f163b1fd3ef95666c6aeebb48a5e667cc3191704a0ffd4bc0a89",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:28ca1a6dbf83b6ecd2944605ec83ef89defcfab48bf67646052f3524487f2467:org.omni.plugin.external-tool",
+        "eventId": "2800c49fd2adfe6237cffc2a5c8f64a28c2764e61439a929e973df1315d0c924",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:2d26a6cb41d7d98db17836164f2989467ecfdaf451a54183540cdad8dae30907:org.omni.plugin.external-tool",
+        "eventId": "b479336a641dea332a978aaba59e7b4df9227bb2edd3c32171c099b5d3d21d2b",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:322495ffdb460fc000e6e25d0010f1ef15e3377dc11309d0158deb90aee39b23:org.omni.plugin.external-tool",
+        "eventId": "a68ad0c0fbf473c4a48e8e523b40ae24ec930c0641daa7b2f3ed526dc06a8d1a",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4274328be58a29850cf75834adc93521706df01aeb8da5b139702a7284c730da:org.omni.plugin.external-tool",
+        "eventId": "2040b3fb20c58c52879987ba10933fcfa1d4e199b75bc225dd796a43d9fedba5",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4554abec80a4517ee0fb4c8c4812c8aadc225fdd1e195fc71bc6e3b58a086548:org.omni.plugin.external-tool",
+        "eventId": "c46a0831d4114ef1f126b3d86d625b8b02351ced62c7f49387bb09462cdade75",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4863f9b93b4086540d34a02a2b7dc7aa6c4acbdd4d16d2d2378bf71e54f3c94a:org.omni.plugin.external-tool",
+        "eventId": "6c856ec1b367db27db7349794e26e44c62b3d6c85fc6a912d504e2ba9b5844fd",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4f9152b630b484f678e86d06532223b862585819b898e85b5556467151d437bc:org.omni.plugin.external-tool",
+        "eventId": "0810625370d61100214ae8d7e443dddd2ed52e7ef5cd1af30b35660dd925e383",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5010d802e80a87014e75dbd773545d2f4782bd9a564020966e5ab3d205135a7b:org.omni.plugin.external-tool",
+        "eventId": "bd42b738a23be9c1e192c34307976a489fc978a15bd01f0c1f48f92a13ca63ae",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:52e285ae0e5b09424ac88247c1fcffe36d79209958c7794918edfd955ed3eaa8:org.omni.plugin.external-tool",
+        "eventId": "0f23653675463cc3ebf54c88f8eed2cc2ed68938fc5faf4d6fa881d11090703b",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:542a45db9a4bbaffc8b3d7644793ea7114cddc124f50c7ce067ce16c0e02dcb5:org.omni.plugin.external-tool",
+        "eventId": "c15154076aeb646314d3641bf79bbec0c3122987ca2633524ca2f9b2c4e91c34",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:582faa6ba813e34bfa6abb9f1fe58a96bcb323e86266d5747b56c90f93d212fa:org.omni.plugin.external-tool",
+        "eventId": "bc9f02b9ca6c7b6b370b0d9a990a3162de435813426025f14eabd22d5ed6902d",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:598c5120422ab66b85843db13a51a6699153b0237e1b87f47fafb4249749e329:org.omni.plugin.external-tool",
+        "eventId": "27910c4196d5f0deb27093764f7416392613e3c5d0d9451a61dd6dba9de47b54",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5ed8652a58b5003138bbfa3f2277a06e01f709596e850aba349871e804ca2b2b:org.omni.plugin.external-tool",
+        "eventId": "d3f070dff5016653f76f379912d2fc98b22569bd7914a35832ed6dc35076ea54",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5f1678b518c44dce260a22da1893236e33af33537b09c70d6b24f6e3fac5e61d:org.omni.plugin.external-tool",
+        "eventId": "2a0f09ec8e77f0a750027113720b24f4d14ce75103a616a8a3a8eb9f6535db58",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5fea40cb0c366fa0fa9107134acdaca3a06a082e5bab46057efec8f6dd89c9b2:org.omni.plugin.external-tool",
+        "eventId": "4a7f2e0cd7b7718eaeafeefafd8e536910a2acb0511cc194759bac1c33b5b27c",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5ff7dc25e5cffebdf9d5ee1b35a6ffc85aa2eee4eb2ce44fb911755f6a41f2b3:org.omni.plugin.external-tool",
+        "eventId": "5ed55cd19e858c37ec90348f91819c2c3d549d109ae25f62a58a5b8aa4b37ced",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:60adcaeb0c67ba76bc18ee661a3e6d8e4b534e0cd268fe452f87c6800e2007b5:org.omni.plugin.external-tool",
+        "eventId": "9335cafecf3b39b9f545260de5d35e278bd750425be74a3a028339c703f4ea98",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:61fa67befbbf3fcf1a0244100ea4a108e94f9738eeb6917706414409cc2bf008:org.omni.plugin.external-tool",
+        "eventId": "e212cb762591ea0cb88424c0aa6fa19b4c3a4df02a83cef273a1fe500efdbaa9",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:705f0f9e7d5823f44cf865dbb6461f05c541efd36b1f58299a2001b2268e4b90:org.omni.plugin.external-tool",
+        "eventId": "0351257b1af65ed0381b1cdaee59b100e1effed1619a86b6cb87d1fafeef9969",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7b40b789dd91f450d6030a4098c6046ee64b09141a3d266f196eee071a8771c7:org.omni.plugin.external-tool",
+        "eventId": "060d005519bad9693603d5387f741fa775a88d63fc64644d01a6b230e177e510",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7b86b1a30051bc6fc867dab82d436f0c6918cd684b4521621150c988736961d2:org.omni.plugin.external-tool",
+        "eventId": "01fb19647e0a4c526f2b161bb5e453117e380b1c93ad673a1250be60e71d81e5",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7c949c99f0fa50649b0ecc1a3c75df7f616e86491a4cfb79a61c90e457757135:org.omni.plugin.external-tool",
+        "eventId": "69bbcea25cb6b41fc4d3ac71690a7cebf128028cc889d7d9e792a8c54ec3448c",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:82a5eb989d5478d080f687eb1f5c55697f585dce444f5589bdbc3ba1eaa14e9b:org.omni.plugin.external-tool",
+        "eventId": "efb31043481bb6b6a5a1295eea28c29eb079ecc86d3465d279a78755922d78ee",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:86090e3fd7ca355a7ff99e34f164dab717aafb0b7a75b69e45aca259fedc9741:org.omni.plugin.external-tool",
+        "eventId": "cb61ce34fed144aa8a2b62eb60055068632836c7bc252cc7fa5af76d526eb0dc",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:948d4d1a29426f59e20f952735ffc9722d8d76d6efab3f46173fb78b5be125f0:org.omni.plugin.external-tool",
+        "eventId": "5f25b24ae3489bc6a337679da595f17ef819f1eb1d0581b6955f1c53178383f9",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:94b883a173f171db0e00bae040d210dae03f85408c305879665afae74f03bdbd:org.omni.plugin.external-tool",
+        "eventId": "39b4f59be03d7a0ee9c5dfbcbe1219e7b8f5468ddbb476794192f8667fee27e0",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:961ff8eb11820f506bc1b293f23454b9d64bd8c1b1d184c8c03c69d861d69abb:org.omni.plugin.external-tool",
+        "eventId": "931e66ed42375613f21167628de22f0337a3eec0f57a2872bdbe90ad9379d549",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:9b9e01e105873be2037053bbb80c376af6d9a8f3100c9c4dc72c2090d72cbada:org.omni.plugin.external-tool",
+        "eventId": "789ec0c7b8c29101c5802c84049c7da31d9d9a8d9f3eed0be8a6ba985f424f54",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:9f4b2040901acfdfb6b5663555dfe067dce6fb45c522747d6726ebf7f39987ad:org.omni.plugin.external-tool",
+        "eventId": "790c6e4eb80614db93566b0d0b5a971aec23790d8db4d1d422bbe687aecdbb95",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bacf5ef2207137afaea9c7e1547f333563dfab44085051620970fe894cf88d20:org.omni.plugin.external-tool",
+        "eventId": "bcb3867826c7439129445772b37c7ba216e96891b12ec45bb70f1cb8e4c1ba6e",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bb3e7767e8b474e6069944becd3b161ffa3a317d442bef7331338e065562e6bd:org.omni.plugin.external-tool",
+        "eventId": "8aa902c8ca3b2089da05fda3fac9e977f88f7e61d814f29d6f16b4e89ace4b4c",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bde6427de69b8582f0e6d42bc0149af50185d2740b54fd7860322f0b4626c4af:org.omni.plugin.external-tool",
+        "eventId": "b57d71140e1741613137bb93093a7d4a48a7c091ff8df572a704fc494c6420e9",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bead7693088db56ee4ada4a82db7aa011fea86d29671c5cf5616ba198587c34b:org.omni.plugin.external-tool",
+        "eventId": "f0f2e0d6aff84d57e5174be4dcd9861cedee84f6b84dff3bcfcb5519649dd39a",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c4ff2217106a7a06ad0c9224914f7cbe9332cff228c2387da5672ebd4c90a804:org.omni.plugin.external-tool",
+        "eventId": "a191a7440b6595ba045d6c03b96168cbe362b92185ec364d76d4bb2f92448d8a",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c53b3b56984daa9ffed17778a0b1eef2bcbef191bf3aba9ecec4f6263bea1a59:org.omni.plugin.external-tool",
+        "eventId": "d0736819e3078f3f607528de7bf5b10bd7971dc68901f7378c51fc7ffd465987",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c54bdb7852db4a3211b9e64fdc296aa5e7ee580d430dc8374a03737e0b873b85:org.omni.plugin.external-tool",
+        "eventId": "235e3c915afe78b8f760e0051a66e9de9de443646e76b6504ee04519ea28174c",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c88df935ea467631d71da4ced994ba10677c81d524f291d403213ed2a679e500:org.omni.plugin.external-tool",
+        "eventId": "059dbd7796dd3b048f1e63393cd7d25233a572160b13496b1258b3cb7ed021c8",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c938f5eee02e68a897c1b1d627480f4712dd3cecf35636a41e661908956a1ff9:org.omni.plugin.external-tool",
+        "eventId": "b3d977674b4aa239671629bf09dcd2b33e456d8f3af6614b5dc7b759813fe038",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ca39b72fa4567206c4cb9abbad20b9d7aa1fb47ae43af6547c101683f95beafc:org.omni.plugin.external-tool",
+        "eventId": "55c1b34c45df47ad5a479d9f262632c7ed62ef2717a7149a31f786944b8cdeae",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:cc88ce0fee3abb627ca1aafefeff0a1da746381407aa8dbbc8db4a69e9cbec37:org.omni.plugin.external-tool",
+        "eventId": "ea5e8b3f370643dffb345b95c616d24729ea963573e9b59ef19b2547ad7c40d8",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d02d0119bb10eba85c5183d48da41d63436b1f792c64834b47ec69f32dbc8828:org.omni.plugin.external-tool",
+        "eventId": "cec4bfe33f768bbabe7932ba155006d67b894e38b681882ed3784504e1c51556",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d94aed7a7dee8990c9d71125a550f440f267d4e3775b20f9ec7be23b80b32f13:org.omni.plugin.external-tool",
+        "eventId": "6ef20e171d3c5e3e4cd4b4c21563389e5d1e5b809145112209068cc055c3c23b",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e70bb897751443dec00b793570f936f88d7a8612b8dd98d4715e6a6423f4ecf5:org.omni.plugin.external-tool",
+        "eventId": "98373de9980ce87c015bdeb1d2ff6f84772a65828e0a5840fa92678b7f8989be",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e8d3a7e32cc8a6f3d113a5592a643ac37f9ba872ba3bf8149204c04b92d2e6d4:org.omni.plugin.external-tool",
+        "eventId": "fc2af5e23d9b68d60c819d2c7bd6ebb83edeeaa6e0d7f4e811f3fa869bc90e6d",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ecba720b5115cf17f5febc9c019c2ef0f8fd65351914496d84c59bb407c3f8aa:org.omni.plugin.external-tool",
+        "eventId": "c25c1f976aa30492b6a7947acb31b024d0276b1ce96ef284f687f5a25e984076",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f04f7100c8e85737ecace35d5aca88b4a3fff4eef07067bd577d870418f2246b:org.omni.plugin.external-tool",
+        "eventId": "e544a988bb1a9678469df3227dda0f168dc3b07a89322068fc366f79bca54b53",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f2d60b943027fd7ad946c107e124a232ad776c70d2a460f95cca1d58f25b6b45:org.omni.plugin.external-tool",
+        "eventId": "2d8a969463ad8aabd6e14c42865001a9fca1b0d705f7a605b4b259dba6b2b0ca",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f334b0eae3368f94a33ed1bf40d2371b71ffa2d6f2fc205f646fd17f2df6abfd:org.omni.plugin.external-tool",
+        "eventId": "31010703c65cb72f0817720cb4cbecb665d9e4d3671fdfaedee9507c3a94bf65",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f53a4523281e4c6aef4b12a0ab06dc5e1f507a045c47a886171ebb67041417ae:org.omni.plugin.external-tool",
+        "eventId": "09b89cca301f883d84082a5cfb46f1765cbd23135bc3245a78f7435c633e37fe",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f7a154d08778c8199a67bbf5a5b3e0e61b7f6fb7b4dd75af2726e72904dd204d:org.omni.plugin.external-tool",
+        "eventId": "823e6c57315f492a6de2006672cd7b528c06ea6220ef076d65c347f0b60d5d22",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f7c2ad8f9c088aafb3fcf68ed07e8636a8657164e3d9974e3bceb6159e6a3dc6:org.omni.plugin.external-tool",
+        "eventId": "045ca8842004b65183f094b4478fd4f8586af5a4bfdcf265b9d121bba616b7e0",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f86b422628c9693ea9ee27d2dc76e5a4a34b64a0c0f353f21013a2c95ac3e8c2:org.omni.plugin.external-tool",
+        "eventId": "c960392a76b8d0e9547285e4b0f6f33b4e5c2b381a52d45ace0d029ae3ea8f18",
+        "title": "org.omni.plugin.external-tool",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:001f02dd2cfc4c365ab576347d5a350feaa79c9322c5817c62593f0dfba4042b:org.omni.plugin.pomodoro-studio",
+        "eventId": "4cc1fe4e33648766af3ec045a796b5ad5985262928dde06ed7699925316a09f4",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0172cb75248248159c7f48b7286c45c1c94b98667bea26bc4750c3ef30764df1:org.omni.plugin.pomodoro-studio",
+        "eventId": "3d198e5d21c42962b6c972ccb34a5f8bc5b982ba1f4b4604ac825f664078ba48",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:027d831d96850ac0532bae332e94aee11e67e96fb41514218b541e3e3fdb6462:org.omni.plugin.pomodoro-studio",
+        "eventId": "72e579cdd339b097f82f8314a90af58eade760261ba86fd5d4ad90c5c15e0fdb",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0769cc70030cc42147186b059963f9b521d149bb2872705b1ce380d66c8abb02:org.omni.plugin.pomodoro-studio",
+        "eventId": "402942acaec3d990b1ffdadebb3f48a41393aa26b2055335d7dc784ba3556235",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:088dca7b12b54cefc317f83021444448f927776453c638a1e3d6f37c380e22df:org.omni.plugin.pomodoro-studio",
+        "eventId": "987474e26b87a5ec04e7b810ecbc7f69ecbde82ed4dae00541f060eda27874b9",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0c67e48187cdfadbc42df63e5eca6902666f82272dd81cb0f68a4a89dd29d0e4:org.omni.plugin.pomodoro-studio",
+        "eventId": "5993c6ec0bca9e576cda97be802dc089b90229b1ee5b045341403f1a55416043",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:2325de7214586c92dae6ab66e1ca42ae02c4ae70cadaf15469d77e510045e7bf:org.omni.plugin.pomodoro-studio",
+        "eventId": "0a8670af9b0f90ce196766a281afb7e1f46f04629c082bd9061fdd1282da1119",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:25374c99f223af491e0aa0c313bcd2550824a0e59a0286f69545fc08e4600f92:org.omni.plugin.pomodoro-studio",
+        "eventId": "b26e459c437453e2e2a670f1e5e52d22332778de897084aab7edb1cbbea3eaa7",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:2e0955523d711f580d40d1a10f2e1bb43867c2ea77e2eb720a0d21d8ccd64f9e:org.omni.plugin.pomodoro-studio",
+        "eventId": "a527dad40d56218d994bcadfa4cc8f66d20ddc12304a7de889e2a93fe25eb971",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:2e63cf1dcfbf92893b0c39ebc46226624396884f21cc4cc4da460fd22e99ea79:org.omni.plugin.pomodoro-studio",
+        "eventId": "17f0876f5482c1acf358df50f7f87cfb6ea3978b951544bfe7624d4474a00989",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:53a4c27afb2ffeec362e20937f1fa074279683d9745db2ae1a4716704081f5ef:org.omni.plugin.pomodoro-studio",
+        "eventId": "a331edb61c46b0a4e2b4d761264c006bc35b7c67329bd02befda3cd7a5c59d58",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5650e8b5938b038b538b72937a7981aa9d4e13df01019636714b9867c627fe8a:org.omni.plugin.pomodoro-studio",
+        "eventId": "ca16c22ce4316d6273dc5c6a6c58c4a5b70334ff3050b5a66c602eaafc94c77f",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:56a92dbf9d7e229e881a32b6d7d3c7cf8829069a95c5dd05a10ab59fcc497b10:org.omni.plugin.pomodoro-studio",
+        "eventId": "458ce65ae2e9cf3e954ce9ece741b4b93fc016344ec483deed1e87d36a4ff24d",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5a948c43408a1c2b7c6e3a418b98c9ea98a073475f84d7afef7ff0d609944304:org.omni.plugin.pomodoro-studio",
+        "eventId": "3024d2626c3f1a650cae43dcf416e8eb7b1e7d6814d218e5822f80ad1bfa6733",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5dbdca3cb651bc5d5d8166abfdec99b554698ef110a78aae2920b699e31c546b:org.omni.plugin.pomodoro-studio",
+        "eventId": "708c6c131d14a7c32ed369ec4bf79b0b2ef7412f4f16a06e76fc41ccc7c4dde1",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:6d30ef6448d2bab837a1c4eccc7d9c31bf9c57f8f10243713c394aff2e1a95ee:org.omni.plugin.pomodoro-studio",
+        "eventId": "ed356cd4233d438ce8be607721e0b770ca93fe9714c28d285df04feeee571edf",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7bfb55dd1f3502d1c4cd4aeb64b42e94a0c8669855a986cad8e04d69f5289776:org.omni.plugin.pomodoro-studio",
+        "eventId": "e427b744fd3df3f41682f67462cbe61cb3f2bb312f15577f9aa02a38371d04e8",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7d0b028589d498e7a32110af78c0b1ca3cb5e934f137014e5fffa0c65d94fc4c:org.omni.plugin.pomodoro-studio",
+        "eventId": "b3fad8faa43ebda5b7505f813799a63ae478ca1a90d62b3ddc00483a6d6cfeaa",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8b2ef99c3df9337bb61003cf7ac871e82b745142da31a3747be747040516c421:org.omni.plugin.pomodoro-studio",
+        "eventId": "867b4102169d0c9859a8160c73c177bb4fb703f4bbda38242a726bce82306f69",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8f187e6582d30766346636bd195e8e8ec340f545266e7623739f58b665dd608f:org.omni.plugin.pomodoro-studio",
+        "eventId": "1fdb7485f7e66f4c12156bc309e39795ffd59d4b286416dd17c95dc405a7f463",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:94745d301dc8ba8dd6a40ca33544d2b8365273c8bdca8e4a682737272f9e7eec:org.omni.plugin.pomodoro-studio",
+        "eventId": "35f465a815d5f6b893288e8620eb017f0a47f1c80228bb7a650e67975606dd55",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:94fdb7667923bed0629c3a7c4d00245aa53c868fc1247daa37560e19468be8e5:org.omni.plugin.pomodoro-studio",
+        "eventId": "a6e38c4cc0f98cfca13135821ea30d36ca23d13dfa9468bc46968147b9b29493",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:9f541fc91440bad925d6c64690eed64d700cdafd5e9bc7a6a9098e2392de7991:org.omni.plugin.pomodoro-studio",
+        "eventId": "ae7fc4f7659654820d0c312c24247bd1b4ecdd715eaa15d034821923619c2312",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b00b8926fd062eb57a5f698497c30c5e6935a89a43a086dbe995e888e0feabb0:org.omni.plugin.pomodoro-studio",
+        "eventId": "b7ba499a64881a7a34afc320301abad2bf534f9b791c0e9453b1b7e710d7f040",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b7cda2dd93ba58be47ec07692c34e49e910827274a31cdcd64e35722184f2c98:org.omni.plugin.pomodoro-studio",
+        "eventId": "ef0f2a8345bd6f1ffa93fc6b84bd4554b6daa5726bdceab3ed05bb024cc80813",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbc5d568011e66c230fed07163d3a24b12efc8fb0cc1d09eaef491395dcbb2a8:org.omni.plugin.pomodoro-studio",
+        "eventId": "f875ac68abef63904e011c565493007b1b5044bcab2ba39d2040ebcd1ee1cee6",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bcd118e48dde63e42d4d7e1a1549e3c4347e4be51f1f6a0d197790ce8a8b642d:org.omni.plugin.pomodoro-studio",
+        "eventId": "b314d168934c4ef3bda15ed0bd2f47cff9ae605b76f0ada1d6638a7aa0e7d14a",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bd02c50471d2e964e57851160a0959626fc4b09b2ac96cd8f34304c32df6c968:org.omni.plugin.pomodoro-studio",
+        "eventId": "d1fc22ace72bbab822b3ca38c17d8cf3afb9ee90a6c96bfb38628f46d7c478ba",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d2b36aa360e94d172fdaa3ae79b848283714192019465f9d6adbb73ba797dd3f:org.omni.plugin.pomodoro-studio",
+        "eventId": "8fd51ccd23629ca5b93caac3ac776556490d6c7b7bfcc2e59107e921fd0f4ffb",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d935fcf7de0bcae27622fe068904a445c6ecb13501913c91bda4c6e42f61c9cf:org.omni.plugin.pomodoro-studio",
+        "eventId": "6ff2100cde005715db95e79a1daf1b1dcb1d63a466b156e2cddbd803664aa262",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:db04b2aa3828b1b1a82534320e95f166471d38d759dc1e9bed62c4a36bcc2cc2:org.omni.plugin.pomodoro-studio",
+        "eventId": "14e451f2cd6a31e8b9c34838133d1264550ced151384e7b01dc76f7edf3b0872",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f852ad0261f62957907d0f60ea1ffeb0276de6d4d839c140d4bf7f2a6ead6856:org.omni.plugin.pomodoro-studio",
+        "eventId": "39b759eab7a75f9cb8a3b774f84468d648ec0d5abf9905e79eaab69da5ff80e9",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:fa3c6caea6258ec8d7fbdf377ba5e0fcca8c0405b57b7edea33153b2d3be3874:org.omni.plugin.pomodoro-studio",
+        "eventId": "c03edc9d06b8530378fbb568fa8206ecccbf04b5f58bb2b7c4d680d685486844",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:facb074bc2f69c8759db73fe966ceaad43c2c7b9c050b3c9e1a469ef29a93c72:org.omni.plugin.pomodoro-studio",
+        "eventId": "ebc92e980283730886fc7dafa5ed75184a5e45e53bbfa9c0f34f115f4c8c576f",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:fbee4301975d9ec33826493283bdb173f326ac8da752e3a6586ba84691a4e04d:org.omni.plugin.pomodoro-studio",
+        "eventId": "924db7afa00b39113c38b4b665e93db5b564fd650ed268940fe4d7659b8ead10",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:fe8f2c9a02448584340ac137e15b3ccd839e541f83af7b55e5782e082fdb5570:org.omni.plugin.pomodoro-studio",
+        "eventId": "6285ddeea254f7ba0d88e292ce49aa0293d6304ba7681ed1339e28f31abdfb8a",
+        "title": "org.omni.plugin.pomodoro-studio",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:2e684e079366cab834a537290233d9f86546f8106d260b1e99d096f8dce3bf47:org.omni.plugin.relay-ping-radar",
+        "eventId": "08c94b3a177ac701599e428ea03358e489a292dc9b6de6c2bb7bff4d1e2f2d50",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:56e02dee59f8830d560b5e0022048531da7f9b9a91919aec55fce98dee543010:org.omni.plugin.relay-ping-radar",
+        "eventId": "2ad8356dce511cdce74e7d9e01f3a626927e212cbc779606785d763c0ce4b380",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:68413aedbb5c3977edb3ecf540fcf4efce670c1fb75700c51c6c9f6ad082f605:org.omni.plugin.relay-ping-radar",
+        "eventId": "ffb827eeafc335139cb81523986d28ac1f03c5e5c9846705ba1fe592d035642b",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7e51e1d2d018563ee7e984537342d8ab1c688c87386927d31bb336a284199e7f:org.omni.plugin.relay-ping-radar",
+        "eventId": "87c7a23105faf7a24caa0be3a23623812be072f5314ed4eba5ce0509adbd0814",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8b5b99fa554d07d86e86d867511cafe601501af2beb5ca602d32b342e8e0a585:org.omni.plugin.relay-ping-radar",
+        "eventId": "857550436b992d6f37d1ddffe9dce6319484e7d07e49a103248f7432b5e0622b",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8bfab3aa90bb4a315d732b37c78d2ef173cedf2b7ce449b8071c387588352e2e:org.omni.plugin.relay-ping-radar",
+        "eventId": "779325e91a47d409b25b7ecccf9ee1c43b29d6b1c15a8688772a87403fada08a",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:94affc1b6c211855f57e86a5cd4a72194cb80cc1917c271b4f17e82b05d7300c:org.omni.plugin.relay-ping-radar",
+        "eventId": "16460671613930d8c4d07d3a29e358f1d3573cca5ec32b8dd665babd9db4d6e1",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:a3fc42ff42d764924b2f56d01d65bea9b0252682f99f107e216645beec7f2272:org.omni.plugin.relay-ping-radar",
+        "eventId": "ef5da9691380bfeb6898d3da00be1addcb1c818d69261419de0b02051c1ceb55",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:aa19c2be31f335c7d9382e14bd8f426d39c4bafe4fba78eb1d3a21dcc0a3e7fe:org.omni.plugin.relay-ping-radar",
+        "eventId": "17466f2e8c3fbdcff79c159dd2ed56371223e46c60c13d58161aed2d68df799a",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:aff486f1d74519c23525b625127c11b6beb0c03f9c32cf58fb470fb0bab7cf09:org.omni.plugin.relay-ping-radar",
+        "eventId": "6be9fde59d8f2509e9757646056e7beb2c9646b945b620fbe9606a512e10708c",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d91af9557deee3f581374dba2c3c25edf9e6d0adc2fccc899b7c5c1c41046e67:org.omni.plugin.relay-ping-radar",
+        "eventId": "f973e0764086d06245fdb53f055ca615c4e6c77b4a260e90674ce83a7a7dd923",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e77d455d1129e7b76be9a52b1d22fd13a35b8e46191f0516e31b8913bfe45b7b:org.omni.plugin.relay-ping-radar",
+        "eventId": "5a83ec6ae853194fb7ff48cfada27d8628fc162638e121d7437e9dd4bb6ff932",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:fb093ac2c2621101e87f4d6bd44d7ced77fe8e5c184a12d8647b993a2a7102d4:org.omni.plugin.relay-ping-radar",
+        "eventId": "dc2c948ba6ebb4f27a58c92d9c8bc0dd270880a124be8f5f06c57d3775d38ef7",
+        "title": "org.omni.plugin.relay-ping-radar",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:09bdabbe9b14171300197a012e9cf9102db0eee1c3e69135b330818645b4e317:org.omni.plugin.remote-release",
+        "eventId": "4f901765a04616ca0837a929e2f0603a3792164914dee78c65ab0710849800de",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4f9152b630b484f678e86d06532223b862585819b898e85b5556467151d437bc:org.omni.plugin.remote-release",
+        "eventId": "33ef558f21f29d6751bd2342a4fe6d6f64ce35e54ab93f1966c00a6a676c3e32",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:5fea40cb0c366fa0fa9107134acdaca3a06a082e5bab46057efec8f6dd89c9b2:org.omni.plugin.remote-release",
+        "eventId": "c1020b99a9937632aa46b0a8bcbecc4d65b1b5348784eb42765d6842d33dfab8",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:61fa67befbbf3fcf1a0244100ea4a108e94f9738eeb6917706414409cc2bf008:org.omni.plugin.remote-release",
+        "eventId": "dd1974f178d32916e43619b84e7b7ea2ac920a26235920fd3235f7576f8f2050",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:86090e3fd7ca355a7ff99e34f164dab717aafb0b7a75b69e45aca259fedc9741:org.omni.plugin.remote-release",
+        "eventId": "2de7be60e612fcfe2dcf95ffb11c96a105c11f110ed324122ccc52862bc7494e",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:948d4d1a29426f59e20f952735ffc9722d8d76d6efab3f46173fb78b5be125f0:org.omni.plugin.remote-release",
+        "eventId": "8f80f78da65c4f3824932ee7828d224f2a0346248e30aac9b058d004afd7e4d5",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:961ff8eb11820f506bc1b293f23454b9d64bd8c1b1d184c8c03c69d861d69abb:org.omni.plugin.remote-release",
+        "eventId": "2886322c467236c7cf4732371c42b68d7afaa482642ea78eaff9d863c58823a2",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c54bdb7852db4a3211b9e64fdc296aa5e7ee580d430dc8374a03737e0b873b85:org.omni.plugin.remote-release",
+        "eventId": "cfef1af5d3fa6b9ab129da532aec86df616391d76c5332528c01d9bcc9d70635",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f334b0eae3368f94a33ed1bf40d2371b71ffa2d6f2fc205f646fd17f2df6abfd:org.omni.plugin.remote-release",
+        "eventId": "af917b92037b671f9e2baeb113eb9d3ca3aec8619ab8605dad1bc71bd62b232e",
+        "title": "org.omni.plugin.remote-release",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-b87c04571a9",
+        "eventId": "cacd70626c3c4a3b66b24ef55fcdf3013abbbe92c1240e56bdb33e523e066f24",
+        "title": "Outbreak: Soycoon City",
+        "status": "eligible",
+        "description": "A PS1-inspired fixed-camera survival horror demo starring Soybert, with six connected rooms, a graphical level editor, controller support and player levels shared on Nostr.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:paint",
+        "eventId": "a559f5010560c21504948afe354310b701625b24567cca351a684c0fbf806acc",
+        "title": "Paint",
+        "status": "eligible",
+        "description": "Draw and edit pictures.",
+        "icon": {
+          "hash": "9b651b52ea29281e92cac1a78f1d1902578159e928e31608841e67f3cf0bebe7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:part-detail",
+        "eventId": "6a4392f162265b1ede2f7d5a7c148331d284d29b373c370639336a5aaec6e880",
+        "title": "Part Detail",
+        "status": "eligible",
+        "description": "Inspect a 3D-printable part, download its file, and explore comments and related prints.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:part-library",
+        "eventId": "cd5406669dfd3a6d42e97f8dd5a7497d1df6a7b91d6227d09d83154d4eab8bc0",
+        "title": "Part Library",
+        "status": "eligible",
+        "description": "Browse and select reusable 3D-printable parts from your library.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:people-radar",
+        "eventId": "eb9e220e1c9f3d1fb21b9869380d1c6e5f1cfc4672a13a921911e20bb8f62d3d",
+        "title": "People Radar",
+        "status": "eligible",
+        "description": "Discover people on Nostr.",
+        "icon": {
+          "hash": "d4d06df6ffaa5ffeb478e414a0eb240bd1f8b3490428cf531a3539f189e50b3a",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:955433096fca223f29adfd52a0c2de07a3c52eb680f9b4d9eb6c46d9196c540e:periodic-tabl",
+        "eventId": "cdb36563ad3a27af1fb9dcb04aae76e327007807876375d244b2a679ee2c83c1",
+        "title": "Periodic table",
+        "status": "eligible",
+        "description": "Well you know, chemistry and all that.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:57f7119a0ce9ec9cec24958dc0ade5cbd538a722e0ec4eb4804e64dc532f1aad:n-bad44e7ab35",
+        "eventId": "039e51f55e34b0b593e53b1f2cafae6394e3350dde254ff2285984885102c04d",
+        "title": "Pickle Rustlers",
+        "status": "eligible",
+        "description": "A low-poly 3D western. Rope runaway pickles from horseback and drag them into the Giant Pickle Jar before sundown, while shotgunning the onion outlaws who steal them. Survive five days (a stampede, an onion tank, a dust storm), then peel the giant Onion King to save the West. Borrow an M1A1 Abrams, leap rocks, and drink hot sauce for a fire-breathing horse or a flamethrower tank. Endless mode unlocks after you win.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0461fcbecc4c3374439932d6b8f11269ccdb7cc973ad7a50ae362db135a474dd:pokedex",
+        "eventId": "6ada05c191e19ebdd5ef713c5603ac2a90ddfab86fedd00cb2248272f3301e54",
+        "title": "Pokédex",
+        "status": "eligible",
+        "description": "Browse all 1025 Pokémon on your desktop: artwork, types, Pokédex entries and base stats, from PokéAPI.",
+        "icon": {
+          "hash": "7dc0291f2ec31861979bc0c2e887dd8397983e953749462fed1c3265694387d5",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:n-44f63e5422b",
+        "eventId": "ad11a55ec88cfc642a3563f5a62fb28b179d5c77f392c527da921c47a49d25ca",
+        "title": "Poly Dogfight",
+        "status": "eligible",
+        "description": "Fly a low-poly biplane around a tiny planet you can circle in about a minute. Weave through rock arches, needle spires, floating islands and the Great Rift canyon with momentum-based flight: keep your speed up or the wings stall. Up to four pilots share the screen with game controllers for split-screen dogfights: fixed guns with light aim assist, per-part battle damage, and two heat-seeking rockets on the wings that reload over time. Rockets turn slower than you do, so a hard bank can shake one, and a missed rocket coasts round the planet and may come back for its own pilot. Beginner steering banks and pulls for you; normal mode gives full manual control. Plays with keyboard, gamepad or touch, in any frame from a small widget to full screen.",
+        "icon": {
+          "hash": "778d9ec6eac57306e51182c9620ce215f5c830b0f5d1e0a30b5740f240f6c452",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-48e516e34e5",
+        "eventId": "242076e6da24834fed54c9f76f61a85069b2e7ec2827b91416e0ec8e6cff8c0c",
+        "title": "Powder Tool",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4ffee3d9cf5de52a51cd83f9c46261a5b3254d266c7591f0112b69a738471d6a:powder-toy",
+        "eventId": "142767edcab885a701b47569ce0a8b6887777d2e73221cb0ece6bb064a3945fe",
+        "title": "Powder Tool V600Billion",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:print-detail",
+        "eventId": "e310f178f70125f58a6349fbd7a6888aeef7586c01bd507eb383ce12b310527e",
+        "title": "Printable Detail",
+        "status": "eligible",
+        "description": "Explore a printable project, download its parts, and share makes and comments.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:problem-composer",
+        "eventId": "c435fae2b5bb3b362c350e69098fe09de36f54c2791a62404bb822db038615d9",
+        "title": "Problem Composer",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:profile",
+        "eventId": "de86e92a38b650d29fbd7f7ba42466b08e155c8968cf802665db6127399c5d3b",
+        "title": "Profile",
+        "status": "eligible",
+        "description": "View Nostr profiles and notes.",
+        "icon": {
+          "hash": "b5a4719d8f4ef50a9f09e2162c12ce2f4d06f87b14267b142cc88ff306101bff",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:ca2814cdd0d2d1a1ac318af88084205b29c7d303da4a78803589f0d261c29a09:n-abb751b60a6",
+        "eventId": "89cac09188df687d75cf23b2149538b39f1968f3407aa3d8fcbb1d3bc52ea3c1",
+        "title": "Proof of Work is dead",
+        "status": "eligible",
+        "description": "Proof of work (NIP-13) is nostr's stamp against spam. This page lets your device burn hashes for one, shows what a GPU does with the same task, and then signs a note as one of 250 keys with a real ring signature running in the frame. See who can check the claim and who can tell which member wrote it, and read what proof of membership would switch on: relays without mining, anonymous notes that pass the web-of-trust filter, posting as a group, one vote per member. Demo code, not audited.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "15129:bec1a370130fed4fb9f78f9efc725b35104d827470e75573558a87a9ac5cde44:",
+        "eventId": "2c7802894694cc45c9eacd87dedc4d2d9295bbff6d253425406438d0c9db9ac5",
+        "title": "Publication 2c78028946",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8494cb6579081c56693b4668968b92f75722c19a03152841f49a85a1ff55fe12:n-bf1ae466031",
+        "eventId": "9dc6c97948c09308a6a92b241d2fb90e3cfac5d882e65283a81e592a75cb9ed5",
+        "title": "Pünktlich!",
+        "status": "eligible",
+        "description": "Klaus, the most German man alive, must catch the 7:00:00 train — not 7:00:01. A 60-second runner: jump garden gnomes, beer crates and Dackels, sort trash into six bins, wait at every red light, get Formular A38 stamped in triplicate, and never jump in the Ruhezone.",
+        "icon": {
+          "hash": "6e49cda24ca00fb395cfbaeeb10a53df523a02ab72572d4028a314f4a32aac1a",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:57f7119a0ce9ec9cec24958dc0ade5cbd538a722e0ec4eb4804e64dc532f1aad:n-951414e7fd7",
+        "eventId": "565f4981bdc37725ad867b09124e17353f604f1d05bdbd46fb78659d3cd5f0cb",
+        "title": "Pursuit PIT",
+        "status": "eligible",
+        "description": "First-person highway driving from the driver's seat, on an endless, winding interstate through countryside, forests, mountain passes, road works, towns with very silly names and big gridded cities. Pursuit: chase down a fleeing sedan and PIT it (clip its rear quarter to spin it out at up to 160 mph), then watch the replay. Getaway: you're the one running, from eight police cruisers. Free drive: just you, the traffic and the odd flock of birds. Drive by day, dusk or night, customise your cars in the garage, and listen to the police radio or the car stereo. Low-poly 3D with synthesized sound; keyboard, touch or a standard gamepad.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:radio",
+        "eventId": "65828d3fb20cd95c00f0ba88d358c3c9a36fc40eb4a5cf8ee16a9aa27f5fa0e5",
+        "title": "Radio",
+        "status": "eligible",
+        "description": "Listen to radio streams.",
+        "icon": {
+          "hash": "c5ac9f7e004f0b4d7f467766134052b1366dec90bf0e7e371e09e51ef08224c9",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-91ec90c6fdf",
+        "eventId": "68ae2f0149034ffbcb5db370f4e0f74093405288a2f66048678a314e0e414b3a",
+        "title": "Rail Game",
+        "status": "eligible",
+        "description": "Lead up to 250 soldiers against 13,075 enemies across eight long rail stages. Recruit, multiply, dodge barricades and defeat eight wardens in a geometric arcade runner.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:0461fcbecc4c3374439932d6b8f11269ccdb7cc973ad7a50ae362db135a474dd:rangerstar",
+        "eventId": "6df52fac18f7c36668be86012dac720313153605fd97afa370af51d33e6f2b4e",
+        "title": "RangerStar",
+        "status": "eligible",
+        "description": "Mo's quick quiz from RangerStar: name the Texas plant, bird, butterfly, animal or bug in the photo, and keep your streak going.",
+        "icon": {
+          "hash": "b5ff48cac70fa0520aab28ec7d239bd4b8f7b1fad97540a77e06808ecb97c1ed",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:reading-queue",
+        "eventId": "95812461c3a34ca8793fed6b5c0205b757caa639de5d925e770e3321eeb42cba",
+        "title": "Reading Queue",
+        "status": "eligible",
+        "description": "Manage a Nostr reading queue.",
+        "icon": {
+          "hash": "65bcf516a1492c7e249660512d18284c7619bf8eca2187172a06f7b2e21afbfc",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:c2f1ab4e6a577dd8980b57e15986ed92830b95a94f374192235563532b5cac20:recipe-cards",
+        "eventId": "b70911af4382baded327ce6af4b595197ff7a4781e3704b9f066a74f68b48a07",
+        "title": "Recipe Cards",
+        "status": "eligible",
+        "description": "The Recipes Are Everything",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:relay-browser",
+        "eventId": "71a4c1cb843bafd7e3077cf66195a56310fa1dc15fea1f425840838bb0a883cb",
+        "title": "Relay Browser",
+        "status": "eligible",
+        "description": "Browse Nostr relays.",
+        "icon": {
+          "hash": "2d547b9396a3cc42758eddf98b8eeebcc88d21f729f00258cf35e2dcdedc54f1",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:round-table-insanity",
+        "eventId": "c3d35c7fcbfdd0437ec20d8974a5610422959433b70b59d529ccf54057820e48",
+        "title": "Round Table Insanity",
+        "status": "eligible",
+        "description": "A little room of madness: tiny LLM-made characters wander in and out of a round table and argue endlessly about things that never matter to them. Nobody wins, nobody leaves happy, nothing is ever settled. Powered by NAP-LLM.",
+        "icon": {
+          "hash": "57f9ff269a0e2eaadf3fa939b2bb05d04786ef5b1de6f3c4887f1e62f6a59b7b",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:routstr-stats",
+        "eventId": "45f9d09f83e346a0c45db6c6f6d572672a71e6983038584a46bf37cfe7c3f187",
+        "title": "Routstr Stats",
+        "status": "eligible",
+        "description": "Browse reported Routstr requests, tokens, revenue, and model and provider share.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:rubik-cube",
+        "eventId": "95faaf520dd139e30202ef2a8fc2d1be3227eb939c9cf9595a176e7960060068",
+        "title": "Rubik Cube",
+        "status": "eligible",
+        "description": "A 3D Rubik's Cube to orbit, twist, scramble and solve.",
+        "icon": {
+          "hash": "55d57401c3f3f07971f174dd3fe03a8da617676f271bd085b001b2a6bd98d91a",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3aa5817273c3b2f94f491840e0472f049d0f10009e23de63006166bca9b36ea3:n-7682e55a791",
+        "eventId": "9101a9cd9fb4c09b9ab873464a130d7002d591faa75432a7b6e7dc15b2c42d6d",
+        "title": "Safe Sand · Material studies",
+        "status": "eligible",
+        "description": "Pour, rake and sculpt eleven tactile materials. Orbit the tray, experiment with magnetic iron, slow motion and undo, or relax with sand, snow and glass beads.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:955433096fca223f29adfd52a0c2de07a3c52eb680f9b4d9eb6c46d9196c540e:napplets-mix",
+        "eventId": "f024f206df3313bbd0e8bb03bb9c930afdabd7a8f87a46ea1a71d1b28e2339ad",
+        "title": "Screen napplets remix test",
+        "status": "eligible",
+        "description": "Just a test in merging napplets into one to be practical on smaller screens. It may look weird depending what it runs on, their code is just stringified in. The napplets belong to their creators.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:security-lab",
+        "eventId": "4886650ca79c6cdabb32b161a3d52b45b9413130f4057d9b3d62880d59984f4e",
+        "title": "Security Lab",
+        "status": "eligible",
+        "description": "Inspect sandbox and runtime capabilities.",
+        "icon": {
+          "hash": "ccb2089550bf119413e48b86e8b7d57b45a13c9e090a97b59852e2b92ca6830f",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e771af0b05c8e95fcdf6feb3500544d2fb1ccd384788e9f490bb3ee28e8ed66f:security-lab",
+        "eventId": "f819d4aabecbaa1cd1b0fe5ea1e74ccc469a9968e822215ef9535a479954f309",
+        "title": "Security Lab",
+        "status": "eligible",
+        "description": "Probes the sandbox, CSP, namespace and runtime boundaries of the NIP-5D shell hosting it.",
+        "icon": {
+          "hash": "ccb2089550bf119413e48b86e8b7d57b45a13c9e090a97b59852e2b92ca6830f",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:149e07e619eedd32e47568d3197e36e270f4b5b048c6f652bf56fe90667dbf89:sh-viewer",
+        "eventId": "7161ec9e04d83f2bccd7692809bac8d773ca569182cb5994909831fbca8b521f",
+        "title": "SeedHammer 3D viewer",
+        "status": "eligible",
+        "description": "3D viewer for the Seed I controller and the Hammer and II engraving machines: section cuts, part visibility, exploded views and STEP download.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d4c58a83fea9c6ab30aa7a86810d6f4ed76ace2b1425f3e889d2c85ea0192f1e:n-e4fb6341ccd",
+        "eventId": "5a170c505f6bf1fd49d96143d9d319eace0a67da1625b44ee8fbf3de97c1674a",
+        "title": "Shiftfield",
+        "status": "eligible",
+        "description": "— the Roguelike Minesweeper —\nClear sectors, bank scrap, die rich. Explore deeper depths for more riches, but watch out for hazards, and the ground that shifts beneath your feet.\n\nBuilt 100% locally and offline with StrataLLM and Qwen3.8 Flash Next",
+        "icon": {
+          "hash": "a6ed6d352de149673d08f23d1eba774c9d51cc07b3fa72b31ac11961573762fb",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:n-8804151df7f",
+        "eventId": "7335c9fdf0a81db53e2d670a97439e50a010fbf741fcc30c1ad03b3102f73efb",
+        "title": "Sickman Survival",
+        "status": "eligible",
+        "description": "Outlast an escalating meteor storm as a stickman on a randomly generated, fully destructible world of cliffs, houses, trees, bouncy mushrooms and caves full of explosive moles. Play solo with keyboard, touch or gamepad, or plug in more controllers for up to four-player split screen.",
+        "icon": {
+          "hash": "d9ed2e068656429d4fa87d37761b90944c917c31830d8e594df9d59a57f0647f",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:simpleprofile",
+        "eventId": "c16eab90ff45c30ee26eb03ae67d22eca34539845b166f9f00c8279f35403633",
+        "title": "Simple Profile",
+        "status": "eligible",
+        "description": "A Nostr profile: who someone is, how many they follow, and Follow.",
+        "icon": {
+          "hash": "3ec1252ba63469790fbefeca55b8008b5c658343cdb716783c69cee70299c329",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-929bc2a88cb",
+        "eventId": "14966bba4a2af0328fc69cd6b894d38237ef154f9dcb59c641aec7a5bc09b1ba",
+        "title": "Sketch Loop",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:99d1d395c7be96c77766e4124164ce3a2443d486e146644f762d29832f7faf25:n-9021e1b6a96",
+        "eventId": "23b6785d0ac6e3204c61d682a6f111765c20688902282a251cacf5f8b43d0828",
+        "title": "Soybert 3D",
+        "status": "eligible",
+        "description": "A rotating Soybert showcase and a small 3D stage. Run, jump, fire the shotgun and celebrate with keyboard or touch controls.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:955433096fca223f29adfd52a0c2de07a3c52eb680f9b4d9eb6c46d9196c540e:n-9021e1b6a96",
+        "eventId": "00803914e2e81e11b91ecfa78be505a19150b919a969c0e3c1e75cbba470d8e5",
+        "title": "Soybert 3D remix",
+        "status": "mixed",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:955433096fca223f29adfd52a0c2de07a3c52eb680f9b4d9eb6c46d9196c540e:soycat",
+        "eventId": "475a7c334e581a003e93cca9c3a63b032d5ab326bec997e28e0b5526f4c19a15",
+        "title": "SoyCat",
+        "status": "eligible",
+        "description": "💬🎶⚡️📻🐈",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4777913715151605498bb2967f45271ae55279ed03bd37a47c670bc687364b19:sprout-audit",
+        "eventId": "ee28bbf7c9bedcb2ca05bd5a857f2bd506815ac85993ed9a11657385d16bcaa7",
+        "title": "Sprout Audit",
+        "status": "eligible",
+        "description": "Complete a pocket greenhouse ledger by cycling four growth glyphs into a 4×4 bed, while one directed dew-link makes two cells advance in consecutive stages.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:8494cb6579081c56693b4668968b92f75722c19a03152841f49a85a1ff55fe12:n-c043b0c0f1d",
+        "eventId": "d36201f8ed4fe20e456a78130facf303e7bad2db008a8c4ef127490444318fd1",
+        "title": "Squad Table",
+        "status": "eligible",
+        "description": "Squad-level WWII hex wargame for two players, live or play-by-mail. The rules are enforced: locked turn phases, movement points, line of sight, fire on the Infantry Fire Table with automatic morale checks, rally and close combat. Server-rolled dice, plus hotseat play on one device.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:149e07e619eedd32e47568d3197e36e270f4b5b048c6f652bf56fe90667dbf89:stepstr",
+        "eventId": "b7fc7e57a70abd1d2f17bcf2c78d8886dfff008f0937d8dbeb456e261a3ef086",
+        "title": "stepstr",
+        "status": "eligible",
+        "description": "Opens any STEP file in the browser, with section cuts, part visibility, exploded views, exact measurements and share links.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:993dfad40fef286b323b9217a15a144bf2a2372987c159deea665462051856c0:n-554b329db93",
+        "eventId": "3ef3c9faba5c5a94f1ad5135d30cbea4e5ac16846ce602bb727ba00fec2ad448",
+        "title": "Stick Brawl",
+        "status": "eligible",
+        "description": "Fight off endless waves of colorful stickmen as the green stickman. Punch, kick, drop-kick, slide, quick-draw a revolver and swing a sword through a five-floor apartment building, a fire escape and a brick warehouse. Watch out for big Brutes and tiny Runts!",
+        "icon": {
+          "hash": "3d5c68647bd02f433db6e22818fafd7444fc00b7aafeedc57e50f74972c48244",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:993dfad40fef286b323b9217a15a144bf2a2372987c159deea665462051856c0:n-938fb0aa7b7",
+        "eventId": "068f2c4fd1808413c4c753362868fc96fbb85bacb20176d7306898059031e7d0",
+        "title": "Stick Runner",
+        "status": "eligible",
+        "description": "Help Rog the stickman parkour across city rooftops through 10 levels, each harder than the last. Jump the pits, dodge spikes, saws and a fire-breathing dragon, slide on ice and bounce on springs, then go down the stairs and beat the giant spider boss! Pick Easy, Normal or Hard, and press M to switch between 2D, first person and third person!",
+        "icon": {
+          "hash": "b7187d6f2c0b73ac2032b050eddab9a5afe038c6d394b6d4d90c0afdb3a147d8",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:932614571afcbad4d17a191ee281e39eebbb41b93fac8fd87829622aeb112f4d:sticky-note",
+        "eventId": "d83b6dfd7f9b7a468d983d2e6d3c659b8b99498e0ed12d4ecbc4c59fa19d4079",
+        "title": "Sticky Note",
+        "status": "eligible",
+        "description": "A note on your desktop that keeps what you write, with paper colors and a sheer tint. Comes in styles, and the tint matches your theme by itself. What you write stays on your computer.",
+        "icon": {
+          "hash": "57b1e09b6d73de90e15c5ae509cb4f9aa6b0e83176a08ea8f5a59e19c5b5b9ec",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:stl-preview",
+        "eventId": "10b703401f697a38f0128083c49374c296d23ad7cde28b573d837ea867a5a21a",
+        "title": "STL Preview",
+        "status": "eligible",
+        "description": "Preview STL models in an interactive 3D viewer before printing.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:livestream",
+        "eventId": "80dc15644745a878d95e42aba94a985e9a460c81b41d3d0c3b1f63548067c31a",
+        "title": "Stream",
+        "status": "eligible",
+        "description": "Watch live streams on Nostr.",
+        "icon": {
+          "hash": "819299662918a4ccaecb8936292a35d81812ed05105ea64fe4c4ae24aa8eccf2",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:d73ae26c0bdb51596858fea135d3a112435cd9483fc3d84c1df51700b428fe01:n-01288b1ab38",
+        "eventId": "b61593abc2c615f58d573aedc9d58f88e6a0b07a5344f10837c851018cdb7ea3",
+        "title": "super-platformer",
+        "status": "eligible",
+        "description": "super-platformer",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:n-143146b0d6f",
+        "eventId": "bb8b570f3600c046c9c1bb9821d5fc78bbb0c5ac4ddd5233f348a0f39d4ff808",
+        "title": "Supersonic RC Revive",
+        "status": "eligible",
+        "description": "A remake of the Shockwave RC-car game SuperSonic RC, rebuilt with three.js and unlimited Free Driving. Drive with keyboard, gamepad or touch. Plug in up to four controllers for local split-screen, or play online in public rooms or with friends by private code. Online players use matching asset packs and independent local physics. Load another .ssrcpack or custom level from the title screen.",
+        "icon": {
+          "hash": "8789422ead9ffe50456644afb52a7b226ea0e1818e9a5dd6ea988ce3fd103b77",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:e771af0b05c8e95fcdf6feb3500544d2fb1ccd384788e9f490bb3ee28e8ed66f:n-143146b0d6f",
+        "eventId": "372375d18e3f9fecd55816c37030863c2b34bc1da1f948ce8b1f98cdc7441209",
+        "title": "Supersonic RC Revive",
+        "status": "eligible",
+        "description": "A faithful remake of the Shockwave RC-car game SuperSonic RC, rebuilt with three.js. The car handling is ported line by line from the original Lingo scripts, with all five modes: Free Driving, Checkpoint Chase, Stunt Rally, Scavenger Hunt and the Supersonic Challenge. Drive with the arrow keys or WASD, a gamepad, or the on-screen touch controls. The art and sound are a recreated asset pack, and you can load another .ssrcpack from the title screen.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:7b706c3cde179355ab41d93f55608d63b35feb09db7b213f055d99a52e7a4461:nostr-stack-deck",
+        "eventId": "cc8073ee108e0897708b1d9d6eac13b213a915700c6d401089dca17624f00741",
+        "title": "The Nostr Stack",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:thread-triage",
+        "eventId": "c50232060837363e24b1611298c15fdc94b20a0eb1b990c0bc97815a3464f685",
+        "title": "Thread Triage",
+        "status": "eligible",
+        "description": "Review Nostr threads.",
+        "icon": {
+          "hash": "52be4d7e455556cdee4c485ac1c689326acdcecf1013140aa7615cc5178553e0",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4777913715151605498bb2967f45271ae55279ed03bd37a47c670bc687364b19:tidewire-couriers",
+        "eventId": "e6c6732947eb0d0f736f1c69c2bff98dfc442bd1a36fa6d24c4d5b14e3385f1e",
+        "title": "Tidewire Couriers",
+        "status": "eligible",
+        "description": "Route three tiny sail-couriers through a braided tidal rail. Every departure flips a junction gate, so each delivery reshapes the paths available to the next craft.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:toy-rocket",
+        "eventId": "91d0abec7978a5e919ed78c6db47ce17e3e8a001d6faec263fedc70e919d9943",
+        "title": "Toy Rocket",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:6ef777a78b2405fad6b4db2a619116441123b03cf148688084280db15439dac4:n-dad0644224b",
+        "eventId": "bf9d57a12f8286f58c6647b80044bff6f367214e329902d2fa0b47fb98bbd077",
+        "title": "Truffle Rush",
+        "status": "eligible",
+        "description": "Catch falling truffles, dodge crows and fill the belly meter to unleash a golden frenzy in this moonlit piggy arcade.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:a36ac5ef7e678c48d06afa9873c5746191ff1ae5fad326f3b392ff691d4480be:underwatch-daily-rescue",
+        "eventId": "d1f3cd139f6ba7f75b0521a4fee620fb07840c09778a8f0520d4ccb6e7d0f800",
+        "title": "Underwatch Daily Rescue",
+        "status": "eligible",
+        "description": "Pick one free gift for Brakka before the Stone Maw strikes, then watch the fight play out. A new dungeon puzzle opens at midnight UTC. The live dungeon and optional sponsorship are on Underwatch’s website.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:a36ac5ef7e678c48d06afa9873c5746191ff1ae5fad326f3b392ff691d4480be:underwatch-rescue-run",
+        "eventId": "316517df5dea8dc6419c5b8b324ef780bbe2784e5fb1c60262221ff97da19b96",
+        "title": "Underwatch Rescue Run",
+        "status": "eligible",
+        "description": "Brakka has 35 HP and three fights to reach the stairs. Spend one supply or save it for the next room. Her health and unused supplies carry forward. The run is free and playable here.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:part-upload",
+        "eventId": "547d26c59045d65b6a232bbefb45a55ef2f217edbba3db369a3c69daaa481656",
+        "title": "Upload Part",
+        "status": "eligible",
+        "description": "Upload 3D model files to Blossom and publish reusable parts on Nostr.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:user-profile",
+        "eventId": "5235f0f256a815af76329a2a58d5344f4cf0164fc22f28f2f95e65ba5eefde4a",
+        "title": "User Profile",
+        "status": "eligible",
+        "description": "Explore a maker profile and the printable projects and makes they have shared.",
+        "icon": {
+          "hash": "9ce19982ceb6dd36fcacbf06be3a6156b10c4a9a4d1283bc87e030b8fe26d4c7",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:videos",
+        "eventId": "471e6962a9a9ed3b8fcd30f7bb2dc35daf804eac016f9bb6d0ea5734d3fe3d21",
+        "title": "Videos",
+        "status": "eligible",
+        "description": "Browse Nostr videos.",
+        "icon": {
+          "hash": "6a92f00a9e4499b84c9fb67526d72c69a2b85b53266cdf85c312450ce6c021e6",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:view-module",
+        "eventId": "f309f4a726f43c24d83acb4d435a7fcc5c09778998adf3634ed13e6a907115d3",
+        "title": "View Module",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:4bf150c3df7c821233a3525e2039cebaafa63504f4644304fc507a2cf0f121dd:view-problem",
+        "eventId": "952b29e88cc2ae7c335065ebe6dcbf6667cef1edbe9958c0ec7a1e6ce2a1c5c7",
+        "title": "View Problem",
+        "status": "legacy",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:aa19c2be31f335c7d9382e14bd8f426d39c4bafe4fba78eb1d3a21dcc0a3e7fe:weather",
+        "eventId": "b1afc385d97257eda046b7c71ea87dd1505b74e6ff8fff6553fc21b17ee7924b",
+        "title": "weather",
+        "status": "unknown",
+        "description": "",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:932614571afcbad4d17a191ee281e39eebbb41b93fac8fd87829622aeb112f4d:weather",
+        "eventId": "604f673fb0fb4a07de3b08a3f808465c149eb97f20884ec2661223cb2f730976",
+        "title": "Weather",
+        "status": "eligible",
+        "description": "The weather and the day’s temperature on no background, drawn in the character of your style. Search for your city. Comes in styles, and matches your theme by itself. Forecasts from Open-Meteo.",
+        "icon": {
+          "hash": "c7b0eb38b1d5c4c6bcfc5f6a0f0a81c4e4f604c49e71e3fc91ae9769433bef9f",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:f3d7a125391e0c5502cbe1993e0c9e3c8274a1dd4ec72f219a9d15f2f47a798e:webrtc-probe",
+        "eventId": "09765fc47236711a929a4723ea8f19e1d6c19d9813e16bf1058c22ee76fdbf98",
+        "title": "WebRTC Probe",
+        "status": "eligible",
+        "description": "Checks napplets have no WebRTC or direct network",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:3bb20a484e57916bbb1c4e91ca7bbfc05726b2fe3cffcfa03611e1e0cfe64ce7:n-2d501957e21",
+        "eventId": "017b791c0f4bf777e93352289155bebc1a4c6518ec08bef972fe587f614f6b04",
+        "title": "winniegolf",
+        "status": "eligible",
+        "description": "Ten holes of top-down mini golf: bank off the rails, carry the bunkers, time the blade, and hold the island line.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:993dfad40fef286b323b9217a15a144bf2a2372987c159deea665462051856c0:n-86005d75eb4",
+        "eventId": "48b4ed933a32f82cc0ea57422c829e29f86c179bda8c16cab8036a2da9a1c8c1",
+        "title": "Wizard Duel",
+        "status": "eligible",
+        "description": "Two wizards share one keyboard and fling silly spells at each other on a moonlit castle rooftop. Tap rune combos to cast 28 spells, most of them secret.",
+        "icon": null,
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:b902388aa1e557a54b91081dfaf431fffd22739c1eac2502f3bdc9b3e6522278:workspace-journal",
+        "eventId": "54ae23083f1dccfaecf88e0df7281d6c9f1502dc31f288c127379169a36f53e2",
+        "title": "Workspace Journal",
+        "status": "eligible",
+        "description": "Keep a workspace journal.",
+        "icon": {
+          "hash": "3e5be5a85ef684032cd751f35a4e7f686f308ccdc4cf6dfe6d3777421ef68a63",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:bbb5dda0e15567979f0543407bdc2033d6f0bbb30f72512a981cfdb2f09e2747:wotformer",
+        "eventId": "2a4ff59cb1646613fffe51ee45e2c9cc2db6d27c69e64e5a7f60b8debc82ad88",
+        "title": "WoTformer",
+        "status": "eligible",
+        "description": "An 8-bit platformer on the TV, your Web of Trust as the enemies, phones as controllers over the mesh",
+        "icon": {
+          "hash": "cdbf2d9adc5fd53eff1dd461c0be0ba9dddd7ec57c77e276791c0d9f2ea79090",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:266815e0c9210dfa324c6cba3573b14bee49da4209a9456f9484e5106cd408a5:xp-showcase",
+        "eventId": "dfccc5c8f0dd4cd8ca4dce14b936251f0b631f2f83d73fd80c8a9d2a8d465e47",
+        "title": "XP Theme Showcase",
+        "status": "eligible",
+        "description": "Every component, skin and token in @napplelets/theme-xp, wired to a live NAP-THEME payload.",
+        "icon": {
+          "hash": "1f7d4dd132ac93a93249f192c90cbf8b768d126ce2dc93b3c89020ff30bc5639",
+          "mime": "image/png"
+        },
+        "firstSeen": false
+      },
+      {
+        "coordinate": "35129:218b6c001813746868d793a2b1790f1f5ac8588790a0c4abce67d0e7bdf756a9:zapslingers",
+        "eventId": "11e3ebabbd0bef83d1b9758c92aef7d81616af542d2aac27655587d6c82a24c9",
+        "title": "ZapSlingers",
+        "status": "eligible",
+        "description": "Steampunk space artillery: bend your shots around planets and Slinggers to hit the other ship. Practice mode.",
+        "icon": null,
+        "firstSeen": false
+      }
+    ]
+  }
+}

@@ -46,9 +46,13 @@ if (dist / "CNAME").read_text().strip() != hostname:
     raise SystemExit(f"dist/CNAME must contain {hostname}")
 
 references = []
-home_links = ("/capabilities/", "/explorer/")
+home_links = ("/capabilities/", "/explorer/", "/insights/")
 evidence_route = "/capabilities/v0.2.0/tests/"
-routes = ("/", *home_links, evidence_route)
+edition_routes = tuple(
+    f"/insights/{edition.stem}/"
+    for edition in sorted((dist.parent / "data" / "insights").glob("????-??-??.json"))
+)
+routes = ("/", *home_links, evidence_route, *edition_routes)
 page_ids = {}
 for route in routes:
     page = Page()
@@ -59,7 +63,7 @@ for route in routes:
     if page.canonical != page_url:
         raise SystemExit(f"Expected the canonical URL for {route} to be {page_url}")
     if route == "/" and not all(path in page.urls for path in home_links):
-        raise SystemExit("The homepage must link to the capability table and explorer")
+        raise SystemExit("The homepage must link to capabilities, Explorer and Insights")
     for domain, href in page.proof_links:
         if urljoin(page_url, href) != urljoin(origin, f"{evidence_route}#{domain}"):
             raise SystemExit(f"The {domain} verification badge must link to its release test section")
